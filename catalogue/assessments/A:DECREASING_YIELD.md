@@ -28,6 +28,10 @@ indicatorWeights:
       PERSISTENCE: INCREASE
     timeframe: "24h"
     description: "High utilization can lead to liquidity constraints and yield pressure"
+notes: >
+  Yield erosion is already observable in Compound USDT position with 94% utilization.
+  However, user migration is still low, indicating early-stage manifestation. 
+  Risk is structural and recurring, requiring active rebalancing.
 ```
 
 ## 🧠 Assessment Summary

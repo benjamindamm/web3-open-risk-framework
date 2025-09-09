@@ -72,24 +72,37 @@ For qualitative risks:
 Each assessment must reference the corresponding risk ID to maintain traceability and version control.
 
 ```yaml
-assessment:
-  riskId: R:DECREASING_YIELD
-  date: 2025-05-29
-  assessedBy: Analyst-Team A
-  severity: CRITICAL       
-  likelihood: POSSIBLE
-  persistence: PERSISTENT
-  riskStatus: ESCALATING
-  triggeredMeasures:
-    - M:REALLOCATE_CAPITAL
-  indicators:
-    - id: I:UTILIZATION_RATIO
-      weight: 0.6
-    - id: I:LENDING_APY_TREND
-      weight: 1.0
-  notes: >
-    Yield erosion is already observable. However, user migration is still low,
-    indicating early-stage manifestation. Risk is structural and recurring.
+id: A:DECREASING_YIELD
+title: Assessment for Decreasing Yield Risk
+type: Assessment
+version: 1.0
+date: 2025-05-29
+riskId: R:DECREASING_YIELD
+assessedBy: Community Analyst Team
+severity: MEDIUM
+likelihood: LIKELY
+persistence: PERSISTENT
+indicatorWeights:
+  - id: I:LENDING_APY_TREND
+    weight: 1.0
+    threshold: "-5%"
+    affects:
+      LIKELIHOOD: INCREASE
+      SEVERITY: INCREASE
+    timeframe: "30d"
+    description: "Declining APY trends indicate reduced protocol attractiveness"
+  - id: I:UTILIZATION_RATIO
+    weight: 0.6
+    threshold: "85%"
+    affects:
+      LIKELIHOOD: INCREASE
+      PERSISTENCE: INCREASE
+    timeframe: "24h"
+    description: "High utilization can lead to liquidity constraints and yield pressure"
+notes: >
+  Yield erosion is already observable in Compound USDT position with 94% utilization.
+  However, user migration is still low, indicating early-stage manifestation. 
+  Risk is structural and recurring, requiring active rebalancing.
 ```
 
 ## 📌 Usage Tips
