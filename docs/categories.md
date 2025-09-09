@@ -4,7 +4,7 @@ This file defines the eight core risk categories used throughout the Web3 Open R
 Each risk must be assigned exactly one category. The goal is to maintain clarity, comparability, and structural consistency across all risk entries.
 
 
-## I. Market & Financial
+## I. Market & Financial risks
 
 ```FINANCIAL```
 Risks related to price movements, volatility, liquidity shortages, stablecoin depegging, or yield erosion.
@@ -19,7 +19,7 @@ Risks related to price movements, volatility, liquidity shortages, stablecoin de
 - Unsustainable high APY due to reward farming dilution
 
 
-## II. Intermediary & Dependency
+## II. Intermediary & Dependency risks
 
 ```DEPENDENCY```
 Risks caused by reliance on third-party services or infrastructures such as bridges, oracles, custodians, or RPC providers.
@@ -34,7 +34,7 @@ Risks caused by reliance on third-party services or infrastructures such as brid
 - Centralized stablecoin blacklist rendering user funds inaccessible
 
 
-## III. Blockchain & Network
+## III. Blockchain & Network risks
 
 ```TECHNICAL```
 Risks originating from the underlying base layer or consensus mechanism, including validator behavior or network instability.
@@ -49,7 +49,7 @@ Risks originating from the underlying base layer or consensus mechanism, includi
 - Hard fork incompatibility causing client desynchronization
 
 
-## IV. Application & Interface
+## IV. Application & Interface risks
 
 ```APPLICATION```
 Risks introduced by the user-facing application layer including wallets, frontends, or browser extensions.
@@ -64,7 +64,7 @@ Risks introduced by the user-facing application layer including wallets, fronten
 - Mobile wallet update breaking compatibility with older dApps
 
 
-## V. Organizational & Governance
+## V. Organizational & Governance risks
 
 ```ORGANIZATIONAL```
 Risks tied to team structure, DAO operations, unclear responsibilities, governance dysfunction, or process failures.
@@ -79,7 +79,7 @@ Risks tied to team structure, DAO operations, unclear responsibilities, governan
 - Misalignment between token holders and core team incentives
 
 
-## VI. Smart Contract Logic
+## VI. Smart Contract Logic risks
 
 ```CONTRACT```
 Risks inherent in smart contract code or upgrade mechanisms, including logic flaws, proxy patterns, or admin controls.
@@ -94,7 +94,7 @@ Risks inherent in smart contract code or upgrade mechanisms, including logic fla
 - Misconfigured time-lock leading to upgrade without delay
 
 
-## VII. User Handling & Behavior
+## VII. User Handling & Behavior risks
 
 ```HUMAN_ERROR```
 Risks resulting from user mistakes or misbehavior, including key loss, phishing, insecure environments, or operational errors.
@@ -109,7 +109,7 @@ Risks resulting from user mistakes or misbehavior, including key loss, phishing,
 - Failing to revoke access after using DeFi protocol
 
 
-## VIII. Compliance & Legal
+## VIII. Compliance & Legal risks
 
 ```COMPLIANCE```
 Risks related to legal uncertainty, regulatory enforcement, KYC/AML exposure, sanctions, or DAO liability.
