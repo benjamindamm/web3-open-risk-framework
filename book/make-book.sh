@@ -42,13 +42,13 @@ echo -e "\n\`\`\`{=latex}\n\\\\pagebreak\n\`\`\`\n" >> framework-book.md
 
 echo -e "\n# 1. Framework\n" >> framework-book.md
 
-# Insert module files, remove YAML headers, keep headings unchanged
-for file in ../README.md ../philosophy.md ../methodology.md ../categories.md ../types.md ../scopes.md ../objectives.md ../owners.md ../risk.md ../indicator.md ../measure.md ../assessment.md; do
+# Insert module files from docs directory, remove YAML headers, keep headings unchanged
+for file in ../docs/README.md ../docs/philosophy.md ../docs/methodology.md ../docs/categories.md ../docs/types.md ../docs/scopes.md ../docs/objectives.md ../docs/owners.md ../docs/risk.md ../docs/indicator.md ../docs/measure.md ../docs/assessment.md; do
   awk 'BEGIN{inheader=0} /^---/ {inheader = !inheader; next} !inheader {print}' "$file" >> framework-book.md
 done
 
 echo -e "\n# 2. Glossary\n" >> framework-book.md
-awk 'BEGIN{inheader=0} /^---/ {inheader = !inheader; next} !inheader {print}' ../terminology.md >> framework-book.md
+awk 'BEGIN{inheader=0} /^---/ {inheader = !inheader; next} !inheader {print}' ../docs/terminology.md >> framework-book.md
 
 echo -e "\n\`\`\`{=latex}\n\\\\pagebreak\n\`\`\`\n" >> framework-book.md
 
