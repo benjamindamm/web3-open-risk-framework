@@ -57,25 +57,65 @@ This framework includes:
 - 🫆 **Risk Assessment Guide**  
   Provides a model for rating likelihood and financial impact (the two key axes for risk assessment and risk matrices), with optional support for persistence and integration with risk indicators.
 
-## 📚 File Overview
+## 📚 Documentation Structure
 
-This repository is organized by function. Each file defines a reusable part of the framework:
+This repository is organized by function. The core framework documentation is located in the [`docs/`](./docs/) directory, with each file defining a reusable part of the framework:
+
+### 📖 Quick Start
+- **New to the framework?** Start with [`docs/philosophy.md`](./docs/philosophy.md) and [`docs/terminology.md`](./docs/terminology.md)
+- **Looking for templates?** See [`docs/risk.md`](./docs/risk.md), [`docs/indicator.md`](./docs/indicator.md), and [`docs/measure.md`](./docs/measure.md)
+- **Need assessment guidance?** Check [`docs/assessment.md`](./docs/assessment.md)
+
+### 📋 Complete File Overview
 
 | File                                      | Purpose                                                                 |
 |-------------------------------------------|-------------------------------------------------------------------------|
-| [`categories.md`](./categories.md)        | Defines the eight core **Risk Categories**, each with a clear scope     |
-| [`types.md`](./types.md)                  | Differentiates **quantitative**, **qualitative**, and **hybrid** risks  |
-| [`scopes.md`](./scopes.md)                | Specifies where a risk is triggered – e.g., **TRADE**, **GOVERNANCE**, etc. |
-| [`objectives.md`](./objectives.md)        | Maps risks to **investment objectives** like value, yield, or trust     |
-| [`owners.md`](./owners.md)                | Defines a layered model of **Risk Owners** and their capabilities       |
-| [`risk.md`](./risk.md)                    | A complete Markdown **template** to document an individual risk         |
-| [`indicator.md`](./indicator.md)          | Describes how to define more concrete and more **measurable metrics** or **behavioral signals** for each risk |
-| [`measure.md`](./measure.md)              | Describes how to define a **measure** to mitigate a risk                |
-| [`assessment.md`](./assessment.md)        | Outlines how to assess risks using methods (either qualitatively or supported by quantitative indicators) and using Likelihood and Financial Impact |
-| [`philosophy.md`](./philosophy.md)        | Describes the **methodology**, **principles**, and external **influences** behind this framework |
-| [`terminology.md`](./terminology.md)      | Defines key terms and concepts used throughout the framework for consistent understanding and usage |
+| [`docs/categories.md`](./docs/categories.md)        | Defines the eight core **Risk Categories**, each with a clear scope     |
+| [`docs/types.md`](./docs/types.md)                  | Differentiates **quantitative**, **qualitative**, and **hybrid** risks  |
+| [`docs/scopes.md`](./docs/scopes.md)                | Specifies where a risk is triggered – e.g., **TRADE**, **GOVERNANCE**, etc. |
+| [`docs/objectives.md`](./docs/objectives.md)        | Maps risks to **investment objectives** like value, yield, or trust     |
+| [`docs/owners.md`](./docs/owners.md)                | Defines a layered model of **Risk Owners** and their capabilities       |
+| [`docs/risk.md`](./docs/risk.md)                    | A complete Markdown **template** to document an individual risk         |
+| [`docs/indicator.md`](./docs/indicator.md)          | Describes how to define more concrete and more **measurable metrics** or **behavioral signals** for each risk |
+| [`docs/measure.md`](./docs/measure.md)              | Describes how to define a **measure** to mitigate a risk                |
+| [`docs/assessment.md`](./docs/assessment.md)        | Outlines how to assess risks using methods (either qualitatively or supported by quantitative indicators) and using Likelihood and Financial Impact |
+| [`docs/philosophy.md`](./docs/philosophy.md)        | Describes the **methodology**, **principles**, and external **influences** behind this framework |
+| [`docs/terminology.md`](./docs/terminology.md)      | Defines key terms and concepts used throughout the framework for consistent understanding and usage |
 
 Each component is designed to be forked, extended, or integrated into your own catalog or application.
+
+## 📁 Repository Structure
+
+```
+module/
+├── docs/                          # Framework documentation
+│   ├── categories.md              # Risk categories definition
+│   ├── types.md                   # Risk types classification
+│   ├── scopes.md                  # Scope of action definitions
+│   ├── objectives.md              # Investment objectives model
+│   ├── owners.md                  # Risk ownership model
+│   ├── risk.md                    # Risk documentation template
+│   ├── indicator.md               # Indicator template
+│   ├── measure.md                 # Measure template
+│   ├── assessment.md              # Assessment guide
+│   ├── philosophy.md              # Framework philosophy
+│   ├── terminology.md             # Key terminology
+│   └── methodology.md             # Detailed methodology
+├── schema/                        # JSON schemas for validation
+│   ├── risk.schema.json
+│   ├── indicator.schema.json
+│   ├── assessment.schema.json
+│   └── measure.schema.json
+├── scripts/                       # Validation tools
+│   ├── validate-markdown.mjs      # Schema validation
+│   ├── validate-references.mjs    # Reference validation
+│   └── package.json
+├── catalogue/                     # Example content
+│   ├── risks/                     # Sample risk definitions
+│   ├── indicators/                # Sample indicator definitions
+│   └── assessments/               # Sample assessment examples
+└── README.md                      # This file
+```
 
 ## 🧰 Use Cases
 
