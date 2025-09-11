@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Web3 Risk Mitigation Measure with FIDLEG Extension",
+  "allOf": [
+    { "$ref": "../../schema/measure.schema.json" },
+    {
+      "properties": {
+        "regulatoryExtensions": {
+          "type": "object",
+          "description": "Modular regulatory extensions for different jurisdictions",
+          "properties": {
+            "fidleg": {
+              "type": "object",
+              "description": "Swiss FIDLEG regulatory extension",
+              "properties": {
+                "articleReference": {
+                  "type": "string",
+                  "enum": [
+                    "FIDLEG_Art24",
+                    "FIDLEG_Art72",
+                    "FIDLEG_Art142",
+                    "FIDLEG_Art18_20",
+                    "FIDLEG_Art8_10",
+                    "FIDLEG_Art11_15",
+                    "FIDLEG_Art16_18",
+                    "FIDLEG_Art19_21",
+                    "FIDLEG_Art22_24",
+                    "FIDLEG_Art25_30",
+                    "FIDLEG_Art31_35",
+                    "FIDLEG_Art36_40",
+                    "FIDLEG_Art41_45",
+                    "FIDLEG_Art46_50"
+                  ],
+                  "description": "FIDLEG article reference"
+                },
+                "implementationDeadline": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "Regulatory implementation deadline for Swiss compliance"
+                },
+                "auditFrequency": {
+                  "type": "string",
+                  "enum": ["CONTINUOUS", "DAILY", "WEEKLY", "MONTHLY", "QUARTERLY", "SEMI_ANNUAL", "ANNUAL"],
+                  "description": "Required audit frequency for Swiss compliance"
+                },
+                "regulatoryRequirement": {
+                  "type": "string",
+                  "enum": ["MANDATORY", "RECOMMENDED", "OPTIONAL"],
+                  "description": "Swiss regulatory compliance requirement level"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": {
+            "type": "object",
+            "description": "Additional regulatory extensions for other jurisdictions"
+          }
+        }
+      }
+    }
+  ]
+}

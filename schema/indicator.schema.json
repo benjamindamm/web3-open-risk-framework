@@ -124,6 +124,15 @@
         "type": "string",
         "pattern": "^R:[A-Z_]+$"
       }
+    },
+    "extensions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["fidleg", "euMiFID", "usSec", "ukFCA", "sgMAS"]
+      },
+      "description": "List of active regulatory extensions for this indicator",
+      "uniqueItems": true
     }
   },
   "additionalProperties": false

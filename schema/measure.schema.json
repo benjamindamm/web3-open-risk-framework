@@ -68,6 +68,15 @@
       "items": {
         "type": "string"
       }
+    },
+    "extensions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["fidleg", "euMiFID", "usSec", "ukFCA", "sgMAS"]
+      },
+      "description": "List of active regulatory extensions for this measure",
+      "uniqueItems": true
     }
   },
   "additionalProperties": false
