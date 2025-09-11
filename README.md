@@ -132,7 +132,3 @@ For questions about the framework:
 
 - **GitHub Issues:** Use the Issues page for technical discussions
 - **Email:** kontakt@benjamin-damm.ch
-
-## External
-
-👉 For practical risk analysis examples, see the [Treno.Finance Blog](https://treno.finance/blog) where they regularly analyze DeFi mechanisms, failure cases, and risk patterns.
