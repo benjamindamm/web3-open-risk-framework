@@ -1,5 +1,5 @@
 ---
-id: R:ADMIN_KEY_COMPROMISE
+id: R:ADMIN_KEY_COMPROMISE.FIDLEG
 title: "Administrative Key Compromise Risk (FIDLEG Compliant)"
 description: "Risk of unauthorized access to administrative keys controlling smart contracts or protocol parameters, classified according to Swiss FIDLEG requirements"
 category: "TECHNICAL"
@@ -91,7 +91,7 @@ Administrative keys control critical smart contract functions, protocol paramete
 
 ```yaml
 ---
-id: R:ADMIN_KEY_COMPROMISE
+id: R:ADMIN_KEY_COMPROMISE.FIDLEG
 title: "Administrative Key Compromise Risk (FIDLEG Compliant)"
 extensions: ["fidleg"]
 regulatoryExtensions:

@@ -2,11 +2,11 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Web3 Risk Entry",
   "type": "object",
-  "required": ["id", "title", "category", "type", "scopes", "owners", "objectives"],
+  "required": ["id", "title", "category", "scope", "owner", "severity", "probability", "impact", "objectives"],
   "properties": {
     "id": {
       "type": "string",
-      "pattern": "^R:[A-Z0-9_]+$"
+      "pattern": "^R:[A-Z0-9_.]+$"
     },
     "title": {
       "type": "string",
@@ -19,40 +19,23 @@
       "type": "string",
       "enum": ["QUALITATIVE", "QUANTITATIVE", "HYBRID"]
     },
-    "scopes": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "minItems": 1
+    "scope": {
+      "type": "string"
     },
-    "owners": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "minItems": 1
+    "owner": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string"
+    },
+    "probability": {
+      "type": "string"
+    },
+    "impact": {
+      "type": "string"
     },
     "objectives": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "required": ["type", "direction", "goal"],
-        "properties": {
-          "type": {
-            "type": "string"
-          },
-          "direction": {
-            "type": "string",
-            "enum": ["INCREASE", "DECREASE"]
-          },
-          "goal": {
-            "type": "string",
-            "enum": ["INCREASE", "DECREASE"]
-          }
-        }
-      }
+      "type": "string"
     },
     "measures": {
       "type": "array",
@@ -87,5 +70,5 @@
       "uniqueItems": true
     }
   },
-  "additionalProperties": false
+  "additionalProperties": true
 }

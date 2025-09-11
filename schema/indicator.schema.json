@@ -6,7 +6,7 @@
   "properties": {
     "id": {
       "type": "string",
-      "pattern": "^I:[A-Z_]+$"
+      "pattern": "^I:[A-Z_.]+$"
     },
     "title": {
       "type": "string",
@@ -17,8 +17,7 @@
       "const": "Indicator"
     },
     "version": {
-      "type": "number",
-      "minimum": 0
+      "type": "string"
     },
     "lastUpdate": {
       "type": "string",
@@ -135,5 +134,5 @@
       "uniqueItems": true
     }
   },
-  "additionalProperties": false
+  "additionalProperties": true
 }

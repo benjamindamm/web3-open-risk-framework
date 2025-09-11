@@ -1,5 +1,5 @@
 ---
-id: I:RAPID_FUNDS_MOVEMENT
+id: I:RAPID_FUNDS_MOVEMENT.FIDLEG
 title: "Rapid Funds Movement Detection (GwG/FIDLEG Compliant)"
 description: "Detection of rapid funds movement patterns with 3+ transactions > CHF 50k in 24h triggering enhanced monitoring and potential MROS reporting"
 type: "Indicator"
@@ -121,7 +121,7 @@ This indicator detects rapid funds movement patterns where customers execute mul
 
 ```yaml
 ---
-id: I:RAPID_FUNDS_MOVEMENT
+id: I:RAPID_FUNDS_MOVEMENT.FIDLEG
 title: "Rapid Funds Movement Detection (GwG/FIDLEG Compliant)"
 extensions: ["fidleg"]
 regulatoryExtensions:

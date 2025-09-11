@@ -56,26 +56,26 @@ function extractReferences(content) {
     const assessmentRefs = [];
     const riskRefs = [];
     
-    // Find I: references
-    const indicatorMatches = content.match(/I:[A-Z_]+/g);
+    // Find I: references (including .FIDLEG extensions)
+    const indicatorMatches = content.match(/I:[A-Z_]+(?:\.FIDLEG)?/g);
     if (indicatorMatches) {
         indicatorRefs.push(...new Set(indicatorMatches));
     }
     
-    // Find M: references
-    const measureMatches = content.match(/M:[A-Z_]+/g);
+    // Find M: references (including .FIDLEG extensions)
+    const measureMatches = content.match(/M:[A-Z_]+(?:\.FIDLEG)?/g);
     if (measureMatches) {
         measureRefs.push(...new Set(measureMatches));
     }
     
-    // Find A: references (assessments)
-    const assessmentMatches = content.match(/A:[A-Z_]+/g);
+    // Find A: references (assessments, including .FIDLEG extensions)
+    const assessmentMatches = content.match(/A:[A-Z_]+(?:\.FIDLEG)?/g);
     if (assessmentMatches) {
         assessmentRefs.push(...new Set(assessmentMatches));
     }
     
-    // Find R: references (risks)
-    const riskMatches = content.match(/R:[A-Z_]+/g);
+    // Find R: references (risks, including .FIDLEG extensions)
+    const riskMatches = content.match(/R:[A-Z_]+(?:\.FIDLEG)?/g);
     if (riskMatches) {
         riskRefs.push(...new Set(riskMatches));
     }

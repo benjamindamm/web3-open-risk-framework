@@ -1,5 +1,5 @@
 ---
-id: M:INSURANCE_COVERAGE
+id: M:INSURANCE_COVERAGE.FIDLEG
 title: "Swiss Insurance Coverage (FIDLEG Compliant)"
 description: "Implementation of Swiss insurance coverage with minimum CHF 500k protection under Swiss regulatory requirements for client asset protection"
 type: "Measure"
@@ -106,7 +106,7 @@ This measure implements comprehensive Swiss insurance coverage with minimum CHF 
 
 ```yaml
 ---
-id: M:INSURANCE_COVERAGE
+id: M:INSURANCE_COVERAGE.FIDLEG
 title: "Swiss Insurance Coverage (FIDLEG Compliant)"
 extensions: ["fidleg"]
 regulatoryExtensions:

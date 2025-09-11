@@ -4,7 +4,7 @@
 id: I:UTILIZATION_RATIO
 title: Utilization Ratio
 type: Indicator
-version: 1.0
+version: "1.0"
 lastUpdate: 2025-05-28
 ```
 

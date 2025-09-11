@@ -1,5 +1,5 @@
 ---
-id: M:IMPLEMENT_MULTI_SIG
+id: M:IMPLEMENT_MULTI_SIG.FIDLEG
 title: "Multi-Signature Implementation (FIDLEG Compliant)"
 description: "Implementation of multi-signature key management systems for administrative keys with quarterly audit verification under Swiss FIDLEG Article 72 operational risk management"
 type: "Measure"
@@ -126,7 +126,7 @@ This measure implements comprehensive multi-signature key management systems for
 
 ```yaml
 ---
-id: M:IMPLEMENT_MULTI_SIG
+id: M:IMPLEMENT_MULTI_SIG.FIDLEG
 title: "Multi-Signature Implementation (FIDLEG Compliant)"
 extensions: ["fidleg"]
 regulatoryExtensions:

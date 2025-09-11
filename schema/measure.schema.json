@@ -6,7 +6,7 @@
   "properties": {
     "id": {
       "type": "string",
-      "pattern": "^M:[A-Z_]+$"
+      "pattern": "^M:[A-Z_.]+$"
     },
     "title": {
       "type": "string",
@@ -17,8 +17,7 @@
       "const": "Measure"
     },
     "version": {
-      "type": "number",
-      "minimum": 0
+      "type": "string"
     },
     "lastUpdate": {
       "type": "string",
@@ -79,5 +78,5 @@
       "uniqueItems": true
     }
   },
-  "additionalProperties": false
+  "additionalProperties": true
 }

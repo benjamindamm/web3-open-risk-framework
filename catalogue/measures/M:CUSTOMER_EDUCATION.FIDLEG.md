@@ -1,5 +1,5 @@
 ---
-id: M:CUSTOMER_EDUCATION
+id: M:CUSTOMER_EDUCATION.FIDLEG
 title: "Customer Education Program (FIDLEG Compliant)"
 description: "Comprehensive customer education program with PDF documentation requirements under Swiss FIDLEG Article 14 client protection obligations"
 type: "Measure"
@@ -97,7 +97,7 @@ This measure implements a comprehensive customer education program to inform cli
 
 ```yaml
 ---
-id: M:CUSTOMER_EDUCATION
+id: M:CUSTOMER_EDUCATION.FIDLEG
 title: "Customer Education Program (FIDLEG Compliant)"
 extensions: ["fidleg"]
 regulatoryExtensions:

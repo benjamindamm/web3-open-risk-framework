@@ -4,9 +4,9 @@
 id: M:REALLOCATE_CAPITAL
 title: Capital Reallocation
 type: Measure
-version: 1.0
+version: "1.0"
 lastUpdate: 2025-01-27
-impactPotential: High
+impactPotential: HIGH
 riskReductionScope:
   severity: true
   likelihood: true

@@ -13,18 +13,23 @@ const schemaDir = path.resolve(scriptDir, '../schema');
 const fileTypes = [
   {
     name: 'Risk',
-    pattern: /risks\/[\w_\-:]+\.md$/,
+    pattern: /risks\/[\w_\-:.]+\.md$/,
     schema: 'risk.schema.json',
   },
   {
     name: 'Indicator',
-    pattern: /indicators\/[\w_\-:]+\.md$/,
+    pattern: /indicators\/[\w_\-:.]+\.md$/,
     schema: 'indicator.schema.json',
   },
   {
     name: 'Assessment',
-    pattern: /assessments\/[\w_\-:]+\.md$/,
+    pattern: /assessments\/[\w_\-:.]+\.md$/,
     schema: 'assessment.schema.json',
+  },
+  {
+    name: 'Measure',
+    pattern: /measures\/[\w_\-:.]+\.md$/,
+    schema: 'measure.schema.json',
   },
 ];
 
@@ -44,6 +49,13 @@ function findFiles(dir, regex) {
 }
 
 function extractYamlBlock(content) {
+  // First try to extract YAML frontmatter (--- at the beginning)
+  const frontmatterMatch = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n/);
+  if (frontmatterMatch) {
+    return frontmatterMatch[1];
+  }
+  
+  // Fallback to YAML code blocks
   const match = content.match(/```yaml\s*([\s\S]*?)\s*```/);
   return match ? match[1] : null;
 }

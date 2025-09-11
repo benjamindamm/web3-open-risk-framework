@@ -5,21 +5,12 @@ id: R:DECREASING_YIELD
 title: Decreasing Lending Yield Over Time
 category: FINANCIAL
 type: HYBRID
-scopes:
-  - LENDING
-  - ASSET
-  - APPLICATION
-owners:
-  - INVESTOR
-  - TEAM
-  - OPERATOR
-objectives:
-  - type: YIELD
-    direction: DECREASE
-    goal: INCREASE
-  - type: VALUE
-    direction: DECREASE
-    goal: INCREASE
+scope: LENDING
+owner: INVESTOR
+severity: MEDIUM
+probability: HIGH
+impact: MEDIUM
+objectives: "Maintain sustainable lending yields and prevent value erosion"
 measures:
   - M:REALLOCATE_CAPITAL
 ```

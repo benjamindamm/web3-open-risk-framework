@@ -1,5 +1,5 @@
 ---
-id: I:LARGE_TRANSACTION
+id: I:LARGE_TRANSACTION.FIDLEG
 title: "Large Transaction Monitoring (GwG/FIDLEG Compliant)"
 description: "Monitoring of large transactions exceeding CHF 100k threshold with automatic MROS reporting for Swiss Anti-Money Laundering Act compliance"
 type: "Indicator"
@@ -122,7 +122,7 @@ This indicator monitors transactions exceeding CHF 100,000 threshold and automat
 
 ```yaml
 ---
-id: I:LARGE_TRANSACTION
+id: I:LARGE_TRANSACTION.FIDLEG
 title: "Large Transaction Monitoring (GwG/FIDLEG Compliant)"
 extensions: ["fidleg"]
 regulatoryExtensions:

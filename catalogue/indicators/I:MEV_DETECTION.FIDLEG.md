@@ -1,5 +1,5 @@
 ---
-id: I:MEV_DETECTION
+id: I:MEV_DETECTION.FIDLEG
 title: "MEV Arbitrage Detection (GwG/FIDLEG Compliant)"
 description: "Detection of MEV (Maximal Extractable Value) arbitrage patterns and suspicious trading activities requiring FINMA reporting under Swiss market abuse prevention"
 type: "Indicator"
@@ -121,7 +121,7 @@ This indicator detects MEV (Maximal Extractable Value) arbitrage patterns, flash
 
 ```yaml
 ---
-id: I:MEV_DETECTION
+id: I:MEV_DETECTION.FIDLEG
 title: "MEV Arbitrage Detection (GwG/FIDLEG Compliant)"
 extensions: ["fidleg"]
 regulatoryExtensions:
