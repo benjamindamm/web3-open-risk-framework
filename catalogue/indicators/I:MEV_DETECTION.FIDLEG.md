@@ -9,14 +9,26 @@ extensions: ["fidleg"]
 regulatoryExtensions:
   fidleg:
     articleReference: "FIDLEG_Art142"
+    indicatorType: "TRANSACTION_BASED"
     measurementFrequency: "REAL_TIME"
-    regulatoryThreshold: "Any MEV activity"
-    auditRequirement: "EXTERNAL_AUDIT"
-    suspiciousPatterns: ["mev_arbitrage", "flash_loan_exploitation"]
+    reportingThreshold: "CHF_100k"
+    auditRequirement:
+      level: "REGULATORY"
+      requiredFor: ["FIDLEG_Art37", "FIDLEG_Art72", "FIDLEG_Art142"]
+      frequency: "ANNUAL"
+    suspiciousPatterns: ["mev_arbitrage", "flash_loan_exploitation", "structuring", "unhosted_wallet", "rapid_exchange"]
     gwg:
-      mrosReporting: true
-      transactionMonitoring: true
-      customerDueDiligence: false
+      mrosReporting:
+        required: true
+        format: "XML"
+        deadlineHours: 24
+      transactionMonitoring:
+        required: true
+        frequency: "REAL_TIME"
+        threshold: "CHF_100k"
+      customerDueDiligence:
+        level: "ENHANCED"
+        triggerAmount: "CHF_100k"
 ```
 
 # MEV Arbitrage Detection (GwG/FIDLEG Compliant)
@@ -127,14 +139,26 @@ extensions: ["fidleg"]
 regulatoryExtensions:
   fidleg:
     articleReference: "FIDLEG_Art142"
+    indicatorType: "TRANSACTION_BASED"
     measurementFrequency: "REAL_TIME"
-    regulatoryThreshold: "Any MEV activity"
-    auditRequirement: "EXTERNAL_AUDIT"
-    suspiciousPatterns: ["mev_arbitrage", "flash_loan_exploitation"]
+    reportingThreshold: "CHF_100k"
+    auditRequirement:
+      level: "REGULATORY"
+      requiredFor: ["FIDLEG_Art37", "FIDLEG_Art72", "FIDLEG_Art142"]
+      frequency: "ANNUAL"
+    suspiciousPatterns: ["mev_arbitrage", "flash_loan_exploitation", "structuring", "unhosted_wallet", "rapid_exchange"]
     gwg:
-      mrosReporting: true
-      transactionMonitoring: true
-      customerDueDiligence: false
+      mrosReporting:
+        required: true
+        format: "XML"
+        deadlineHours: 24
+      transactionMonitoring:
+        required: true
+        frequency: "REAL_TIME"
+        threshold: "CHF_100k"
+      customerDueDiligence:
+        level: "ENHANCED"
+        triggerAmount: "CHF_100k"
 ---
 ```
 

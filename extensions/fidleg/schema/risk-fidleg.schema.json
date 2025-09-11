@@ -20,18 +20,9 @@
                     "FIDLEG_Art72",
                     "FIDLEG_Art142",
                     "FIDLEG_Art18_20",
-                    "FIDLEG_Art8_10",
-                    "FIDLEG_Art11_15",
-                    "FIDLEG_Art16_18",
-                    "FIDLEG_Art19_21",
-                    "FIDLEG_Art22_24",
-                    "FIDLEG_Art25_30",
-                    "FIDLEG_Art31_35",
-                    "FIDLEG_Art36_40",
-                    "FIDLEG_Art41_45",
-                    "FIDLEG_Art46_50"
+                    "FIDLEG_Art37"
                   ],
-                  "description": "FIDLEG article reference. See article-reference.md for detailed article descriptions."
+                  "description": "FIDLEG article reference for DeFi/Risk Analytics. See article-reference.md for detailed article descriptions."
                 },
                 "regulatoryClassification": {
                   "type": "string",
@@ -91,6 +82,32 @@
                       "description": "Applicable customer type. See customer-type.md for customer type definitions."
                     }
                   }
+                },
+                "customerClassification": {
+                  "type": "object",
+                  "description": "FIDLEG Art. 24 customer classification requirements",
+                  "properties": {
+                    "kycRequirement": {
+                      "type": "string",
+                      "enum": ["BASIC", "ENHANCED", "SIMPLIFIED"],
+                      "description": "KYC requirement level based on customer type"
+                    },
+                    "riskAssessment": {
+                      "type": "string",
+                      "enum": ["LOW", "MEDIUM", "HIGH"],
+                      "description": "Customer risk assessment level"
+                    },
+                    "monitoringFrequency": {
+                      "type": "string",
+                      "enum": ["CONTINUOUS", "DAILY", "WEEKLY", "MONTHLY"],
+                      "description": "Required monitoring frequency for customer type"
+                    },
+                    "sumsubIntegration": {
+                      "type": "boolean",
+                      "description": "Whether Sumsub integration is required for this customer type"
+                    }
+                  },
+                  "required": ["kycRequirement", "riskAssessment"]
                 }
               },
               "additionalProperties": false

@@ -2,7 +2,9 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Web3 Indicator Entry with FIDLEG Extension",
   "allOf": [
-    { "$ref": "../../schema/indicator.schema.json" },
+    {
+      "$ref": "../../schema/indicator.schema.json"
+    },
     {
       "properties": {
         "regulatoryExtensions": {
@@ -20,36 +22,80 @@
                     "FIDLEG_Art72",
                     "FIDLEG_Art142",
                     "FIDLEG_Art18_20",
-                    "FIDLEG_Art8_10",
-                    "FIDLEG_Art11_15",
-                    "FIDLEG_Art16_18",
-                    "FIDLEG_Art19_21",
-                    "FIDLEG_Art22_24",
-                    "FIDLEG_Art25_30",
-                    "FIDLEG_Art31_35",
-                    "FIDLEG_Art36_40",
-                    "FIDLEG_Art41_45",
-                    "FIDLEG_Art46_50"
+                    "FIDLEG_Art37"
                   ],
-                  "description": "FIDLEG article reference. See article-reference.md for detailed article descriptions."
+                  "description": "FIDLEG article reference for DeFi/Risk Analytics. See article-reference.md for detailed article descriptions."
+                },
+                "indicatorType": {
+                  "type": "string",
+                  "enum": [
+                    "TRANSACTION_BASED",
+                    "PROTOCOL_METRIC",
+                    "MARKET_SYSTEM"
+                  ],
+                  "description": "Determines which regulatory extensions apply. TRANSACTION_BASED: Requires customerClassification, reportingThreshold, and GwG compliance. PROTOCOL_METRIC: Requires protocolRisk extension (FIDLEG Art. 72). MARKET_SYSTEM: Requires transparencyRequirement (FIDLEG Art. 18–20)."
                 },
                 "measurementFrequency": {
                   "type": "string",
-                  "enum": ["REAL_TIME", "DAILY", "WEEKLY", "MONTHLY", "QUARTERLY", "ANNUAL"],
+                  "enum": [
+                    "REAL_TIME",
+                    "DAILY",
+                    "WEEKLY",
+                    "MONTHLY",
+                    "QUARTERLY",
+                    "ANNUAL"
+                  ],
                   "description": "Required measurement frequency for Swiss regulatory reporting. See fidleg-fields-guide.md for frequency definitions."
                 },
-                "regulatoryThreshold": {
-                  "type": "string",
-                  "description": "Compliance threshold for Swiss regulatory reporting"
-                },
                 "auditRequirement": {
-                  "type": "string",
-                  "enum": ["INTERNAL_AUDIT", "EXTERNAL_AUDIT", "REGULATORY_AUDIT", "NO_AUDIT"],
-                  "description": "Required audit level for Swiss compliance. See fidleg-fields-guide.md for audit level definitions."
+                  "type": "object",
+                  "description": "Required audit level for Swiss compliance with FIDLEG article requirements",
+                  "properties": {
+                    "level": {
+                      "type": "string",
+                      "enum": [
+                        "INTERNAL",
+                        "EXTERNAL",
+                        "REGULATORY"
+                      ],
+                      "description": "Audit level required"
+                    },
+                    "requiredFor": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "FIDLEG_Art24",
+                          "FIDLEG_Art37",
+                          "FIDLEG_Art72",
+                          "FIDLEG_Art142"
+                        ]
+                      },
+                      "description": "FIDLEG articles that require this audit level"
+                    },
+                    "frequency": {
+                      "type": "string",
+                      "enum": [
+                        "QUARTERLY",
+                        "ANNUAL"
+                      ],
+                      "description": "Required audit frequency"
+                    }
+                  },
+                  "required": [
+                    "level"
+                  ]
                 },
                 "reportingThreshold": {
                   "type": "string",
-                  "description": "Threshold for regulatory reporting (e.g., 'CHF_100k' for retail transactions)"
+                  "enum": [
+                    "CHF_1k",
+                    "CHF_15k",
+                    "CHF_100k",
+                    "CHF_500k",
+                    "CHF_1M"
+                  ],
+                  "description": "Swiss regulatory reporting threshold. CHF_1k=GwG occasional transactions, CHF_15k=simplified due diligence, CHF_100k=MROS retail, CHF_500k=MROS professional, CHF_1M=enhanced due diligence"
                 },
                 "suspiciousPatterns": {
                   "type": "array",
@@ -63,30 +109,176 @@
                       "concentrated_activity",
                       "cross_chain_arbitrage",
                       "flash_loan_exploitation",
-                      "governance_manipulation"
+                      "governance_manipulation",
+                      "structuring",
+                      "peel_chain",
+                      "unhosted_wallet",
+                      "geographic_risk",
+                      "rapid_exchange"
                     ]
                   },
-                  "description": "Suspicious trading patterns to monitor. See suspicious-patterns.md for detailed explanations and thresholds."
+                  "description": "Suspicious trading patterns to monitor for FINMA compliance. See suspicious-patterns.md for detailed explanations and thresholds."
                 },
                 "gwg": {
                   "type": "object",
                   "description": "Swiss Anti-Money Laundering Act (GwG) specific requirements",
                   "properties": {
                     "mrosReporting": {
-                      "type": "boolean",
-                      "description": "Whether MROS (Money Laundering Reporting Office Switzerland) reporting is required"
+                      "type": "object",
+                      "description": "MROS (Money Laundering Reporting Office Switzerland) reporting requirements",
+                      "properties": {
+                        "required": {
+                          "type": "boolean",
+                          "description": "Whether MROS reporting is mandatory for this indicator"
+                        },
+                        "format": {
+                          "type": "string",
+                          "enum": [
+                            "XML",
+                            "CSV"
+                          ],
+                          "description": "Required reporting format - FINMA requires XML"
+                        },
+                        "deadlineHours": {
+                          "type": "integer",
+                          "default": 24,
+                          "enum": [
+                            24,
+                            48
+                          ],
+                          "description": "MROS reporting deadline. Default: 24h (FINMA requirement). 48h requires justification."
+                        }
+                      },
+                      "required": [
+                        "required"
+                      ]
                     },
                     "transactionMonitoring": {
-                      "type": "boolean",
-                      "description": "Whether continuous transaction monitoring is required"
+                      "type": "object",
+                      "description": "Transaction monitoring requirements",
+                      "properties": {
+                        "required": {
+                          "type": "boolean",
+                          "description": "Whether continuous transaction monitoring is required"
+                        },
+                        "frequency": {
+                          "type": "string",
+                          "enum": [
+                            "REAL_TIME",
+                            "DAILY",
+                            "WEEKLY",
+                            "MONTHLY"
+                          ],
+                          "description": "Required monitoring frequency"
+                        },
+                        "threshold": {
+                          "type": "string",
+                          "enum": [
+                            "CHF_1k",
+                            "CHF_15k",
+                            "CHF_100k",
+                            "CHF_500k",
+                            "CHF_1M"
+                          ],
+                          "description": "Monitoring threshold - references reportingThreshold"
+                        }
+                      },
+                      "required": [
+                        "required"
+                      ]
                     },
                     "customerDueDiligence": {
-                      "type": "boolean",
-                      "description": "Whether enhanced customer due diligence is triggered"
+                      "type": "object",
+                      "description": "Customer due diligence requirements with automatic risk scoring",
+                      "properties": {
+                        "level": {
+                          "type": "string",
+                          "enum": [
+                            "SIMPLIFIED",
+                            "STANDARD",
+                            "ENHANCED"
+                          ],
+                          "description": "Required due diligence level"
+                        },
+                        "triggerAmount": {
+                          "type": "string",
+                          "enum": [
+                            "CHF_1k",
+                            "CHF_15k",
+                            "CHF_100k",
+                            "CHF_500k",
+                            "CHF_1M"
+                          ],
+                          "description": "Amount threshold that triggers due diligence - references reportingThreshold"
+                        }
+                      },
+                      "required": [
+                        "level"
+                      ]
                     }
                   }
+                },
+                "customerClassification": {
+                  "type": "object",
+                  "description": "FIDLEG Art. 24 customer classification requirements",
+                  "properties": {
+                    "customerType": {
+                      "type": "string",
+                      "enum": [
+                        "retail",
+                        "professional",
+                        "both"
+                      ],
+                      "description": "Customer type this indicator applies to"
+                    },
+                    "kycThreshold": {
+                      "type": "string",
+                      "enum": [
+                        "CHF_1k",
+                        "CHF_15k",
+                        "CHF_100k",
+                        "CHF_500k",
+                        "CHF_1M"
+                      ],
+                      "description": "KYC threshold for this indicator - must match reportingThreshold values for consistency"
+                    },
+                    "riskScoring": {
+                      "type": "object",
+                      "properties": {
+                        "retail": {
+                          "type": "string",
+                          "enum": [
+                            "LOW",
+                            "MEDIUM",
+                            "HIGH"
+                          ],
+                          "description": "Risk score for retail customers"
+                        },
+                        "professional": {
+                          "type": "string",
+                          "enum": [
+                            "LOW",
+                            "MEDIUM",
+                            "HIGH"
+                          ],
+                          "description": "Risk score for professional customers"
+                        }
+                      }
+                    },
+                    "sumsubIntegration": {
+                      "type": "boolean",
+                      "description": "Whether Sumsub integration is required for this indicator"
+                    }
+                  },
+                  "required": [
+                    "customerType"
+                  ]
                 }
               },
+              "required": [
+                "articleReference",
+                "indicatorType"
+              ],
               "additionalProperties": false
             }
           },

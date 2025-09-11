@@ -41,7 +41,7 @@
       "type": "array",
       "items": {
         "type": "string",
-        "pattern": "^M:[A-Z_]+$"
+        "pattern": "^M:[A-Z_]+(?:\\.FIDLEG)?$"
       }
     },
     "description": {
