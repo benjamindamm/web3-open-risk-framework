@@ -1,7 +1,7 @@
 ```yaml
 id: M:MEV_PROTECTION.FIDLEG
-title: "MEV Protection System (FIDLEG Compliant)"
-description: "Implementation of comprehensive MEV protection systems with real-time monitoring and automated FINMA reporting under Swiss FIDLEG Article 142 market abuse prevention"
+title: "MEV Protection System (Protocol Assessment)"
+description: "Implementation of MEV protection systems for DeFi protocol evaluation, including monitoring and risk mitigation measures"
 type: "Measure"
 version: "1.0"
 lastUpdate: "2024-01-15"

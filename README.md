@@ -62,7 +62,12 @@ This framework includes:
 The framework supports modular regulatory extensions that can be added without modifying the core framework:
 
 - **Swiss FIDLEG Extension**  
-  Complete Swiss regulatory compliance module with FIDLEG (Swiss Financial Services Act) and GwG (Anti-Money Laundering Act) support, including article references, regulatory classifications, and compliance requirements.
+  **DeFi Protocol Assessment Toolkit** for Swiss banks to evaluate and approve DeFi protocols (like Aave, Compound, Uniswap) for their customers. Features include:
+  - **Core FIDLEG Articles**: Art. 72 (Operational Risks), Art. 142 (Market Abuse)
+  - **Protocol Risk Assessment**: Smart contract security, liquidity risks, market manipulation detection
+  - **Indicator Type Classification**: PROTOCOL_SECURITY, MARKET_ABUSE for protocol evaluation
+  - **Key Risk Patterns**: MEV arbitrage, wash trading, flash loan exploitation, structuring, unhosted wallets
+  - **Risk Level Assessment**: LOW, MEDIUM, HIGH, CRITICAL for protocol evaluation
 
 - **Modular Architecture**  
   Extensions are self-contained modules that extend the core framework through schema inheritance and additional documentation, allowing other jurisdictions to add their own regulatory extensions.
@@ -102,57 +107,15 @@ This repository is organized by function. The core framework documentation is lo
 
 Each component is designed to be forked, extended, or integrated into your own catalog or application.
 
-## 📁 Repository Structure
-
-```
-module/
-├── docs/                          # Framework documentation
-│   ├── categories.md              # Risk categories definition
-│   ├── types.md                   # Risk types classification
-│   ├── scopes.md                  # Scope of action definitions
-│   ├── objectives.md              # Investment objectives model
-│   ├── owners.md                  # Risk ownership model
-│   ├── risk.md                    # Risk documentation template
-│   ├── indicator.md               # Indicator template
-│   ├── measure.md                 # Measure template
-│   ├── assessment.md              # Assessment guide
-│   ├── philosophy.md              # Framework philosophy
-│   ├── terminology.md             # Key terminology
-│   └── methodology.md             # Detailed methodology
-├── extensions/                    # Modular regulatory extensions
-│   ├── README.md                  # Extensions overview
-│   └── fidleg/                    # Swiss FIDLEG extension
-│       ├── docs/                  # FIDLEG documentation
-│       │   └── fidleg-extension.md # Complete FIDLEG documentation
-│       ├── schema/                # Extended JSON schemas
-│       │   ├── risk-fidleg.schema.json
-│       │   ├── indicator-fidleg.schema.json
-│       │   └── measure-fidleg.schema.json
-│       └── README.md              # FIDLEG extension guide
-├── schema/                        # JSON schemas for validation
-│   ├── risk.schema.json
-│   ├── indicator.schema.json
-│   ├── assessment.schema.json
-│   └── measure.schema.json
-├── scripts/                       # Validation tools
-│   ├── validate-markdown.mjs      # Schema validation
-│   ├── validate-references.mjs    # Reference validation
-│   └── package.json
-├── catalogue/                     # Example content
-│   ├── risks/                     # Sample risk definitions
-│   ├── indicators/                # Sample indicator definitions
-│   └── assessments/               # Sample assessment examples
-└── README.md                      # This file
-```
-
 ## 🧰 Use Cases
 
-- Crypto asset due diligence  
-- DeFi protocol risk monitoring  
-- Governance transparency  
-- Research and education  
-- Internal risk dashboards and tooling  
-- Strategy development for allocators and asset managers
+- **DeFi Protocol Due Diligence** for Swiss banks evaluating protocols like Aave, Compound, Uniswap
+- **Protocol Risk Assessment** with smart contract security and liquidity risk analysis
+- **Customer Access Control** with automated risk scoring and regulatory compliance validation
+- **Swiss Regulatory Compliance** with FIDLEG/GwG integration for FINMA reporting
+- **Research and Education** with comprehensive risk framework documentation
+- **Bank Risk Dashboards** with automated validation and protocol monitoring
+- **Strategy Development** for allocators and asset managers with structured risk assessment
 
 ## Contact
 

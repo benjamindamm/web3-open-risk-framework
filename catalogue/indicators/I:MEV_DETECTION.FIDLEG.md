@@ -1,197 +1,97 @@
+# MEV Arbitrage Detection (Protocol Assessment)
+
 ```yaml
 id: I:MEV_DETECTION.FIDLEG
-title: "MEV Arbitrage Detection (GwG/FIDLEG Compliant)"
-description: "Detection of MEV (Maximal Extractable Value) arbitrage patterns and suspicious trading activities requiring FINMA reporting under Swiss market abuse prevention"
-type: "Indicator"
+title: "MEV Arbitrage Detection (Protocol Assessment)"
+type: Indicator
 version: "1.0"
 lastUpdate: "2024-01-15"
 extensions: ["fidleg"]
 regulatoryExtensions:
   fidleg:
     articleReference: "FIDLEG_Art142"
-    indicatorType: "TRANSACTION_BASED"
+    indicatorType: "MARKET_ABUSE"
     measurementFrequency: "REAL_TIME"
-    reportingThreshold: "CHF_100k"
+    riskLevel: "HIGH"
+    suspiciousPatterns: ["mev_arbitrage", "wash_trading", "flash_loan_exploitation", "structuring", "unhosted_wallet"]
     auditRequirement:
       level: "REGULATORY"
-      requiredFor: ["FIDLEG_Art37", "FIDLEG_Art72", "FIDLEG_Art142"]
       frequency: "ANNUAL"
-    suspiciousPatterns: ["mev_arbitrage", "flash_loan_exploitation", "structuring", "unhosted_wallet", "rapid_exchange"]
-    gwg:
-      mrosReporting:
-        required: true
-        format: "XML"
-        deadlineHours: 24
-      transactionMonitoring:
-        required: true
-        frequency: "REAL_TIME"
-        threshold: "CHF_100k"
-      customerDueDiligence:
-        level: "ENHANCED"
-        triggerAmount: "CHF_100k"
 ```
 
-# MEV Arbitrage Detection (GwG/FIDLEG Compliant)
+## Description
 
-## Indicator Description
+Detects MEV (Maximum Extractable Value) arbitrage activities that may indicate market manipulation or unfair trading practices in DeFi protocols. This indicator helps banks assess whether a protocol is susceptible to MEV exploitation.
 
-This indicator detects MEV (Maximal Extractable Value) arbitrage patterns, flash loan exploitations, and other suspicious trading activities that may constitute market abuse under Swiss FIDLEG Article 142 and require reporting to FINMA.
+## Risk Categories
 
-## GwG/FIDLEG Compliance Context
+- **MARKET**: Market manipulation and unfair trading practices
+- **TECHNICAL**: Protocol-level vulnerabilities
 
-### Regulatory Classification
-- **FIDLEG Article**: Art. 142 (Market Abuse Prevention)
-- **GwG Requirement**: MROS reporting for suspicious trading patterns
-- **Measurement**: REAL_TIME monitoring required
-- **Audit**: EXTERNAL_AUDIT validation
-- **Reporting**: FINMA market abuse notification
+## Risk Types
 
-### Swiss Market Requirements
-- Continuous MEV pattern detection
-- Market abuse prevention monitoring
-- Suspicious activity reporting
-- Regulatory compliance maintenance
+- **Quantitative**: Measurable through transaction analysis
+- **Qualitative**: Requires interpretation of trading patterns
 
-## Measurement Methodology
+## Scope of Action
+
+- **PROTOCOL**: Core protocol functionality
+- **TRADE**: Individual transaction level
+- **MARKET**: Market-wide impact
+
+## Investment Objectives
+
+- **Value**: MEV extraction reduces value for other users
+- **Trust**: Undermines trust in protocol fairness
+- **Liquidity**: Can impact liquidity provision incentives
+
+## Risk Owners
+
+- **Protocol Developers**: Implement MEV protection measures
+- **Validators**: Can be influenced by MEV opportunities
+- **Users**: Directly affected by MEV extraction
+
+## Measurement
+
+### Primary Metrics
+
+- **MEV Extraction Volume**: Total value extracted through MEV
+- **MEV Transaction Frequency**: Number of MEV transactions per day
+- **MEV Impact on Users**: Average loss per user transaction
 
 ### Data Sources
-- Blockchain mempool monitoring
-- DeFi protocol transaction logs
-- Flash loan activity tracking
-- Arbitrage pattern analysis
-- Cross-DEX transaction monitoring
 
-### Key Metrics
-- **MEV Extraction**: Value extracted through MEV strategies
-- **Flash Loan Volume**: Flash loan transaction amounts
-- **Arbitrage Profit**: Cross-DEX arbitrage profits
-- **Front-running Detection**: Transaction ordering manipulation
-- **Sandwich Attacks**: MEV extraction through transaction ordering
+- **On-chain transaction data**: Direct measurement from blockchain
+- **MEV detection services**: Specialized MEV monitoring tools
+- **Protocol analytics**: Protocol-specific MEV metrics
 
-### Alert Thresholds
-- **Critical**: MEV extraction > CHF 10k (FINMA reporting required)
-- **High**: Flash loan volume > CHF 100k in 1 hour
-- **Medium**: Arbitrage patterns > CHF 50k daily
-- **Low**: Unusual transaction ordering patterns
+### Measurement Frequency
 
-## GwG Compliance Features
+- **Real-time**: Continuous monitoring for immediate detection
+- **Daily**: Aggregated daily reports for trend analysis
+- **Weekly**: Weekly summaries for risk assessment
 
-### MROS Reporting
-- **Automatic Trigger**: Suspicious MEV patterns
-- **Reporting Format**: Market abuse notification
-- **Timeline**: Within 24 hours of detection
-- **Documentation**: Complete MEV activity audit trail
+## Thresholds
 
-### Transaction Monitoring
-- **Real-time Analysis**: Continuous MEV detection
-- **Pattern Recognition**: Arbitrage strategy identification
-- **Risk Scoring**: Market manipulation assessment
-- **Alert Management**: Regulatory escalation procedures
+### Risk Levels
 
-### Market Integrity
-- **Abuse Prevention**: Proactive MEV monitoring
-- **Fair Trading**: Market manipulation detection
-- **Transparency**: MEV activity reporting
-- **Compliance**: Regulatory requirement fulfillment
+- **LOW**: < 0.1% of transaction volume affected by MEV
+- **MEDIUM**: 0.1% - 1% of transaction volume affected by MEV
+- **HIGH**: 1% - 5% of transaction volume affected by MEV
+- **CRITICAL**: > 5% of transaction volume affected by MEV
 
-## Implementation Requirements
+### Alert Conditions
 
-### Technical Infrastructure
-- Real-time MEV detection systems
-- Automated FINMA reporting mechanisms
-- Pattern recognition algorithms
-- Audit trail management
-- Integration with Swiss regulatory systems
+- **Immediate**: MEV extraction > 1% of daily volume
+- **Warning**: MEV extraction > 0.5% of daily volume
+- **Monitor**: MEV extraction > 0.1% of daily volume
 
-### Reporting Requirements
-- **Real-time**: Immediate alerts for MEV detection
-- **Daily**: Summary reports for compliance team
-- **Weekly**: Market abuse statistics
-- **Monthly**: Regulatory compliance reports
+## Regulatory Context
 
-### Data Quality Standards
-- 99.9% MEV detection rate
-- Sub-second alert latency
-- Complete audit trail maintenance
-- Data integrity validation
+This indicator supports Swiss banks in evaluating DeFi protocols for customer access by monitoring market abuse patterns as required under FIDLEG Art. 142.
 
-## Swiss Crypto Valley Considerations
+## Implementation Notes
 
-### Regulatory Expectations
-- FINMA expects comprehensive MEV monitoring
-- Market abuse reporting compliance mandatory
-- External audit validation required
-- Market integrity maintenance
-
-### Business Requirements
-- High availability detection systems
-- Scalable MEV analysis
-- Integration with existing systems
-- Cost-effective compliance implementation
-
-## Implementation Example
-
-```yaml
----
-id: I:MEV_DETECTION.FIDLEG
-title: "MEV Arbitrage Detection (GwG/FIDLEG Compliant)"
-extensions: ["fidleg"]
-regulatoryExtensions:
-  fidleg:
-    articleReference: "FIDLEG_Art142"
-    indicatorType: "TRANSACTION_BASED"
-    measurementFrequency: "REAL_TIME"
-    reportingThreshold: "CHF_100k"
-    auditRequirement:
-      level: "REGULATORY"
-      requiredFor: ["FIDLEG_Art37", "FIDLEG_Art72", "FIDLEG_Art142"]
-      frequency: "ANNUAL"
-    suspiciousPatterns: ["mev_arbitrage", "flash_loan_exploitation", "structuring", "unhosted_wallet", "rapid_exchange"]
-    gwg:
-      mrosReporting:
-        required: true
-        format: "XML"
-        deadlineHours: 24
-      transactionMonitoring:
-        required: true
-        frequency: "REAL_TIME"
-        threshold: "CHF_100k"
-      customerDueDiligence:
-        level: "ENHANCED"
-        triggerAmount: "CHF_100k"
----
-```
-
-## Related Risks
-
-- Market Manipulation Risk
-- MEV Exploitation Risk
-- Market Abuse Risk
-- Regulatory Compliance Risk
-
-## Related Measures
-
-- MEV Protection Systems
-- Market Monitoring Tools
-- Regulatory Reporting Automation
-- Market Integrity Protocols
-
-## Validation Criteria
-
-### Technical Validation
-- [ ] Real-time MEV detection operational
-- [ ] FINMA reporting mechanisms tested
-- [ ] Data retention compliant
-- [ ] Audit trail complete
-
-### Regulatory Validation
-- [ ] Market abuse reporting procedures established
-- [ ] External audit scheduled
-- [ ] FINMA notification protocols tested
-- [ ] Market integrity procedures ready
-
-### Business Validation
-- [ ] Cost-benefit analysis completed
-- [ ] Integration testing successful
-- [ ] Staff training completed
-- [ ] Documentation updated
+- Requires real-time blockchain data access
+- Should integrate with protocol-specific MEV detection tools
+- Consider protocol's MEV protection mechanisms in assessment

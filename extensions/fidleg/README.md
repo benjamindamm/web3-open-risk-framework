@@ -1,10 +1,10 @@
 # Swiss FIDLEG Extension
 
-This extension module provides Swiss FIDLEG (Financial Services Act) compliance capabilities for the Web3 Risk Framework.
+This extension provides a **DeFi Protocol Assessment Toolkit** for Swiss banks to evaluate and approve DeFi protocols (like Aave, Compound, Uniswap) for their customers. It implements FIDLEG (Swiss Financial Services Act) and GwG (Anti-Money Laundering Act) requirements for protocol risk assessment.
 
 ## Overview
 
-The FIDLEG Extension demonstrates how the Web3 Risk Framework can be extended for specific regulatory jurisdictions while maintaining its modular, extensible design. This approach allows other jurisdictions to add their own regulatory extensions without affecting the core framework.
+The FIDLEG Extension provides Swiss banks with a structured approach to evaluate DeFi protocols for customer access while maintaining regulatory compliance. This toolkit approach allows banks to assess protocol risks systematically and make informed decisions about offering DeFi services to their customers.
 
 ## Files
 
@@ -33,16 +33,32 @@ The FIDLEG Extension demonstrates how the Web3 Risk Framework can be extended fo
 
 ## Schema Extension
 
-The FIDLEG extension adds a `regulatoryExtensions.fidleg` object to risk, indicator, and measure schemas:
+The FIDLEG extension adds a `regulatoryExtensions.fidleg` object to risk, indicator, and measure schemas with advanced compliance features:
 
 ```json
 {
   "regulatoryExtensions": {
     "fidleg": {
-      "articleReference": "FIDLEG_Art24",
-      "regulatoryClassification": "CUSTOMER_PROTECTION",
-      "complianceRequirement": "MANDATORY",
-      "riskLevel": "HIGH"
+      "articleReference": "FIDLEG_Art142",
+      "indicatorType": "TRANSACTION_BASED",
+      "reportingThreshold": "CHF_100k",
+      "auditRequirement": {
+        "level": "REGULATORY",
+        "requiredFor": ["FIDLEG_Art37", "FIDLEG_Art142"],
+        "frequency": "ANNUAL"
+      },
+      "suspiciousPatterns": ["mev_arbitrage", "structuring", "unhosted_wallet"],
+      "gwg": {
+        "mrosReporting": {
+          "required": true,
+          "format": "XML",
+          "deadlineHours": 24
+        },
+        "customerDueDiligence": {
+          "level": "ENHANCED",
+          "triggerAmount": "CHF_100k"
+        }
+      }
     }
   }
 }
@@ -50,88 +66,35 @@ The FIDLEG extension adds a `regulatoryExtensions.fidleg` object to risk, indica
 
 ## FIDLEG Articles
 
-The extension supports 14 FIDLEG articles, prioritized by Web3 relevance:
+The extension covers **2 core FIDLEG articles** for DeFi protocol assessment:
 
-### Priority Articles (High Impact)
-- **FIDLEG_Art24**: Customer Classification
-- **FIDLEG_Art72**: Operational Risk Management
-- **FIDLEG_Art142**: Market Abuse
-- **FIDLEG_Art18_20**: Interest Conflicts
-
-### Extended Articles (Medium Impact)
-- **FIDLEG_Art8_10**: Client Protection
-- **FIDLEG_Art11_15**: Organizational Requirements
-- **FIDLEG_Art16_18**: Conduct Rules
-- **FIDLEG_Art19_21**: Risk Management
-- **FIDLEG_Art22_24**: Client Services
-- **FIDLEG_Art25_30**: Investment Services
-- **FIDLEG_Art31_35**: Order Execution
-- **FIDLEG_Art36_40**: Asset Protection
-- **FIDLEG_Art41_45**: Reporting
-- **FIDLEG_Art46_50**: Supervision
+### Core Articles (Essential for Protocol Assessment)
+- **FIDLEG_Art72**: Operational Risk Management - Smart contract security, admin key risks
+- **FIDLEG_Art142**: Market Abuse Prevention - MEV detection, wash trading, suspicious patterns
 
 ## Implementation
 
-### Risk Example
-```yaml
----
-id: R:CREDIT_DEFAULT
-title: Credit Default Risk
-category: FINANCIAL
-regulatoryExtensions:
-  fidleg:
-    articleReference: "FIDLEG_Art72"
-    regulatoryClassification: "RISK_MANAGEMENT"
-    complianceRequirement: "MANDATORY"
-    riskLevel: "HIGH"
----
-```
+See the implemented examples in the catalogue:
+- **Risk**: `catalogue/risks/R:MEV_EXPLOITATION.FIDLEG.md`
+- **Indicator**: `catalogue/indicators/I:MEV_DETECTION.FIDLEG.md`
+- **Measure**: `catalogue/measures/M:MEV_PROTECTION.FIDLEG.md`
 
-### Indicator Example
-```yaml
----
-id: I:COLLATERAL_RATIO
-title: Collateral Ratio Monitoring
-type: Indicator
-regulatoryExtensions:
-  fidleg:
-    articleReference: "FIDLEG_Art72"
-    measurementFrequency: "REAL_TIME"
-    regulatoryThreshold: "> 150%"
-    auditRequirement: "EXTERNAL_AUDIT"
----
-```
+## Advanced Features
 
-### Measure Example
-```yaml
----
-id: M:INCREASE_COLLATERAL
-title: Increase Collateral Requirements
-type: Measure
-regulatoryExtensions:
-  fidleg:
-    articleReference: "FIDLEG_Art72"
-    implementationDeadline: "2024-06-30"
-    auditFrequency: "QUARTERLY"
-    regulatoryRequirement: "MANDATORY"
----
-```
+- **Indicator Type Classification**: Automatic extension selection (TRANSACTION_BASED, PROTOCOL_METRIC, MARKET_SYSTEM)
+- **FINMA-Compliant Reporting**: XML format, 24h MROS deadlines, automated thresholds
+- **13 Suspicious Patterns**: MEV arbitrage, structuring, geographic risk, rapid exchange
+- **Automated Risk Scoring**: Customer classification with automatic risk assessment
+- **GwG Integration**: Complete anti-money laundering compliance with transaction monitoring
+- **Audit Requirements**: FIDLEG article-specific audit levels and frequencies
 
 ## Benefits
 
-- **Systematic Compliance**: Structured approach to Swiss regulatory requirements
-- **Risk Prioritization**: Clear risk levels and compliance requirements
-- **Audit Trail**: Comprehensive documentation for regulatory audits
+- **Protocol Assessment Toolkit**: Structured evaluation framework for DeFi protocols
+- **Swiss Regulatory Compliance**: FIDLEG/GwG requirements for bank protocol approval
+- **Automated Risk Scoring**: Customer classification with protocol risk assessment
+- **Real-world Examples**: MEV detection, market abuse prevention case studies
 - **Modular Design**: Non-intrusive extension to core framework
-
-## Future Extensions
-
-The modular design enables similar extensions for other jurisdictions:
-
-- **EU MiFID Extension**: European regulatory requirements
-- **US SEC Extension**: US securities regulations
-- **UK FCA Extension**: UK financial services regulations
-- **Singapore MAS Extension**: Singapore regulatory requirements
 
 ## Support
 

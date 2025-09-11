@@ -2,7 +2,9 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Web3 Risk Entry with FIDLEG Extension",
   "allOf": [
-    { "$ref": "../../schema/risk.schema.json" },
+    {
+      "$ref": "../../schema/risk.schema.json"
+    },
     {
       "properties": {
         "regulatoryExtensions": {
@@ -11,114 +13,57 @@
           "properties": {
             "fidleg": {
               "type": "object",
-              "description": "Swiss FIDLEG regulatory extension",
+              "description": "Swiss FIDLEG regulatory extension for DeFi protocol assessment",
               "properties": {
                 "articleReference": {
                   "type": "string",
                   "enum": [
-                    "FIDLEG_Art24",
                     "FIDLEG_Art72",
-                    "FIDLEG_Art142",
-                    "FIDLEG_Art18_20",
-                    "FIDLEG_Art37"
+                    "FIDLEG_Art142"
                   ],
-                  "description": "FIDLEG article reference for DeFi/Risk Analytics. See article-reference.md for detailed article descriptions."
+                  "description": "Core FIDLEG articles for DeFi protocol assessment: Art. 72 (Operational Risks), Art. 142 (Market Abuse)"
                 },
                 "regulatoryClassification": {
                   "type": "string",
                   "enum": [
-                    "CUSTOMER_PROTECTION",
-                    "RISK_MANAGEMENT",
-                    "MARKET_INTEGRITY",
-                    "CLIENT_PROTECTION",
-                    "ORGANIZATIONAL",
-                    "CONDUCT",
-                    "PRODUCT_MANAGEMENT",
-                    "COMPLIANCE",
-                    "CLIENT_SERVICES",
-                    "INVESTMENT_SERVICES",
-                    "ORDER_EXECUTION",
-                    "ASSET_PROTECTION",
-                    "REPORTING"
+                    "OPERATIONAL_RISK",
+                    "MARKET_RISK",
+                    "COMPLIANCE_RISK"
                   ],
-                  "description": "Swiss regulatory classification. See fidleg-fields-guide.md for classification definitions."
+                  "description": "Regulatory risk classification for protocol assessment"
                 },
                 "complianceRequirement": {
-                  "type": "object",
-                  "description": "Swiss compliance requirement details",
-                  "properties": {
-                    "level": {
-                      "type": "string",
-                      "enum": ["MANDATORY", "RECOMMENDED", "OPTIONAL"],
-                      "description": "Compliance requirement level. See compliance-requirement.md for level definitions."
-                    },
-                    "documentation": {
-                      "type": "object",
-                      "description": "Documentation requirements",
-                      "properties": {
-                        "frequency": {
-                          "type": "string",
-                          "enum": ["quarterly", "annual", "monthly", "on_demand"],
-                          "description": "Required documentation frequency. See compliance-requirement.md for frequency definitions."
-                        }
-                      },
-                      "required": ["frequency"]
-                    }
-                  },
-                  "required": ["level"]
+                  "type": "string",
+                  "enum": [
+                    "MANDATORY",
+                    "RECOMMENDED",
+                    "OPTIONAL"
+                  ],
+                  "description": "Compliance requirement level for banks"
                 },
                 "riskLevel": {
                   "type": "string",
-                  "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"],
-                  "description": "Swiss risk level classification. See risk-level.md for risk level definitions."
-                },
-                "applicability": {
-                  "type": "object",
-                  "description": "Risk applicability for different customer types",
-                  "properties": {
-                    "customerType": {
-                      "type": "string",
-                      "enum": ["retail", "professional", "both"],
-                      "description": "Applicable customer type. See customer-type.md for customer type definitions."
-                    }
-                  }
-                },
-                "customerClassification": {
-                  "type": "object",
-                  "description": "FIDLEG Art. 24 customer classification requirements",
-                  "properties": {
-                    "kycRequirement": {
-                      "type": "string",
-                      "enum": ["BASIC", "ENHANCED", "SIMPLIFIED"],
-                      "description": "KYC requirement level based on customer type"
-                    },
-                    "riskAssessment": {
-                      "type": "string",
-                      "enum": ["LOW", "MEDIUM", "HIGH"],
-                      "description": "Customer risk assessment level"
-                    },
-                    "monitoringFrequency": {
-                      "type": "string",
-                      "enum": ["CONTINUOUS", "DAILY", "WEEKLY", "MONTHLY"],
-                      "description": "Required monitoring frequency for customer type"
-                    },
-                    "sumsubIntegration": {
-                      "type": "boolean",
-                      "description": "Whether Sumsub integration is required for this customer type"
-                    }
-                  },
-                  "required": ["kycRequirement", "riskAssessment"]
+                  "enum": [
+                    "LOW",
+                    "MEDIUM",
+                    "HIGH",
+                    "CRITICAL"
+                  ],
+                  "description": "Protocol risk level for bank assessment"
                 }
               },
+              "required": [
+                "articleReference",
+                "regulatoryClassification",
+                "riskLevel"
+              ],
               "additionalProperties": false
             }
           },
-          "additionalProperties": {
-            "type": "object",
-            "description": "Additional regulatory extensions for other jurisdictions"
-          }
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     }
   ]
 }
