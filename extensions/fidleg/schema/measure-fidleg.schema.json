@@ -31,7 +31,7 @@
                     "FIDLEG_Art41_45",
                     "FIDLEG_Art46_50"
                   ],
-                  "description": "FIDLEG article reference"
+                  "description": "FIDLEG article reference. See article-reference.md for detailed article descriptions."
                 },
                 "implementationDeadline": {
                   "type": "string",
@@ -41,12 +41,71 @@
                 "auditFrequency": {
                   "type": "string",
                   "enum": ["CONTINUOUS", "DAILY", "WEEKLY", "MONTHLY", "QUARTERLY", "SEMI_ANNUAL", "ANNUAL"],
-                  "description": "Required audit frequency for Swiss compliance"
+                  "description": "Required audit frequency for Swiss compliance. See fidleg-fields-guide.md for audit frequency definitions."
                 },
                 "regulatoryRequirement": {
                   "type": "string",
                   "enum": ["MANDATORY", "RECOMMENDED", "OPTIONAL"],
-                  "description": "Swiss regulatory compliance requirement level"
+                  "description": "Swiss regulatory compliance requirement level. See compliance-requirement.md for level definitions."
+                },
+                "mitigationType": {
+                  "type": "string",
+                  "enum": ["TECHNICAL", "ORGANIZATIONAL", "PROCEDURAL", "INSURANCE"],
+                  "description": "Type of mitigation measure for Swiss compliance. See fidleg-fields-guide.md for mitigation type definitions."
+                },
+                "verification": {
+                  "type": "object",
+                  "description": "Verification requirements for Swiss compliance",
+                  "properties": {
+                    "method": {
+                      "type": "string",
+                      "enum": ["automated", "manual_review", "audit", "external_validation"],
+                      "description": "Verification method required. See fidleg-fields-guide.md for verification method definitions."
+                    },
+                    "frequency": {
+                      "type": "string",
+                      "enum": ["continuous", "daily", "weekly", "monthly", "quarterly", "annual"],
+                      "description": "Verification frequency. See fidleg-fields-guide.md for verification frequency definitions."
+                    },
+                    "documentation": {
+                      "type": "string",
+                      "enum": ["PDF", "digital_signature", "blockchain_proof", "audit_trail"],
+                      "description": "Required documentation format. See fidleg-fields-guide.md for documentation format definitions."
+                    }
+                  },
+                  "required": ["method", "frequency"]
+                },
+                "assetProtection": {
+                  "type": "object",
+                  "description": "Asset protection measures for Swiss compliance",
+                  "properties": {
+                    "segregation": {
+                      "type": "string",
+                      "enum": ["MULTI_SIG", "COLD_STORAGE", "CUSTODIAL", "INSURED"],
+                      "description": "Asset segregation method. See fidleg-fields-guide.md for segregation method definitions."
+                    },
+                    "custody": {
+                      "type": "string",
+                      "enum": ["SELF_CUSTODY", "THIRD_PARTY", "INSTITUTIONAL", "HYBRID"],
+                      "description": "Custody arrangement. See fidleg-fields-guide.md for custody arrangement definitions."
+                    }
+                  }
+                },
+                "insurance": {
+                  "type": "object",
+                  "description": "Insurance requirements for Swiss compliance",
+                  "properties": {
+                    "coverage": {
+                      "type": "string",
+                      "enum": ["SWISS_COVER_500k", "SWISS_COVER_1M", "SWISS_COVER_5M", "CUSTOM"],
+                      "description": "Required insurance coverage level. See fidleg-fields-guide.md for coverage level definitions."
+                    },
+                    "provider": {
+                      "type": "string",
+                      "enum": ["SWISS_RE", "SWISS_INSURANCE", "INTERNATIONAL", "SPECIALIZED"],
+                      "description": "Insurance provider type. See fidleg-fields-guide.md for provider type definitions."
+                    }
+                  }
                 }
               },
               "additionalProperties": false

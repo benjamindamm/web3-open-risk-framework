@@ -31,7 +31,7 @@
                     "FIDLEG_Art41_45",
                     "FIDLEG_Art46_50"
                   ],
-                  "description": "FIDLEG article reference"
+                  "description": "FIDLEG article reference. See article-reference.md for detailed article descriptions."
                 },
                 "regulatoryClassification": {
                   "type": "string",
@@ -50,17 +50,47 @@
                     "ASSET_PROTECTION",
                     "REPORTING"
                   ],
-                  "description": "Swiss regulatory classification"
+                  "description": "Swiss regulatory classification. See fidleg-fields-guide.md for classification definitions."
                 },
                 "complianceRequirement": {
-                  "type": "string",
-                  "enum": ["MANDATORY", "RECOMMENDED", "OPTIONAL"],
-                  "description": "Swiss compliance requirement level"
+                  "type": "object",
+                  "description": "Swiss compliance requirement details",
+                  "properties": {
+                    "level": {
+                      "type": "string",
+                      "enum": ["MANDATORY", "RECOMMENDED", "OPTIONAL"],
+                      "description": "Compliance requirement level. See compliance-requirement.md for level definitions."
+                    },
+                    "documentation": {
+                      "type": "object",
+                      "description": "Documentation requirements",
+                      "properties": {
+                        "frequency": {
+                          "type": "string",
+                          "enum": ["quarterly", "annual", "monthly", "on_demand"],
+                          "description": "Required documentation frequency. See compliance-requirement.md for frequency definitions."
+                        }
+                      },
+                      "required": ["frequency"]
+                    }
+                  },
+                  "required": ["level"]
                 },
                 "riskLevel": {
                   "type": "string",
                   "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"],
-                  "description": "Swiss risk level classification"
+                  "description": "Swiss risk level classification. See risk-level.md for risk level definitions."
+                },
+                "applicability": {
+                  "type": "object",
+                  "description": "Risk applicability for different customer types",
+                  "properties": {
+                    "customerType": {
+                      "type": "string",
+                      "enum": ["retail", "professional", "both"],
+                      "description": "Applicable customer type. See customer-type.md for customer type definitions."
+                    }
+                  }
                 }
               },
               "additionalProperties": false

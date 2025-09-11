@@ -1,0 +1,259 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FINMA Compliance Report Schema",
+  "description": "Schema for automated FINMA compliance reporting within the FIDLEG extension",
+  "type": "object",
+  "properties": {
+    "reportHeader": {
+      "type": "object",
+      "description": "Report header information",
+      "properties": {
+        "reportingPeriod": {
+          "type": "string",
+          "description": "Reporting period (e.g., 'Q2/2024')"
+        },
+        "generatedDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Report generation date"
+        },
+        "companyName": {
+          "type": "string",
+          "description": "Company name"
+        },
+        "finmaLicense": {
+          "type": "string",
+          "description": "FINMA license number"
+        },
+        "reportVersion": {
+          "type": "string",
+          "description": "Report version"
+        }
+      },
+      "required": ["reportingPeriod", "generatedDate", "companyName", "finmaLicense"]
+    },
+    "executiveSummary": {
+      "type": "object",
+      "description": "Executive summary metrics",
+      "properties": {
+        "mandatoryRisks": {
+          "type": "object",
+          "properties": {
+            "total": { "type": "integer" },
+            "compliant": { "type": "integer" },
+            "pending": { "type": "integer" }
+          }
+        },
+        "auditMeasures": {
+          "type": "object",
+          "properties": {
+            "total": { "type": "integer" },
+            "completed": { "type": "integer" },
+            "inProgress": { "type": "integer" }
+          }
+        },
+        "mrosReports": {
+          "type": "object",
+          "properties": {
+            "filed": { "type": "integer" },
+            "resolved": { "type": "integer" },
+            "underInvestigation": { "type": "integer" }
+          }
+        },
+        "overallComplianceScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Overall compliance score percentage"
+        }
+      }
+    },
+    "mandatoryRisks": {
+      "type": "array",
+      "description": "List of mandatory risks with compliance status",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "fidlegArticle": { "type": "string" },
+          "documentation": { "type": "string" },
+          "responsible": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["COMPLIANT", "PENDING", "NON_COMPLIANT"]
+          },
+          "lastUpdate": { "type": "string", "format": "date" },
+          "complianceLevel": {
+            "type": "string",
+            "enum": ["MANDATORY", "RECOMMENDED", "OPTIONAL"]
+          }
+        },
+        "required": ["id", "title", "fidlegArticle", "status"]
+      }
+    },
+    "auditMeasures": {
+      "type": "array",
+      "description": "List of external audit measures",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "implementation": {
+            "type": "string",
+            "enum": ["COMPLETED", "IN_PROGRESS", "NOT_STARTED"]
+          },
+          "auditFrequency": {
+            "type": "string",
+            "enum": ["CONTINUOUS", "DAILY", "WEEKLY", "MONTHLY", "QUARTERLY", "SEMI_ANNUAL", "ANNUAL"]
+          },
+          "lastAudit": { "type": "string", "format": "date" },
+          "complianceScore": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "mitigationType": {
+            "type": "string",
+            "enum": ["TECHNICAL", "ORGANIZATIONAL", "PROCEDURAL", "INSURANCE"]
+          }
+        },
+        "required": ["id", "title", "implementation", "auditFrequency"]
+      }
+    },
+    "mrosReports": {
+      "type": "object",
+      "description": "MROS reporting summary",
+      "properties": {
+        "summary": {
+          "type": "object",
+          "properties": {
+            "totalFiled": { "type": "integer" },
+            "resolved": { "type": "integer" },
+            "underInvestigation": { "type": "integer" },
+            "averageResolutionTime": { "type": "integer", "description": "Days" }
+          }
+        },
+        "reports": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "reportId": { "type": "string" },
+              "type": {
+                "type": "string",
+                "enum": ["LARGE_TRANSACTION", "SUSPICIOUS_PATTERN", "OTHER"]
+              },
+              "amount": { "type": "number" },
+              "date": { "type": "string", "format": "date" },
+              "status": {
+                "type": "string",
+                "enum": ["RESOLVED", "UNDER_INVESTIGATION", "PENDING"]
+              },
+              "resolutionDate": { "type": "string", "format": "date" }
+            },
+            "required": ["reportId", "type", "date", "status"]
+          }
+        }
+      }
+    },
+    "complianceMonitoring": {
+      "type": "object",
+      "description": "Compliance monitoring status",
+      "properties": {
+        "indicators": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "title": { "type": "string" },
+              "status": {
+                "type": "string",
+                "enum": ["ACTIVE", "INACTIVE", "MAINTENANCE"]
+              },
+              "threshold": { "type": "string" },
+              "lastAlert": { "type": "string", "format": "date" }
+            }
+          }
+        },
+        "systemPerformance": {
+          "type": "object",
+          "properties": {
+            "uptime": { "type": "number", "minimum": 0, "maximum": 100 },
+            "alertResponseTime": { "type": "number", "description": "Minutes" },
+            "dataQuality": { "type": "number", "minimum": 0, "maximum": 100 },
+            "falsePositiveRate": { "type": "number", "minimum": 0, "maximum": 100 }
+          }
+        }
+      }
+    },
+    "actionItems": {
+      "type": "object",
+      "description": "Action items and upcoming deadlines",
+      "properties": {
+        "immediate": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "description": { "type": "string" },
+              "dueDate": { "type": "string", "format": "date" },
+              "priority": {
+                "type": "string",
+                "enum": ["HIGH", "MEDIUM", "LOW"]
+              }
+            }
+          }
+        },
+        "upcoming": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": { "type": "string" },
+              "dueDate": { "type": "string", "format": "date" },
+              "type": {
+                "type": "string",
+                "enum": ["REPORT", "AUDIT", "RENEWAL", "OTHER"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "regulatoryChanges": {
+      "type": "object",
+      "description": "New regulatory requirements and implementation status",
+      "properties": {
+        "newRequirements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": { "type": "string" },
+              "effectiveDate": { "type": "string", "format": "date" },
+              "implementationStatus": {
+                "type": "string",
+                "enum": ["IMPLEMENTED", "IN_PROGRESS", "NOT_STARTED"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "description": "Report validation information",
+      "properties": {
+        "dataValidation": { "type": "boolean" },
+        "formatCompliance": { "type": "boolean" },
+        "regulatoryReview": { "type": "boolean" },
+        "digitalSignature": { "type": "boolean" }
+      }
+    }
+  },
+  "required": ["reportHeader", "executiveSummary", "mandatoryRisks", "auditMeasures", "mrosReports"]
+}

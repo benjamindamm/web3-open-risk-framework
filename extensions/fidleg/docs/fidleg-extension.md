@@ -128,20 +128,96 @@ The FIDLEG Extension Module demonstrates how the Web3 Risk Framework can be exte
 
 ## Compliance Requirements
 
-### MANDATORY
+### Compliance Levels
+
+#### MANDATORY
 - **Definition**: Required by Swiss law for all financial services
 - **Examples**: Customer classification, operational risk management
 - **Implementation**: Must be implemented for Swiss market access
 
-### RECOMMENDED
+#### RECOMMENDED
 - **Definition**: Best practice recommendations from FINMA
 - **Examples**: Advanced risk monitoring, enhanced client protection
 - **Implementation**: Recommended for competitive advantage
 
-### OPTIONAL
+#### OPTIONAL
 - **Definition**: Voluntary compliance measures
 - **Examples**: Additional reporting, enhanced transparency
 - **Implementation**: Optional for differentiation
+
+### Documentation Requirements
+
+- **quarterly**: Required quarterly reporting to FINMA
+- **annual**: Annual compliance documentation
+- **monthly**: Monthly risk monitoring reports
+- **on_demand**: Documentation as required by regulator
+
+### Customer Type Applicability
+
+- **retail**: Applies to retail clients only
+- **professional**: Applies to professional clients only
+- **both**: Applies to all client types
+
+## GwG (Anti-Money Laundering Act) Integration
+
+### MROS Reporting Requirements
+
+The FIDLEG extension integrates with Swiss GwG (Anti-Money Laundering Act) requirements:
+
+- **MROS Reporting**: Automatic reporting to Money Laundering Reporting Office Switzerland
+- **Transaction Monitoring**: Continuous monitoring of suspicious patterns
+- **Customer Due Diligence**: Enhanced verification for high-risk customers
+
+### Suspicious Pattern Detection
+
+- **mev_arbitrage**: MEV extraction patterns requiring market abuse reporting
+- **wash_trading**: Artificial trading volume manipulation
+- **rapid_funds_movement**: Multiple large transactions in short time periods
+- **unusual_timing**: Transactions outside normal business hours
+- **concentrated_activity**: Unusual concentration of trading activity
+- **cross_chain_arbitrage**: Cross-blockchain arbitrage patterns
+- **flash_loan_exploitation**: Flash loan attack patterns
+- **governance_manipulation**: Governance token manipulation attempts
+
+For detailed explanations of these patterns, see [suspicious-patterns.md](./suspicious-patterns.md).
+
+### Reporting Thresholds
+
+- **CHF_100k**: Automatic MROS reporting for retail transactions
+- **CHF_250k**: Enhanced monitoring for professional clients
+- **CHF_500k**: Critical threshold requiring immediate reporting
+
+## Measure Compliance Requirements
+
+### Mitigation Types
+
+The FIDLEG extension defines different types of mitigation measures:
+
+- **TECHNICAL**: Technical implementations (multi-signature, HSMs, monitoring systems)
+- **ORGANIZATIONAL**: Organizational measures (training, procedures, governance)
+- **PROCEDURAL**: Process-based measures (documentation, workflows, controls)
+- **INSURANCE**: Risk transfer through insurance coverage
+
+### Verification Methods
+
+- **automated**: Automated system verification
+- **manual_review**: Human review and validation
+- **audit**: External audit validation
+- **external_validation**: Third-party validation
+
+### Asset Protection
+
+- **MULTI_SIG**: Multi-signature protection
+- **COLD_STORAGE**: Cold storage solutions
+- **CUSTODIAL**: Third-party custodial services
+- **INSURED**: Insurance-backed protection
+
+### Insurance Coverage
+
+- **SWISS_COVER_500k**: Minimum CHF 500k coverage
+- **SWISS_COVER_1M**: CHF 1M coverage level
+- **SWISS_COVER_5M**: CHF 5M coverage level
+- **CUSTOM**: Custom coverage arrangements
 
 ## Risk Level Classifications
 
@@ -199,12 +275,18 @@ objectives:
   - type: "Capital Preservation"
     direction: "DECREASE"
     goal: "DECREASE"
+extensions: ["fidleg"]
 regulatoryExtensions:
   fidleg:
     articleReference: "FIDLEG_Art72"
     regulatoryClassification: "RISK_MANAGEMENT"
-    complianceRequirement: "MANDATORY"
+    complianceRequirement:
+      level: "MANDATORY"
+      documentation:
+        frequency: "quarterly"
     riskLevel: "HIGH"
+    applicability:
+      customerType: "both"
 ---
 ```
 
@@ -217,12 +299,19 @@ title: Collateral Ratio Monitoring
 type: Indicator
 version: 1.0
 lastUpdate: "2024-01-15"
+extensions: ["fidleg"]
 regulatoryExtensions:
   fidleg:
     articleReference: "FIDLEG_Art72"
     measurementFrequency: "REAL_TIME"
     regulatoryThreshold: "> 150%"
     auditRequirement: "EXTERNAL_AUDIT"
+    reportingThreshold: "CHF_100k"
+    suspiciousPatterns: ["rapid_funds_movement"]
+    gwg:
+      mrosReporting: true
+      transactionMonitoring: true
+      customerDueDiligence: false
 ---
 ```
 
@@ -240,12 +329,21 @@ riskReductionScope:
   severity: true
   likelihood: true
   persistence: false
+extensions: ["fidleg"]
 regulatoryExtensions:
   fidleg:
     articleReference: "FIDLEG_Art72"
     implementationDeadline: "2024-06-30"
     auditFrequency: "QUARTERLY"
     regulatoryRequirement: "MANDATORY"
+    mitigationType: "TECHNICAL"
+    verification:
+      method: "audit"
+      frequency: "quarterly"
+      documentation: "audit_trail"
+    assetProtection:
+      segregation: "MULTI_SIG"
+      custody: "SELF_CUSTODY"
 ---
 ```
 

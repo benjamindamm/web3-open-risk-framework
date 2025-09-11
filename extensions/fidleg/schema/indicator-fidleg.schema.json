@@ -31,12 +31,12 @@
                     "FIDLEG_Art41_45",
                     "FIDLEG_Art46_50"
                   ],
-                  "description": "FIDLEG article reference"
+                  "description": "FIDLEG article reference. See article-reference.md for detailed article descriptions."
                 },
                 "measurementFrequency": {
                   "type": "string",
                   "enum": ["REAL_TIME", "DAILY", "WEEKLY", "MONTHLY", "QUARTERLY", "ANNUAL"],
-                  "description": "Required measurement frequency for Swiss regulatory reporting"
+                  "description": "Required measurement frequency for Swiss regulatory reporting. See fidleg-fields-guide.md for frequency definitions."
                 },
                 "regulatoryThreshold": {
                   "type": "string",
@@ -45,7 +45,46 @@
                 "auditRequirement": {
                   "type": "string",
                   "enum": ["INTERNAL_AUDIT", "EXTERNAL_AUDIT", "REGULATORY_AUDIT", "NO_AUDIT"],
-                  "description": "Required audit level for Swiss compliance"
+                  "description": "Required audit level for Swiss compliance. See fidleg-fields-guide.md for audit level definitions."
+                },
+                "reportingThreshold": {
+                  "type": "string",
+                  "description": "Threshold for regulatory reporting (e.g., 'CHF_100k' for retail transactions)"
+                },
+                "suspiciousPatterns": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "mev_arbitrage",
+                      "wash_trading",
+                      "rapid_funds_movement",
+                      "unusual_timing",
+                      "concentrated_activity",
+                      "cross_chain_arbitrage",
+                      "flash_loan_exploitation",
+                      "governance_manipulation"
+                    ]
+                  },
+                  "description": "Suspicious trading patterns to monitor. See suspicious-patterns.md for detailed explanations and thresholds."
+                },
+                "gwg": {
+                  "type": "object",
+                  "description": "Swiss Anti-Money Laundering Act (GwG) specific requirements",
+                  "properties": {
+                    "mrosReporting": {
+                      "type": "boolean",
+                      "description": "Whether MROS (Money Laundering Reporting Office Switzerland) reporting is required"
+                    },
+                    "transactionMonitoring": {
+                      "type": "boolean",
+                      "description": "Whether continuous transaction monitoring is required"
+                    },
+                    "customerDueDiligence": {
+                      "type": "boolean",
+                      "description": "Whether enhanced customer due diligence is triggered"
+                    }
+                  }
                 }
               },
               "additionalProperties": false
