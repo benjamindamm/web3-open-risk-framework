@@ -1,4 +1,4 @@
----
+```yaml
 id: I:MEV_DETECTION.FIDLEG
 title: "MEV Arbitrage Detection (GwG/FIDLEG Compliant)"
 description: "Detection of MEV (Maximal Extractable Value) arbitrage patterns and suspicious trading activities requiring FINMA reporting under Swiss market abuse prevention"
@@ -17,7 +17,7 @@ regulatoryExtensions:
       mrosReporting: true
       transactionMonitoring: true
       customerDueDiligence: false
----
+```
 
 # MEV Arbitrage Detection (GwG/FIDLEG Compliant)
 

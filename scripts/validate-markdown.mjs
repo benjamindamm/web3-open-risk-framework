@@ -49,22 +49,27 @@ function findFiles(dir, regex) {
 }
 
 function extractYamlBlock(content) {
-  // First try to extract YAML frontmatter (--- at the beginning)
+  // Extract YAML from ```yaml code blocks (preferred format)
+  const yamlMatch = content.match(/```yaml\s*([\s\S]*?)\s*```/);
+  if (yamlMatch) {
+    return yamlMatch[1];
+  }
+  
+  // Fallback to YAML frontmatter (legacy support)
   const frontmatterMatch = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n/);
   if (frontmatterMatch) {
+    console.warn('⚠️  Using legacy frontmatter format (---). Please convert to ```yaml blocks.');
     return frontmatterMatch[1];
   }
   
-  // Fallback to YAML code blocks
-  const match = content.match(/```yaml\s*([\s\S]*?)\s*```/);
-  return match ? match[1] : null;
+  return null;
 }
 
 function validateFile(filePath, schemaPath, ajv) {
   const content = fs.readFileSync(filePath, 'utf8');
   const yamlBlock = extractYamlBlock(content);
   if (!yamlBlock) {
-    return { valid: false, error: 'Missing or invalid YAML frontmatter.' };
+    return { valid: false, error: 'Missing or invalid YAML block. Expected ```yaml ... ``` format.' };
   }
   let data;
   try {
@@ -91,6 +96,10 @@ function validateFile(filePath, schemaPath, ajv) {
 }
 
 async function main() {
+  console.log('🔍 Validating Markdown files with YAML metadata...');
+  console.log('📝 Expected format: ```yaml ... ``` blocks (preferred) or --- frontmatter (legacy)');
+  console.log('');
+  
   let total = 0, valid = 0, invalid = 0;
   for (const type of fileTypes) {
     const dir = path.join(baseDir, type.name.toLowerCase() + 's');
