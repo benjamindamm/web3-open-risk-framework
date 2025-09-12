@@ -1,209 +1,90 @@
 # FIDLEG Risk Classification Guide
 
-This guide provides a systematic approach to classifying existing Web3 risks according to Swiss FIDLEG requirements.
+This guide provides a systematic approach to classifying DeFi protocol risks according to Swiss FIDLEG requirements for bank evaluation.
 
-## Classification Framework
+## Core FIDLEG Article Mapping
 
-### FIDLEG Article Mapping
+| FIDLEG Article | Risk Category | Bank Impact | Documentation Frequency |
+|----------------|---------------|-------------|------------------------|
+| **Art. 72** | Operational Risk Management | Protocol Security | Quarterly |
+| **Art. 142** | Market Abuse Prevention | Market Integrity | Monthly |
 
-| FIDLEG Article | Risk Category | Compliance Level | Documentation Frequency |
-|----------------|---------------|------------------|------------------------|
-| **Art. 24** | Customer Classification | MANDATORY | Annual |
-| **Art. 72** | Operational Risk Management | MANDATORY | Quarterly |
-| **Art. 142** | Market Abuse Prevention | MANDATORY | Monthly |
-| **Art. 18-20** | Conflict of Interest | MANDATORY | Quarterly |
+## Risk Classification Framework
 
-## Risk Classifications
+### FIDLEG Art. 72 - Operational Risk Management
 
-### 1. Administrative Key Risks → FIDLEG Art. 72
+**Focus**: Smart contract security, admin key risks, technical vulnerabilities
 
-**Risk Examples:**
+**Risk Examples**:
+- Smart contract vulnerabilities
 - Admin key compromise
-- Multi-signature failures
 - Protocol governance attacks
-- Smart contract upgrade risks
+- Emergency response failures
 
-**Classification:**
+**Classification Template**:
 ```yaml
-extensions: ["fidleg"]
 regulatoryExtensions:
   fidleg:
     articleReference: "FIDLEG_Art72"
-    regulatoryClassification: "RISK_MANAGEMENT"
-    complianceRequirement:
-      level: "MANDATORY"
-      documentation:
-        frequency: "quarterly"
-    riskLevel: "CRITICAL"
-    applicability:
-      customerType: "both"
-```
-
-### 2. KYC/AML Risks → FIDLEG Art. 24
-
-**Risk Examples:**
-- KYC process failures
-- AML compliance gaps
-- Customer identification errors
-- Sanctions screening failures
-
-**Classification:**
-```yaml
-extensions: ["fidleg"]
-regulatoryExtensions:
-  fidleg:
-    articleReference: "FIDLEG_Art24"
-    regulatoryClassification: "CUSTOMER_PROTECTION"
-    complianceRequirement:
-      level: "MANDATORY"
-      documentation:
-        frequency: "annual"
+    regulatoryClassification: "OPERATIONAL_RISK"
+    complianceRequirement: "MANDATORY"
     riskLevel: "HIGH"
-    applicability:
-      customerType: "retail"
 ```
 
-### 3. Market Manipulation Risks → FIDLEG Art. 142
+### FIDLEG Art. 142 - Market Abuse Prevention
 
-**Risk Examples:**
+**Focus**: MEV detection, wash trading, suspicious patterns
+
+**Risk Examples**:
 - MEV exploitation
 - Wash trading
-- Price manipulation
-- Front-running attacks
+- Market manipulation
+- Suspicious transaction patterns
 
-**Classification:**
+**Classification Template**:
 ```yaml
-extensions: ["fidleg"]
 regulatoryExtensions:
   fidleg:
     articleReference: "FIDLEG_Art142"
-    regulatoryClassification: "MARKET_INTEGRITY"
-    complianceRequirement:
-      level: "MANDATORY"
-      documentation:
-        frequency: "monthly"
-    riskLevel: "CRITICAL"
-    applicability:
-      customerType: "both"
-```
-
-### 4. Conflict of Interest Risks → FIDLEG Art. 18-20
-
-**Risk Examples:**
-- Insider trading
-- Self-dealing
-- Information asymmetry
-- Principal-agent conflicts
-
-**Classification:**
-```yaml
-extensions: ["fidleg"]
-regulatoryExtensions:
-  fidleg:
-    articleReference: "FIDLEG_Art18_20"
-    regulatoryClassification: "CONDUCT"
-    complianceRequirement:
-      level: "MANDATORY"
-      documentation:
-        frequency: "quarterly"
+    regulatoryClassification: "MARKET_RISK"
+    complianceRequirement: "MANDATORY"
     riskLevel: "HIGH"
-    applicability:
-      customerType: "both"
 ```
 
-## Implementation Strategy
+## Bank Decision Framework
 
-### Phase 1: Critical Risks (Immediate)
-- Administrative key risks
-- Market manipulation risks
-- Client asset protection risks
+### Risk Level to Bank Recommendation Mapping
 
-### Phase 2: High Priority Risks (Q1)
-- KYC/AML compliance risks
-- Conflict of interest risks
-- Operational risk management
+| Risk Level | Compliance Status | Bank Recommendation | Customer Access |
+|------------|------------------|-------------------|-----------------|
+| **LOW** | COMPLIANT | APPROVE | RETAIL_FULL |
+| **MEDIUM** | COMPLIANT | APPROVE_WITH_LIMITS | RETAIL_LIMITED |
+| **HIGH** | REQUIRES_MONITORING | MONITOR_ONLY | PROFESSIONAL_ONLY |
+| **CRITICAL** | NON_COMPLIANT | REJECT | NO_ACCESS |
 
-### Phase 3: Standard Risks (Q2-Q3)
-- Technical infrastructure risks
-- Governance risks
-- Reporting compliance risks
+### Compliance Requirement Levels
 
-## Risk Level Guidelines
+| Requirement | Description | Bank Action |
+|-------------|-------------|-------------|
+| **MANDATORY** | Critical for FIDLEG compliance | Must address before approval |
+| **RECOMMENDED** | Best practice for risk management | Should address for full approval |
+| **OPTIONAL** | Nice to have for enhanced security | May address for premium access |
 
-### CRITICAL
-- Immediate threat to client assets
-- Market integrity violations
-- Regulatory enforcement actions
-- **Examples**: Admin key compromise, market manipulation
+## Classification Process
 
-### HIGH
-- Significant client protection impact
-- Operational risk management failures
-- Compliance violations
-- **Examples**: KYC failures, conflict of interest
-
-### MEDIUM
-- Moderate impact on operations
-- Best practice recommendations
-- **Examples**: Technical monitoring gaps
-
-### LOW
-- Minimal regulatory impact
-- Optional compliance measures
-- **Examples**: Enhanced reporting features
-
-## Customer Type Applicability
-
-### Retail Clients
-- Higher protection requirements
-- Simplified risk communication
-- Enhanced documentation
-- **Examples**: KYC/AML, client protection
-
-### Professional Clients
-- Sophisticated risk management
-- Advanced monitoring capabilities
-- **Examples**: Market manipulation, operational risks
-
-### Both
-- Universal applicability
-- Standard risk management
-- **Examples**: Admin key risks, market integrity
+1. **Identify Risk Type**: Operational vs Market Risk
+2. **Map to FIDLEG Article**: Art. 72 or Art. 142
+3. **Assess Compliance Level**: MANDATORY, RECOMMENDED, OPTIONAL
+4. **Determine Risk Level**: LOW, MEDIUM, HIGH, CRITICAL
+5. **Set Bank Recommendation**: Based on risk level and compliance status
 
 ## Documentation Requirements
 
-### Quarterly Reporting
-- Operational risk management
-- Conflict of interest monitoring
-- **FIDLEG Articles**: 72, 18-20
+- **Risk Documentation**: Use `risk.fidleg.md` template
+- **Indicator Documentation**: Use `indicator.fidleg.md` template
+- **Assessment Documentation**: Use `assessment.fidleg.md` template
+- **Naming Convention**: Follow `naming-convention.md`
 
-### Monthly Reporting
-- Market manipulation monitoring
-- Real-time risk assessment
-- **FIDLEG Articles**: 142
+---
 
-### Annual Reporting
-- Customer classification review
-- Compliance program assessment
-- **FIDLEG Articles**: 24
-
-### On-Demand Reporting
-- Incident response
-- Regulatory inquiries
-- **FIDLEG Articles**: All
-
-## Validation Checklist
-
-### Before Implementation
-- [ ] Risk identified and categorized
-- [ ] Appropriate FIDLEG article selected
-- [ ] Compliance level determined
-- [ ] Documentation frequency set
-- [ ] Customer type applicability defined
-
-### After Implementation
-- [ ] Schema validation passed
-- [ ] Documentation requirements met
-- [ ] Regulatory reporting scheduled
-- [ ] Monitoring systems activated
-- [ ] Audit trail established
+*This guide provides Swiss banks with a systematic approach to classify DeFi protocol risks according to FIDLEG Art. 72 and Art. 142 requirements.*

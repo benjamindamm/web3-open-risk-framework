@@ -6,21 +6,18 @@ This extension provides a **DeFi Protocol Assessment Toolkit** for Swiss banks t
 
 The FIDLEG Extension provides Swiss banks with a structured approach to evaluate DeFi protocols for customer access while maintaining regulatory compliance. This toolkit approach allows banks to assess protocol risks systematically and make informed decisions about offering DeFi services to their customers.
 
-## Files
+## Documentation
 
+### Core Framework Documentation
+- **[docs/risk.fidleg.md](./docs/risk.fidleg.md)** - **FIDLEG risk documentation guide**
+- **[docs/indicator.fidleg.md](./docs/indicator.fidleg.md)** - **FIDLEG indicator documentation guide**
+- **[docs/assessment.fidleg.md](./docs/assessment.fidleg.md)** - **FIDLEG assessment documentation guide**
+
+### FIDLEG Extension Documentation
 - **[docs/fidleg-extension.md](./docs/fidleg-extension.md)** - Complete documentation of the FIDLEG extension module
-- **[docs/fidleg-scopes.md](./docs/fidleg-scopes.md)** - Swiss FIDLEG-specific scopes documentation
 - **[docs/risk-classification-guide.md](./docs/risk-classification-guide.md)** - Risk classification guide
-- **[docs/finma-reporting-template.md](./docs/finma-reporting-template.md)** - Automated FINMA compliance reporting
-- **[docs/example-finma-report-q2-2024.md](./docs/example-finma-report-q2-2024.md)** - Example FINMA report
 - **[docs/naming-convention.md](./docs/naming-convention.md)** - FIDLEG file naming convention
-- **[docs/suspicious-patterns.md](./docs/suspicious-patterns.md)** - Suspicious trading patterns documentation
-- **[docs/fidleg-fields-guide.md](./docs/fidleg-fields-guide.md)** - Guide to all FIDLEG fields
-- **[docs/article-reference.md](./docs/article-reference.md)** - FIDLEG article reference guide
-- **[docs/compliance-requirement.md](./docs/compliance-requirement.md)** - Compliance requirement levels
-- **[docs/risk-level.md](./docs/risk-level.md)** - Risk level classifications
-- **[docs/customer-type.md](./docs/customer-type.md)** - Customer type definitions
-- **[docs/suspicious-patterns.md](./docs/suspicious-patterns.md)** - Suspicious pattern monitoring
+- **[docs/fidleg-scopes.md](./docs/fidleg-scopes.md)** - Swiss FIDLEG-specific scopes documentation
 - **[schema/](./schema/)** - Extended JSON schemas with FIDLEG fields
 - **[README.md](./README.md)** - This file
 

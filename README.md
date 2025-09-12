@@ -80,6 +80,7 @@ This repository is organized by function. The core framework documentation is lo
 - **New to the framework?** Start with [`docs/philosophy.md`](./docs/philosophy.md) and [`docs/terminology.md`](./docs/terminology.md)
 - **Looking for templates?** See [`docs/risk.md`](./docs/risk.md), [`docs/indicator.md`](./docs/indicator.md), and [`docs/measure.md`](./docs/measure.md)
 - **Need assessment guidance?** Check [`docs/assessment.md`](./docs/assessment.md)
+- **Swiss banks evaluating DeFi protocols?** Use FIDLEG-specific guides: [`extensions/fidleg/docs/risk.fidleg.md`](./extensions/fidleg/docs/risk.fidleg.md), [`extensions/fidleg/docs/indicator.fidleg.md`](./extensions/fidleg/docs/indicator.fidleg.md), [`extensions/fidleg/docs/assessment.fidleg.md`](./extensions/fidleg/docs/assessment.fidleg.md)
 - **Regulatory extensions?** Start with [`extensions/fidleg/`](./extensions/fidleg/) for Swiss FIDLEG compliance
 
 ### 📋 Complete File Overview
@@ -97,6 +98,9 @@ This repository is organized by function. The core framework documentation is lo
 | [`docs/assessment.md`](./docs/assessment.md)        | Outlines how to assess risks using methods (either qualitatively or supported by quantitative indicators) and using Likelihood and Financial Impact |
 | [`docs/philosophy.md`](./docs/philosophy.md)        | Describes the **methodology**, **principles**, and external **influences** behind this framework |
 | [`docs/terminology.md`](./docs/terminology.md)      | Defines key terms and concepts used throughout the framework for consistent understanding and usage |
+| [`extensions/fidleg/docs/risk.fidleg.md`](./extensions/fidleg/docs/risk.fidleg.md)      | **FIDLEG-specific** risk documentation guide for Swiss banks evaluating DeFi protocols |
+| [`extensions/fidleg/docs/indicator.fidleg.md`](./extensions/fidleg/docs/indicator.fidleg.md) | **FIDLEG-specific** indicator documentation guide for regulatory compliance monitoring |
+| [`extensions/fidleg/docs/assessment.fidleg.md`](./extensions/fidleg/docs/assessment.fidleg.md) | **FIDLEG-specific** assessment guide for bank decision-making and customer access |
 
 ### 🏛️ Modular Regulatory Extensions
 

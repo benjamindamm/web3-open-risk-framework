@@ -1,387 +1,73 @@
 # FIDLEG Extension Module
 
-This document describes the **FIDLEG Extension Module** - a modular regulatory extension for the Web3 Risk Framework that enables Swiss FIDLEG (Swiss Financial Services Act) compliance without modifying the core framework structure.
+This document describes the **FIDLEG Extension Module** - a modular regulatory extension for the Web3 Risk Framework that enables Swiss FIDLEG compliance for DeFi protocol assessment.
 
 ## Overview
 
-The FIDLEG Extension Module demonstrates how the Web3 Risk Framework can be extended for specific regulatory jurisdictions while maintaining its modular, extensible design. This approach allows other jurisdictions to add their own regulatory extensions without affecting the core framework.
+The FIDLEG Extension Module provides Swiss banks with a structured approach to evaluate DeFi protocols for customer access while maintaining regulatory compliance. It focuses on the core FIDLEG articles relevant for DeFi protocol assessment.
 
 **Regulatory Authority**: FINMA (Swiss Financial Market Supervisory Authority)
 
-**Swiss Market Specifics**:
-- **Banking Secrecy**: Data protection requirements for Swiss clients
-- **Cross-border Services**: EU/CH regulatory coordination
-- **Swiss Franc (CHF)**: Stablecoin and payment considerations
-- **Crypto Valley**: Zug-based crypto ecosystem considerations
+**Core FIDLEG Articles**:
+- **Art. 72**: Operational Risk Management (Smart contract security, admin key risks)
+- **Art. 142**: Market Abuse Prevention (MEV detection, wash trading, suspicious patterns)
 
 ## Extension Architecture
 
 ### Modular Design Principles
-
 - **Non-intrusive**: Core framework remains unchanged
 - **Optional**: FIDLEG fields are optional extensions
-- **Extensible**: Other jurisdictions can add similar extensions
-- **Backward compatible**: Existing risks work without modifications
+- **Bank-focused**: Designed for Swiss bank DeFi protocol evaluation
+- **Compliance-ready**: Direct FINMA reporting integration
 
 ### Schema Extension Pattern
-
 ```json
 {
   "regulatoryExtensions": {
     "fidleg": {
-      "articleReference": "FIDLEG_Art24",
-      "regulatoryClassification": "CUSTOMER_PROTECTION",
-      "complianceRequirement": "MANDATORY",
-      "riskLevel": "HIGH"
+      "articleReference": "FIDLEG_Art142",
+      "indicatorType": "MARKET_ABUSE",
+      "complianceStatus": "COMPLIANT",
+      "bankRecommendation": "APPROVE",
+      "customerAccessLevel": "RETAIL_FULL",
+      "monitoringFrequency": "WEEKLY"
     }
   }
 }
 ```
 
-## FIDLEG Article Reference
+## Documentation Structure
 
-### Priority Articles (High Impact)
+### Core Framework Documentation
+- [`docs/risk.md`](../../docs/risk.md) - General risk documentation
+- [`docs/indicator.md`](../../docs/indicator.md) - General indicator documentation  
+- [`docs/assessment.md`](../../docs/assessment.md) - General assessment documentation
 
-| Article | Title | Description | Web3 Relevance |
-|---------|-------|-------------|----------------|
-| **FIDLEG_Art24** | Customer Classification | Retail vs Professional client classification | Critical for DeFi user protection |
-| **FIDLEG_Art72** | Operational Risk Management | Technical and operational risk controls | Smart contract and infrastructure risks |
-| **FIDLEG_Art142** | Market Abuse | Market manipulation and abuse prevention | MEV, wash trading, price manipulation |
-| **FIDLEG_Art18_20** | Interest Conflicts | Conflict of interest management | Validator conflicts, governance token conflicts |
+### FIDLEG-Specific Documentation
+- [`risk.fidleg.md`](./risk.fidleg.md) - **FIDLEG risk documentation guide**
+- [`indicator.fidleg.md`](./indicator.fidleg.md) - **FIDLEG indicator documentation guide**
+- [`assessment.fidleg.md`](./assessment.fidleg.md) - **FIDLEG assessment documentation guide**
 
-### Extended Articles (Medium Impact)
+### FIDLEG Extension Documentation
+- [`naming-convention.md`](./naming-convention.md) - File naming conventions
+- [`fidleg-scopes.md`](./fidleg-scopes.md) - FIDLEG-specific scopes
+- [`risk-classification-guide.md`](./risk-classification-guide.md) - Risk classification guide
 
-| Article | Title | Description | Web3 Relevance |
-|---------|-------|-------------|----------------|
-| **FIDLEG_Art8_10** | Client Protection | Client asset protection and segregation | Custody and wallet security |
-| **FIDLEG_Art11_15** | Organizational Requirements | Internal organization and governance | DAO governance and decision-making |
-| **FIDLEG_Art16_18** | Conduct Rules | Professional conduct and behavior | Protocol team conduct and transparency |
-| **FIDLEG_Art19_21** | Risk Management | Comprehensive risk management framework | DeFi protocol risk management |
-| **FIDLEG_Art22_24** | Client Services | Client service and communication standards | User interface and communication |
-| **FIDLEG_Art25_30** | Investment Services | Investment advice and portfolio management | DeFi protocol recommendations |
-| **FIDLEG_Art31_35** | Order Execution | Order execution and best execution | DEX routing and execution |
-| **FIDLEG_Art36_40** | Asset Protection | Client asset protection and custody | Multi-sig and custody solutions |
-| **FIDLEG_Art41_45** | Reporting | Regulatory reporting and transparency | Protocol transparency and reporting |
-| **FIDLEG_Art46_50** | Supervision | Regulatory supervision and enforcement | FINMA oversight and compliance |
+## Benefits
 
-## Regulatory Classifications
+- **Bank-Ready**: Designed specifically for Swiss bank DeFi protocol evaluation
+- **Compliance-Focused**: Direct FIDLEG Art. 72 and Art. 142 integration
+- **Decision-Support**: Clear bank recommendation framework
+- **Modular**: Non-intrusive extension to core framework
+- **Practical**: Real-world examples and templates
 
-### Customer Protection
-- **Scope**: Client onboarding, classification, and protection
-- **Web3 Examples**: KYC/AML for Swiss IPs, client asset protection
-- **Risk Categories**: `COMPLIANCE`, `HUMAN_ERROR`
+## Usage
 
-### Risk Management
-- **Scope**: Operational and technical risk controls
-- **Web3 Examples**: Smart contract security, infrastructure monitoring
-- **Risk Categories**: `TECHNICAL`, `CONTRACT`, `DEPENDENCY`
+1. **Start with FIDLEG-specific guides**: Use `risk.fidleg.md`, `indicator.fidleg.md`, `assessment.fidleg.md`
+2. **Follow naming conventions**: See `naming-convention.md`
+3. **Understand scopes**: Review `fidleg-scopes.md` for Swiss regulatory contexts
+4. **Classify risks**: Use `risk-classification-guide.md` for systematic risk assessment
 
-### Market Integrity
-- **Scope**: Market manipulation and abuse prevention
-- **Web3 Examples**: MEV protection, wash trading detection
-- **Risk Categories**: `FINANCIAL`, `TECHNICAL`
-
-### Organizational
-- **Scope**: Internal organization and governance
-- **Web3 Examples**: DAO governance, team structure
-- **Risk Categories**: `ORGANIZATIONAL`, `GOVERNANCE`
-
-### Conduct
-- **Scope**: Professional conduct and behavior
-- **Web3 Examples**: Protocol team conduct, transparency
-- **Risk Categories**: `ORGANIZATIONAL`, `COMPLIANCE`
-
-### Product Management
-- **Scope**: Product development and management
-- **Web3 Examples**: Protocol upgrades, feature development
-- **Risk Categories**: `CONTRACT`, `APPLICATION`
-
-### Compliance
-- **Scope**: Regulatory compliance and reporting
-- **Web3 Examples**: FINMA reporting, regulatory compliance
-- **Risk Categories**: `COMPLIANCE`
-
-### Client Services
-- **Scope**: Client service and communication
-- **Web3 Examples**: User interface, customer support
-- **Risk Categories**: `APPLICATION`, `HUMAN_ERROR`
-
-### Investment Services
-- **Scope**: Investment advice and portfolio management
-- **Web3 Examples**: DeFi protocol recommendations, yield farming
-- **Risk Categories**: `FINANCIAL`, `APPLICATION`
-
-### Order Execution
-- **Scope**: Order execution and best execution
-- **Web3 Examples**: DEX routing, execution optimization
-- **Risk Categories**: `FINANCIAL`, `TECHNICAL`
-
-### Asset Protection
-- **Scope**: Client asset protection and custody
-- **Web3 Examples**: Multi-sig wallets, custody solutions
-- **Risk Categories**: `CUSTODY`, `TECHNICAL`
-
-### Reporting
-- **Scope**: Regulatory reporting and transparency
-- **Web3 Examples**: Protocol transparency, regulatory reporting
-- **Risk Categories**: `COMPLIANCE`, `ORGANIZATIONAL`
-
-## Compliance Requirements
-
-### Compliance Levels
-
-#### MANDATORY
-- **Definition**: Required by Swiss law for all financial services
-- **Examples**: Customer classification, operational risk management
-- **Implementation**: Must be implemented for Swiss market access
-
-#### RECOMMENDED
-- **Definition**: Best practice recommendations from FINMA
-- **Examples**: Advanced risk monitoring, enhanced client protection
-- **Implementation**: Recommended for competitive advantage
-
-#### OPTIONAL
-- **Definition**: Voluntary compliance measures
-- **Examples**: Additional reporting, enhanced transparency
-- **Implementation**: Optional for differentiation
-
-### Documentation Requirements
-
-- **quarterly**: Required quarterly reporting to FINMA
-- **annual**: Annual compliance documentation
-- **monthly**: Monthly risk monitoring reports
-- **on_demand**: Documentation as required by regulator
-
-### Customer Type Applicability
-
-- **retail**: Applies to retail clients only
-- **professional**: Applies to professional clients only
-- **both**: Applies to all client types
-
-## GwG (Anti-Money Laundering Act) Integration
-
-### MROS Reporting Requirements
-
-The FIDLEG extension integrates with Swiss GwG (Anti-Money Laundering Act) requirements:
-
-- **MROS Reporting**: Automatic reporting to Money Laundering Reporting Office Switzerland
-- **Transaction Monitoring**: Continuous monitoring of suspicious patterns
-- **Customer Due Diligence**: Enhanced verification for high-risk customers
-
-### Suspicious Pattern Detection
-
-- **mev_arbitrage**: MEV extraction patterns requiring market abuse reporting
-- **wash_trading**: Artificial trading volume manipulation
-- **rapid_funds_movement**: Multiple large transactions in short time periods
-- **unusual_timing**: Transactions outside normal business hours
-- **concentrated_activity**: Unusual concentration of trading activity
-- **cross_chain_arbitrage**: Cross-blockchain arbitrage patterns
-- **flash_loan_exploitation**: Flash loan attack patterns
-- **governance_manipulation**: Governance token manipulation attempts
-
-For detailed explanations of these patterns, see [suspicious-patterns.md](./suspicious-patterns.md).
-
-### Reporting Thresholds
-
-- **CHF_100k**: Automatic MROS reporting for retail transactions
-- **CHF_250k**: Enhanced monitoring for professional clients
-- **CHF_500k**: Critical threshold requiring immediate reporting
-
-## Measure Compliance Requirements
-
-### Mitigation Types
-
-The FIDLEG extension defines different types of mitigation measures:
-
-- **TECHNICAL**: Technical implementations (multi-signature, HSMs, monitoring systems)
-- **ORGANIZATIONAL**: Organizational measures (training, procedures, governance)
-- **PROCEDURAL**: Process-based measures (documentation, workflows, controls)
-- **INSURANCE**: Risk transfer through insurance coverage
-
-### Verification Methods
-
-- **automated**: Automated system verification
-- **manual_review**: Human review and validation
-- **audit**: External audit validation
-- **external_validation**: Third-party validation
-
-### Asset Protection
-
-- **MULTI_SIG**: Multi-signature protection
-- **COLD_STORAGE**: Cold storage solutions
-- **CUSTODIAL**: Third-party custodial services
-- **INSURED**: Insurance-backed protection
-
-### Insurance Coverage
-
-- **SWISS_COVER_500k**: Minimum CHF 500k coverage
-- **SWISS_COVER_1M**: CHF 1M coverage level
-- **SWISS_COVER_5M**: CHF 5M coverage level
-- **CUSTOM**: Custom coverage arrangements
-
-## Risk Level Classifications
-
-### LOW
-- **Definition**: Minimal impact on client protection or market integrity
-- **Examples**: Minor UI issues, non-critical documentation
-- **Monitoring**: Basic monitoring sufficient
-
-### MEDIUM
-- **Definition**: Moderate impact requiring attention
-- **Examples**: Significant slippage, governance delays
-- **Monitoring**: Regular monitoring and reporting
-
-### HIGH
-- **Definition**: Significant impact requiring immediate attention
-- **Examples**: Smart contract vulnerabilities, market manipulation
-- **Monitoring**: Continuous monitoring and immediate response
-
-### CRITICAL
-- **Definition**: Severe impact threatening client assets or market integrity
-- **Examples**: Protocol exploits, systemic failures
-- **Monitoring**: Real-time monitoring and emergency response
-
-## Swiss Market Implementation
-
-### Key Considerations for Swiss Web3 Companies
-
-1. **FINMA Registration**: Determine if your Web3 service requires FINMA authorization
-2. **Client Classification**: Implement robust retail vs professional client classification
-3. **Operational Risk Management**: Establish comprehensive technical risk controls
-4. **Market Abuse Prevention**: Implement MEV and manipulation detection systems
-5. **Data Protection**: Comply with Swiss data protection laws and banking secrecy
-6. **Cross-border Compliance**: Consider EU MiFID II implications for EU clients
-
-### Crypto Valley Specifics
-
-- **Zug-based Companies**: Leverage Crypto Valley ecosystem and regulatory clarity
-- **Swiss Franc Integration**: Consider CHF-pegged stablecoins and payment systems
-- **International Clients**: Balance Swiss compliance with global market access
-- **Regulatory Sandbox**: Utilize FINMA's innovation-friendly approach
-
-## Implementation Examples
-
-### Risk with FIDLEG Extension
-
-```yaml
 ---
-id: R:CREDIT_DEFAULT
-title: Credit Default Risk
-category: FINANCIAL
-type: QUANTITATIVE
-scopes: [TRADE, CUSTODY]
-owners: [INVESTOR, TEAM]
-objectives:
-  - type: "Capital Preservation"
-    direction: "DECREASE"
-    goal: "DECREASE"
-extensions: ["fidleg"]
-regulatoryExtensions:
-  fidleg:
-    articleReference: "FIDLEG_Art72"
-    regulatoryClassification: "RISK_MANAGEMENT"
-    complianceRequirement:
-      level: "MANDATORY"
-      documentation:
-        frequency: "quarterly"
-    riskLevel: "HIGH"
-    applicability:
-      customerType: "both"
----
-```
 
-### Indicator with FIDLEG Extension
-
-```yaml
----
-id: I:COLLATERAL_RATIO
-title: Collateral Ratio Monitoring
-type: Indicator
-version: 1.0
-lastUpdate: "2024-01-15"
-extensions: ["fidleg"]
-regulatoryExtensions:
-  fidleg:
-    articleReference: "FIDLEG_Art72"
-    measurementFrequency: "REAL_TIME"
-    regulatoryThreshold: "> 150%"
-    auditRequirement: "EXTERNAL_AUDIT"
-    reportingThreshold: "CHF_100k"
-    suspiciousPatterns: ["rapid_funds_movement"]
-    gwg:
-      mrosReporting: true
-      transactionMonitoring: true
-      customerDueDiligence: false
----
-```
-
-### Measure with FIDLEG Extension
-
-```yaml
----
-id: M:INCREASE_COLLATERAL
-title: Increase Collateral Requirements
-type: Measure
-version: 1.0
-lastUpdate: "2024-01-15"
-impactPotential: "HIGH"
-riskReductionScope:
-  severity: true
-  likelihood: true
-  persistence: false
-extensions: ["fidleg"]
-regulatoryExtensions:
-  fidleg:
-    articleReference: "FIDLEG_Art72"
-    implementationDeadline: "2024-06-30"
-    auditFrequency: "QUARTERLY"
-    regulatoryRequirement: "MANDATORY"
-    mitigationType: "TECHNICAL"
-    verification:
-      method: "audit"
-      frequency: "quarterly"
-      documentation: "audit_trail"
-    assetProtection:
-      segregation: "MULTI_SIG"
-      custody: "SELF_CUSTODY"
----
-```
-
-## Extension Benefits
-
-### For Risk Managers
-- **Systematic Compliance**: Structured approach to Swiss regulatory requirements
-- **Risk Prioritization**: Clear risk levels and compliance requirements
-- **Audit Trail**: Comprehensive documentation for regulatory audits
-
-### For Compliance Teams
-- **Regulatory Mapping**: Clear mapping between risks and FIDLEG articles
-- **Implementation Guidance**: Specific requirements and deadlines
-- **Reporting Support**: Structured data for regulatory reporting
-
-### For Auditors
-- **Compliance Verification**: Clear framework for compliance assessment
-- **Risk Coverage**: Systematic coverage of Swiss regulatory requirements
-- **Documentation**: Comprehensive documentation for audit purposes
-
-## Future Extensions
-
-The modular design enables similar extensions for other jurisdictions:
-
-- **EU MiFID Extension**: European regulatory requirements
-- **US SEC Extension**: US securities regulations
-- **UK FCA Extension**: UK financial services regulations
-- **Singapore MAS Extension**: Singapore regulatory requirements
-
-## Integration with Core Framework
-
-The FIDLEG Extension Module integrates seamlessly with the core Web3 Risk Framework:
-
-- **Categories**: Uses existing risk categories (FINANCIAL, TECHNICAL, etc.)
-- **Scopes**: Uses existing scopes (TRADE, CUSTODY, etc.)
-- **Owners**: Uses existing owners (INVESTOR, TEAM, etc.)
-- **Extensions**: Adds regulatory context without changing core structure
-
-## Conclusion
-
-The FIDLEG Extension Module demonstrates how the Web3 Risk Framework can be extended for specific regulatory jurisdictions while maintaining its modular, extensible design. This approach provides a foundation for comprehensive regulatory compliance while preserving the framework's flexibility and adaptability.
+*This extension provides Swiss banks with a structured approach to evaluate DeFi protocols for customer access while maintaining regulatory compliance under FIDLEG Art. 72 and Art. 142.*
