@@ -6,7 +6,7 @@
   "properties": {
     "riskId": {
       "type": "string",
-      "pattern": "^R:[A-Z_]+$"
+      "pattern": "^R:[A-Z_]+(?:\\.FIDLEG)?$"
     },
     "date": {
       "type": "string",
@@ -36,7 +36,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "pattern": "^I:[A-Z_]+$"
+            "pattern": "^I:[A-Z_]+(?:\\.FIDLEG)?$"
           },
           "weight": {
             "type": "number",
@@ -90,7 +90,7 @@
             "items": {
               "type": "object",
               "properties": {
-                "id": { "type": "string", "pattern": "^I:[A-Z_]+$" },
+                "id": { "type": "string", "pattern": "^I:[A-Z_]+(?:\\.FIDLEG)?$" },
                 "weight": { "type": "number" },
                 "value": { "type": "string" },
                 "interpretation": { "type": "string" }
@@ -102,7 +102,7 @@
             "enum": ["MONITORED", "STABLE", "ESCALATING", "CRITICAL", "ACCEPTABLE"]
           },
           "implication": { "type": "string" },
-          "triggeredMeasure": { "type": "string", "pattern": "^M:[A-Z_]+$" },
+          "triggeredMeasure": { "type": "string", "pattern": "^M:[A-Z_]+(?:\\.FIDLEG)?$" },
           "action": { "type": "string" }
         }
       }
@@ -129,7 +129,7 @@
           "asset": { "type": "string" },
           "platform": { "type": "string" },
           "riskStatus": { "type": "string" },
-          "measure": { "type": "string", "pattern": "^M:[A-Z_]+$" },
+          "measure": { "type": "string", "pattern": "^M:[A-Z_]+(?:\\.FIDLEG)?$" },
           "action": { "type": "string" }
         }
       }
@@ -138,7 +138,7 @@
     "notes": { "type": "string" },
     "id": {
       "type": "string",
-      "pattern": "^A:[A-Z_]+$"
+      "pattern": "^A:[A-Z_]+(?:\\.FIDLEG)?$"
     },
     "title": {
       "type": "string",

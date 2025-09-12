@@ -3,7 +3,7 @@
   "title": "Web3 Risk Entry with FIDLEG Extension",
   "allOf": [
     {
-      "$ref": "../../schema/risk.schema.json"
+      "$ref": "../../../schema/risk.schema.json"
     },
     {
       "properties": {

@@ -3,7 +3,7 @@
   "title": "Web3 Measure Entry with FIDLEG Extension",
   "allOf": [
     {
-      "$ref": "../../schema/measure.schema.json"
+      "$ref": "../../../schema/measure.schema.json"
     },
     {
       "properties": {

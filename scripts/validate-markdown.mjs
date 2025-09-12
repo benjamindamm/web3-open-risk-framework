@@ -86,8 +86,37 @@ function validateFile(filePath, schemaPath, ajv) {
     data.date = data.date.toISOString().split('T')[0];
   }
   
-  const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf8'));
-  const validate = ajv.compile(schema);
+  // Check if this is a FIDLEG file and use appropriate schema
+  let actualSchemaPath = schemaPath;
+  if (filePath.includes('.FIDLEG.md')) {
+    const fidlegSchemaPath = path.resolve(scriptDir, '../extensions/fidleg/schema', path.basename(schemaPath).replace('.schema.json', '-fidleg.schema.json'));
+    if (fs.existsSync(fidlegSchemaPath)) {
+      actualSchemaPath = fidlegSchemaPath;
+    }
+  }
+  
+  const schema = JSON.parse(fs.readFileSync(actualSchemaPath, 'utf8'));
+  
+  // For FIDLEG schemas, we need to resolve the $ref paths manually
+  let validate;
+  if (actualSchemaPath.includes('fidleg')) {
+    const baseSchemaPath = path.resolve(scriptDir, '../schema', path.basename(actualSchemaPath).replace('-fidleg.schema.json', '.schema.json'));
+    const baseSchema = JSON.parse(fs.readFileSync(baseSchemaPath, 'utf8'));
+    
+    // Create a combined schema that includes both base and FIDLEG extensions
+    const combinedSchema = {
+      ...baseSchema,
+      ...schema,
+      allOf: [
+        baseSchema,
+        schema
+      ]
+    };
+    delete combinedSchema.allOf; // Remove the allOf to avoid circular reference
+    validate = ajv.compile(combinedSchema);
+  } else {
+    validate = ajv.compile(schema);
+  }
   const valid = validate(data);
   if (!valid) {
     return { valid: false, error: ajv.errorsText(validate.errors, { separator: '\n' }) };

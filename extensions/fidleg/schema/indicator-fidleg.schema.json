@@ -3,7 +3,7 @@
   "title": "Web3 Indicator Entry with FIDLEG Extension",
   "allOf": [
     {
-      "$ref": "../../schema/indicator.schema.json"
+      "$ref": "../../../schema/indicator.schema.json"
     },
     {
       "properties": {

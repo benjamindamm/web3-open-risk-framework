@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Web3 Assessment Entry with FIDLEG Extension",
+  "type": "object",
+  "required": ["riskId", "date", "assessedBy", "severity", "likelihood", "persistence"],
+  "properties": {
+    "riskId": {
+      "type": "string",
+      "pattern": "^R:[A-Z_]+(?:\\.FIDLEG)?$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "assessedBy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"]
+    },
+    "likelihood": {
+      "type": "string",
+      "enum": ["UNLIKELY", "POSSIBLE", "LIKELY", "CERTAIN"]
+    },
+    "persistence": {
+      "type": "string",
+      "enum": ["TEMPORARY", "OCCASIONAL", "PERSISTENT"]
+    },
+    "extensions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "regulatoryExtensions": {
+      "type": "object",
+      "description": "Modular regulatory extensions for different jurisdictions",
+      "properties": {
+        "fidleg": {
+          "type": "object",
+          "description": "Swiss FIDLEG regulatory extension for DeFi protocol assessment",
+          "properties": {
+            "articleReference": {
+              "type": "string",
+              "enum": [
+                "FIDLEG_Art72",
+                "FIDLEG_Art142"
+              ],
+              "description": "Core FIDLEG articles for DeFi protocol assessment: Art. 72 (Operational Risks), Art. 142 (Market Abuse)"
+            },
+            "assessmentType": {
+              "type": "string",
+              "enum": [
+                "PROTOCOL_SECURITY",
+                "MARKET_ABUSE"
+              ],
+              "description": "Assessment focus: PROTOCOL_SECURITY (Art. 72), MARKET_ABUSE (Art. 142)"
+            },
+            "complianceStatus": {
+              "type": "string",
+              "enum": [
+                "COMPLIANT",
+                "NON_COMPLIANT",
+                "REQUIRES_MONITORING",
+                "CRITICAL_ISSUES"
+              ],
+              "description": "Overall compliance status for bank decision-making"
+            },
+            "bankRecommendation": {
+              "type": "string",
+              "enum": [
+                "APPROVE",
+                "APPROVE_WITH_LIMITS",
+                "MONITOR_ONLY",
+                "REJECT"
+              ],
+              "description": "Bank recommendation for customer access"
+            },
+            "customerAccessLevel": {
+              "type": "string",
+              "enum": [
+                "RETAIL_FULL",
+                "RETAIL_LIMITED",
+                "PROFESSIONAL_ONLY",
+                "NO_ACCESS"
+              ],
+              "description": "Recommended customer access level"
+            },
+            "monitoringFrequency": {
+              "type": "string",
+              "enum": [
+                "DAILY",
+                "WEEKLY",
+                "MONTHLY",
+                "QUARTERLY"
+              ],
+              "description": "Required monitoring frequency for ongoing assessment"
+            },
+            "nextReviewDate": {
+              "type": "string",
+              "format": "date",
+              "description": "Scheduled date for next assessment review"
+            }
+          },
+          "required": [
+            "articleReference",
+            "assessmentType",
+            "complianceStatus",
+            "bankRecommendation"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "string"
+    },
+    "riskClassification": {
+      "type": "object",
+      "properties": {
+        "dimension": { "type": "string" },
+        "rating": { "type": "string" },
+        "explanation": { "type": "string" }
+      }
+    },
+    "interpretation": { "type": "string" },
+    "notes": { "type": "string" },
+    "id": {
+      "type": "string",
+      "pattern": "^A:[A-Z_]+(?:\\.FIDLEG)?$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "const": "Assessment"
+    },
+    "version": {
+      "type": "number",
+      "minimum": 0
+    },
+    "lastUpdate": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "additionalProperties": true
+}
