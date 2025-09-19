@@ -2,3 +2,4 @@
 *.pdf
 scripts/node_modules/
 book/node_modules/
+*.sh
