@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Web3 Measure Entry with FIDLEG Extension",
+  "allOf": [
+    {
+      "$ref": "../../../schema/measure.schema.json"
+    },
+    {
+      "properties": {
+        "regulatoryExtensions": {
+          "type": "object",
+          "description": "Modular regulatory extensions for different jurisdictions",
+          "properties": {
+            "fidleg": {
+              "type": "object",
+              "description": "Swiss FIDLEG regulatory extension for DeFi protocol assessment",
+              "properties": {
+                "relevantArticles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "FIDLEG_Art72",
+                      "FIDLEG_Art142",
+                      "FIDLEG_Art8",
+                      "FIDLEG_Art9",
+                      "FIDLEG_Art10",
+                      "GwG_Art6"
+                    ]
+                  },
+                  "description": "Core FIDLEG articles whose compliance is supported or triggered by this measure."
+                },
+                "regulatoryRequirement": {
+                  "type": "string",
+                  "enum": [
+                    "MANDATORY",
+                    "REGULATORY",
+                    "RECOMMENDED",
+                    "OPTIONAL"
+                  ],
+                  "description": "Regulatory requirement level for banks regarding the *monitoring and application* of this measure."
+                },
+                "fidlegActionTriggers": {
+                  "type": "array",
+                  "description": "A list of FIDLEG actions to be triggered when specific conditions for this measure are met.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "condition": {
+                        "type": "string",
+                        "description": "A human-readable or programmatic condition (e.g., 'value > 1000000', 'status == CRITICAL') under which the action is triggered."
+                      },
+                      "actionId": {
+                        "type": "string",
+                        "pattern": "^ACTION:[A-Z_]+:[A-Z_]+$",
+                        "description": "The ID of the FIDLEG action (from fidleg-action.schema.json) to be executed. Format: ACTION:TYPE:CONTEXT."
+                      },
+                      "impactCategory": {
+                        "type": "string",
+                        "enum": [
+                          "CLIENT_IMPACT",
+                          "REGULATOR_IMPACT",
+                          "OPERATIONAL_IMPACT",
+                          "REPUTATIONAL_IMPACT"
+                        ],
+                        "description": "The primary impact category of triggering this specific FIDLEG action."
+                      }
+                    },
+                    "required": [
+                      "condition",
+                      "actionId",
+                      "impactCategory"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 0
+                }
+              },
+              "required": [
+                "relevantArticles",
+                "regulatoryRequirement"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

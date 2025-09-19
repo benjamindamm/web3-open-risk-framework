@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FIDLEG Compliance Action",
+  "description": "Defines a concrete, actionable step a financial service provider must take to comply with FIDLEG (and related AML/GwG) regulations.",
+  "type": "object",
+  "properties": {
+    "actionId": {
+      "type": "string",
+      "pattern": "^ACTION:[A-Z_]+:[A-Z_]+$",
+      "description": "Unique identifier for this specific FIDLEG action. Format: ACTION:TYPE:CONTEXT (e.g., 'ACTION:INFORM_CLIENT:MEV_RISK')."
+    },
+    "actionType": {
+      "type": "string",
+      "enum": [
+        "INFORM_CLIENT",
+        "RE_EVALUATE_SUITABILITY",
+        "RE_EVALUATE_APPROPRIATENESS",
+        "TRIGGER_INTERNAL_AUDIT",
+        "REPORT_TO_FINMA",
+        "FILE_AML_REPORT_MROS",
+        "UPDATE_RISK_PROFILE",
+        "PRODUCT_HALT",
+        "REQUEST_ADDITIONAL_INFO_FROM_CLIENT",
+        "INTERNAL_RISK_COMMITTEE_REVIEW",
+        "DOCUMENT_DECISION"
+      ],
+      "description": "The specific type of compliance action required."
+    },
+    "relevantArticles": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^(FIDLEG_Art|GwG_Art)\\d+$" },
+      "description": "FIDLEG and/or GwG articles directly mandating or relating to this action. E.g., ['FIDLEG_Art24', 'GwG_Art3']"
+    },
+    "actionDescription": {
+      "type": "string",
+      "description": "Detailed, prescriptive description of the required action, including content guidelines where applicable. E.g., 'Inform client about critical vulnerability in protocol X, explaining potential for total loss of assets and offering re-evaluation of investment strategy.'"
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"],
+      "description": "The urgency level of this action. CRITICAL typically implies immediate execution."
+    },
+    "dueBy": {
+      "type": "string",
+      "enum": ["IMMEDIATELY", "24_HOURS", "48_HOURS", "5_BUSINESS_DAYS", "ASAP_WITH_DOCUMENTATION"],
+      "description": "Recommended or legally mandated timeline for completing the action."
+    },
+    "responsibleRole": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["COMPLIANCE", "FRONT_OFFICE", "RISK_MANAGEMENT", "LEGAL", "PRODUCT_MANAGEMENT"]
+      },
+      "description": "Internal role(s) typically responsible for executing this action."
+    },
+    "requiredDocumentation": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of documents or evidence required to prove compliance (e.g., 'Client communication log entry', 'Suitability assessment update form', 'Internal memo for risk committee')."
+    },
+    "impactOnClientRelation": {
+      "type": "string",
+      "enum": ["DIRECT_COMMUNICATION", "INTERNAL_PROCESSING", "NO_DIRECT_IMPACT"],
+      "description": "Indicates whether this action directly involves interaction with the client."
+    }
+  },
+  "required": ["actionId", "actionType", "relevantArticles", "actionDescription", "priority", "dueBy", "responsibleRole"],
+  "additionalProperties": false
+}

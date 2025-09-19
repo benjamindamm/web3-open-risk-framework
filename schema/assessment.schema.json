@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Risk Assessment Entry",
+  "type": "object",
+  "required": ["riskId", "date", "assessedBy", "severity", "likelihood", "persistence"],
+  "properties": {
+    "riskId": {
+      "type": "string",
+      "pattern": "^R:[A-Z_]+(?:\\.FIDLEG)?$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "assessedBy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"]
+    },
+    "likelihood": {
+      "type": "string",
+      "enum": ["UNLIKELY", "POSSIBLE", "LIKELY", "CERTAIN"]
+    },
+    "persistence": {
+      "type": "string",
+      "enum": ["TEMPORARY", "OCCASIONAL", "PERSISTENT"]
+    },
+    "indicatorWeights": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "weight"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^I:[A-Z_]+(?:\\.FIDLEG)?$"
+          },
+          "weight": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "threshold": {
+            "type": "string",
+            "description": "Optional threshold value for this indicator"
+          },
+          "affects": {
+            "type": "object",
+            "properties": {
+              "SEVERITY": { "type": "string", "enum": ["INCREASE", "DECREASE"] },
+              "LIKELIHOOD": { "type": "string", "enum": ["INCREASE", "DECREASE"] },
+              "PERSISTENCE": { "type": "string", "enum": ["INCREASE", "DECREASE"] }
+            },
+            "additionalProperties": false
+          },
+          "timeframe": {
+            "type": "string",
+            "description": "Timeframe for this indicator (e.g., '24h', '7d', '30d')"
+          },
+          "description": {
+            "type": "string",
+            "description": "Optional description of how this indicator affects the risk"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "summary": {
+      "type": "string"
+    },
+    "riskClassification": {
+      "type": "object",
+      "properties": {
+        "dimension": { "type": "string" },
+        "rating": { "type": "string" },
+        "explanation": { "type": "string" }
+      }
+    },
+    "evaluations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "position": { "type": "string" },
+          "indicators": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string", "pattern": "^I:[A-Z_]+(?:\\.FIDLEG)?$" },
+                "weight": { "type": "number" },
+                "value": { "type": "string" },
+                "interpretation": { "type": "string" }
+              }
+            }
+          },
+          "riskStatus": {
+            "type": "string",
+            "enum": ["MONITORED", "STABLE", "ESCALATING", "CRITICAL", "ACCEPTABLE"]
+          },
+          "implication": { "type": "string" },
+          "triggeredMeasure": { "type": "string", "pattern": "^M:[A-Z_]+(?:\\.FIDLEG)?$" },
+          "action": { "type": "string" }
+        }
+      }
+    },
+    "timeline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": { "type": "string", "format": "date" },
+          "protocol": { "type": "string" },
+          "asset": { "type": "string" },
+          "metric": { "type": "string" },
+          "riskLevel": { "type": "string" },
+          "status": { "type": "string" }
+        }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "asset": { "type": "string" },
+          "platform": { "type": "string" },
+          "riskStatus": { "type": "string" },
+          "measure": { "type": "string", "pattern": "^M:[A-Z_]+(?:\\.FIDLEG)?$" },
+          "action": { "type": "string" }
+        }
+      }
+    },
+    "interpretation": { "type": "string" },
+    "notes": { "type": "string" },
+    "id": {
+      "type": "string",
+      "pattern": "^A:[A-Z_]+(?:\\.FIDLEG)?$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "const": "Assessment"
+    },
+    "version": {
+      "type": "number",
+      "minimum": 0
+    },
+    "lastUpdate": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "additionalProperties": false
+}

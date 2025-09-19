@@ -1,0 +1,208 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Web3 Assessment Entry with FIDLEG Extension (Revised)",
+  "type": "object",
+  "required": [
+    "riskId",
+    "date",
+    "assessedBy",
+    "severity",
+    "likelihood",
+    "persistence",
+    "monitoringFrequency",
+    "nextReviewDate"
+  ],
+  "properties": {
+    "riskId": {
+      "type": "string",
+      "pattern": "^R:[A-Z_]+(?:\\.FIDLEG)?$",
+      "description": "Unique identifier for the risk being assessed."
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the assessment."
+    },
+    "assessedBy": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Name or ID of the person/system performing the assessment."
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"],
+      "description": "Severity of the assessed risk."
+    },
+    "likelihood": {
+      "type": "string",
+      "enum": ["UNLIKELY", "POSSIBLE", "LIKELY", "CERTAIN"],
+      "description": "Likelihood of the risk occurring."
+    },
+    "persistence": {
+      "type": "string",
+      "enum": ["TEMPORARY", "OCCASIONAL", "PERSISTENT"],
+      "description": "Duration or recurring nature of the risk."
+    },
+    "monitoringFrequency": {
+      "type": "string",
+      "enum": ["DAILY", "WEEKLY", "MONTHLY", "QUARTERLY", "BI_ANNUAL", "ANNUAL"],
+      "description": "Required monitoring frequency for the risk/protocol subject to this ongoing assessment."
+    },
+    "nextReviewDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Scheduled date for the next comprehensive assessment review."
+    },
+    "extensions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Generic array for non-regulatory extensions or tags."
+    },
+    "regulatoryExtensions": {
+      "type": "object",
+      "description": "Modular regulatory extensions for different jurisdictions",
+      "properties": {
+        "fidleg": {
+          "type": "object",
+          "description": "Swiss FIDLEG regulatory extension for DeFi protocol assessment",
+          "properties": {
+            "relevantArticles": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "FIDLEG_Art72",
+                  "FIDLEG_Art142",
+                  "FIDLEG_Art8",  
+                  "FIDLEG_Art9",  
+                  "FIDLEG_Art10", 
+                  "GwG_Art6"      
+                ]
+              },
+              "description": "Core FIDLEG (and potentially GwG) articles relevant to this specific assessment's findings."
+            },
+            "assessmentType": {
+              "type": "string",
+              "enum": [
+                "PROTOCOL_SECURITY",
+                "MARKET_ABUSE",
+                "APPROPRIATENESS_FITNESS",
+                "DUE_DILIGENCE"
+              ],
+              "description": "Assessment focus: PROTOCOL_SECURITY (Art. 72), MARKET_ABUSE (Art. 142), APPROPRIATENESS_FITNESS (Art. 8/9/10), DUE_DILIGENCE (GwG)."
+            },
+            "complianceStatus": {
+              "type": "string",
+              "enum": [
+                "FULLY_COMPLIANT",
+                "CONDITIONAL_COMPLIANCE",
+                "NON_COMPLIANT",
+                "CRITICAL_FAILURE"
+              ],
+              "description": "Overall compliance status based on this assessment for bank decision-making."
+            },
+            "bankRecommendation": {
+              "type": "string",
+              "enum": [
+                "APPROVE_FULL",
+                "APPROVE_LIMITED",
+                "PROFESSIONAL_ONLY",
+                "REJECT_PROTOCOL"
+              ],
+              "description": "Bank's overarching recommendation for the associated risk/protocol."
+            },
+            "customerAccessLevel": {
+              "type": "string",
+              "enum": [
+                "RETAIL_FULL",
+                "RETAIL_LIMITED",
+                "PROFESSIONAL_ONLY",
+                "NO_ACCESS"
+              ],
+              "description": "Recommended customer access level based on this assessment."
+            },
+            "requiredFidlegActions": {
+              "type": "array",
+              "description": "List of specific FIDLEG action IDs that must be executed as a direct consequence of this assessment's outcome.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "actionId": {
+                    "type": "string",
+                    "pattern": "^ACTION:[A-Z_]+:[A-Z_]+$",
+                    "description": "The ID of the FIDLEG action (from fidleg-action.schema.json) that is mandated by this assessment's result. Format: ACTION:TYPE:CONTEXT."
+                  },
+                  "triggeredByOutcome": {
+                    "type": "string",
+                    "description": "The specific assessment outcome (e.g., 'complianceStatus:NON_COMPLIANT', 'bankRecommendation:REJECT') that necessitates this action."
+                  },
+                  "isMandatoryForBank": {
+                    "type": "boolean",
+                    "description": "True if this action is an absolute requirement for the bank based on the assessment; false if it's a strong recommendation."
+                  },
+                  "contextParameters": {
+                    "type": "object",
+                    "description": "Key-value pairs for dynamic parameters to populate the action, e.g., {'clientName': 'Max Mustermann'}."
+                  }
+                },
+                "required": ["actionId", "triggeredByOutcome", "isMandatoryForBank"],
+                "additionalProperties": false
+              },
+              "minItems": 0
+            }
+          },
+          "required": [
+            "relevantArticles",
+            "assessmentType",
+            "complianceStatus",
+            "bankRecommendation",
+            "customerAccessLevel",
+            "requiredFidlegActions"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "summary": { "type": "string", "description": "Concise summary of the assessment findings." },
+    "riskClassification": {
+      "type": "object",
+      "properties": {
+        "dimension": { "type": "string", "description": "e.g., 'Financial', 'Operational', 'Reputational'" },
+        "rating": { "type": "string", "description": "e.g., 'High', 'Medium', 'Low'" },
+        "explanation": { "type": "string", "description": "Brief explanation of the classification." }
+      },
+      "description": "Detailed classification of the risk by various dimensions."
+    },
+    "interpretation": { "type": "string", "description": "Interpretation of the assessment results." },
+    "notes": { "type": "string", "description": "Additional notes or remarks." },
+    "id": {
+      "type": "string",
+      "pattern": "^A:[A-Z_]+(?:\\.FIDLEG)?$",
+      "description": "Unique identifier for this specific assessment entry."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Title of the assessment."
+    },
+    "type": {
+      "type": "string",
+      "const": "Assessment",
+      "description": "Type of the schema entry, fixed to 'Assessment'."
+    },
+    "version": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Version of this assessment entry."
+    },
+    "lastUpdate": {
+      "type": "string",
+      "format": "date",
+      "description": "Timestamp of the last update to this assessment entry."
+    }
+  },
+  "additionalProperties": false
+}

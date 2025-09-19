@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Web3 Risk Mitigation Measure",
+  "type": "object",
+  "required": ["id", "title", "type", "version", "lastUpdate", "impactPotential", "riskReductionScope"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^M:[A-Z_.]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "const": "Measure"
+    },
+    "version": {
+      "type": "string"
+    },
+    "lastUpdate": {
+      "type": "string",
+      "format": "date"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "impactPotential": {
+      "type": "string",
+      "enum": ["LOW", "MEDIUM", "HIGH"]
+    },
+    "riskReductionScope": {
+      "type": "object",
+      "required": ["severity", "likelihood", "persistence"],
+      "properties": {
+        "severity": { "type": "boolean" },
+        "likelihood": { "type": "boolean" },
+        "persistence": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "implementation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cost": {
+      "type": "string",
+      "enum": ["LOW", "MEDIUM", "HIGH"]
+    },
+    "timeToImplement": {
+      "type": "string",
+      "enum": ["IMMEDIATE", "SHORT_TERM", "MEDIUM_TERM", "LONG_TERM"]
+    },
+    "relatedRisks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^R:[A-Z_]+$"
+      }
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "extensions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["fidleg", "euMiFID", "usSec", "ukFCA", "sgMAS"]
+      },
+      "description": "List of active regulatory extensions for this measure",
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": true
+}

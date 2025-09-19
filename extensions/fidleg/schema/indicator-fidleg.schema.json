@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Web3 Indicator Entry with FIDLEG Extension",
+  "allOf": [
+    {
+      "$ref": "../../../schema/indicator.schema.json"
+    },
+    {
+      "properties": {
+        "regulatoryExtensions": {
+          "type": "object",
+          "description": "Modular regulatory extensions for different jurisdictions",
+          "properties": {
+            "fidleg": {
+              "type": "object",
+              "description": "Swiss FIDLEG regulatory extension for DeFi protocol indicator states, focusing on triggered compliance actions.",
+              "properties": {
+                "fidlegTriggerEvent": {
+                  "type": "string",
+                  "enum": [
+                    "CRITICAL_CLIENT_INFO_UPDATE_REQUIRED",
+                    "SUITABILITY_RE_EVALUATION_TRIGGER",
+                    "INTERNAL_AUDIT_CONDITION_MET",
+                    "REGULATORY_REPORTING_THRESHOLD_EXCEEDED",
+                    "POTENTIAL_MARKET_ABUSE_DETECTED",
+                    "AML_RED_FLAG_ACTIVE"
+                  ],
+                  "description": "The type of FIDLEG-relevant event triggered by this indicator reaching a specific state."
+                },
+                "triggeredFidlegActions": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./fidleg-action.schema.json"
+                  },
+                  "description": "A collection of specific, FIDLEG-mandated actions to be taken when this indicator is triggered or reaches a defined threshold."
+                },
+                "fidlegMonitoringRationale": {
+                  "type": "string",
+                  "description": "Justification for the chosen monitoring frequency and methodology in the context of FIDLEG due diligence (e.g., 'Real-time monitoring required to comply with Art. 24 for timely client information on significant changes and Art. 21 for adequate organisational measures.')."
+                },
+                "suspiciousPatternsFidlegImpacts": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "pattern": {
+                        "type": "string",
+                        "enum": [
+                          "mev_arbitrage",
+                          "wash_trading",
+                          "flash_loan_exploitation",
+                          "governance_manipulation",
+                          "structuring",
+                          "unhosted_wallet",
+                          "rug_pull",
+                          "exit_scam"
+                        ]
+                      },
+                      "impactDescription": {
+                        "type": "string",
+                        "description": "Specific FIDLEG/GwG implications of this suspicious pattern (e.g., 'Flash loan exploit implies immediate material change to product risk profile, triggering Art. 24 client notification and Art. 9/10 re-evaluation.')."
+                      },
+                      "patternTriggeredActions": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "./fidleg-action.schema.json"
+                        },
+                        "description": "Specific FIDLEG-mandated actions to be taken when this suspicious pattern is detected."
+                      }
+                    },
+                    "required": ["pattern", "impactDescription", "patternTriggeredActions"]
+                  },
+                  "description": "Identified suspicious patterns with their specific FIDLEG implications and triggered actions."
+                }
+              },
+              "required": [
+                "fidlegTriggerEvent",
+                "triggeredFidlegActions"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

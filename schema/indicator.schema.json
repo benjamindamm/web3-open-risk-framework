@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Web3 Indicator Entry",
+  "type": "object",
+  "required": ["id", "title", "type", "version", "lastUpdate"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^I:[A-Z_.]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "const": "Indicator"
+    },
+    "version": {
+      "type": "string"
+    },
+    "lastUpdate": {
+      "type": "string",
+      "format": "date"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "preconditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "methodology": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "assessment": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "riskLevels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["level", "label", "threshold", "description"],
+            "properties": {
+              "level": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "label": {
+                "type": "string"
+              },
+              "threshold": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "profiles": {
+      "type": "object",
+      "properties": {
+        "conservative": {
+          "type": "object",
+          "properties": {
+            "veryHigh": { "type": "string" },
+            "high": { "type": "string" },
+            "medium": { "type": "string" },
+            "low": { "type": "string" },
+            "veryLow": { "type": "string" }
+          }
+        },
+        "moderate": {
+          "type": "object",
+          "properties": {
+            "veryHigh": { "type": "string" },
+            "high": { "type": "string" },
+            "medium": { "type": "string" },
+            "low": { "type": "string" },
+            "veryLow": { "type": "string" }
+          }
+        },
+        "aggressive": {
+          "type": "object",
+          "properties": {
+            "veryHigh": { "type": "string" },
+            "high": { "type": "string" },
+            "medium": { "type": "string" },
+            "low": { "type": "string" },
+            "veryLow": { "type": "string" }
+          }
+        }
+      }
+    },
+    "usageGuidance": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relatedRisks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^R:[A-Z_]+$"
+      }
+    },
+    "extensions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["fidleg", "euMiFID", "usSec", "ukFCA", "sgMAS"]
+      },
+      "description": "List of active regulatory extensions for this indicator",
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": true
+}

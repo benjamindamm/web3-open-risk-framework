@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Web3 Risk Entry",
+  "type": "object",
+  "required": ["id", "title", "category", "scope", "owner", "severity", "probability", "impact", "objectives"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^R:[A-Z0-9_.]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["QUALITATIVE", "QUANTITATIVE", "HYBRID"]
+    },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owners": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "severity": {
+      "type": "string"
+    },
+    "probability": {
+      "type": "string"
+    },
+    "impact": {
+      "type": "string"
+    },
+    "objectives": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "goal": {
+            "type": "string"
+          }
+        },
+        "required": ["type", "direction", "goal"]
+      }
+    },
+    "measures": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^M:[A-Z_]+(?:\\.FIDLEG)?$"
+      }
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "context": {
+      "type": "string"
+    },
+    "scopeJustification": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "rationaleForAction": {
+      "type": "string"
+    },
+    "extensions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["fidleg", "euMiFID", "usSec", "ukFCA", "sgMAS"]
+      },
+      "description": "List of active regulatory extensions for this risk",
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Web3 Risk Entry with FIDLEG Extension",
+  "allOf": [
+    {
+      "$ref": "../../../schema/risk.schema.json"
+    },
+    {
+      "properties": {
+        "regulatoryExtensions": {
+          "type": "object",
+          "description": "Modular regulatory extensions for different jurisdictions",
+          "properties": {
+            "fidleg": {
+              "type": "object",
+              "description": "Swiss FIDLEG regulatory extension for DeFi protocol risk assessment, focusing on direct compliance actions.",
+              "properties": {
+                "fidlegImpactCategory": {
+                  "type": "string",
+                  "enum": [
+                    "CLIENT_INFORMATION_DEFICIENCY",
+                    "SUITABILITY_RISK_INCREASE",
+                    "OPERATIONAL_COMPLIANCE_BREACH_POTENTIAL",
+                    "MARKET_INTEGRITY_CONCERN",
+                    "AML_CFT_RISK_ELEVATION",
+                    "PRODUCT_GOVERNANCE_ISSUE"
+                  ],
+                  "description": "FIDLEG-centric categorization of the risk's primary impact on compliance duties."
+                },
+                "triggeredFidlegActions": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./fidleg-action.schema.json"
+                  },
+                  "description": "A collection of specific, FIDLEG-mandated actions to be taken when this risk is present or reaches a defined severity."
+                }
+              },
+              "required": [
+                "fidlegImpactCategory",
+                "triggeredFidlegActions"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}
