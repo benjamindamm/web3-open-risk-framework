@@ -43,6 +43,16 @@ This document provides a curated list of academic papers, industry reports, and 
 
 **Baraldo, R. (2021).** A framework for assessing DeFi's risk. *Coinmonks Medium Publication*. https://medium.com/coinmonks/a-framework-for-assessing-defis-risk-5d63b7958019
 
+**Carpentier-Desjardins, C., Paquet-Clouston, M., Kitzler, S., & Haslhofer, B. (2025).** Mapping the DeFi crime landscape: an evidence-based picture. *Journal of Cybersecurity*, Volume 11, Issue 1, tyae029. https://academic.oup.com/cybersecurity/article/11/1/tyae029/7962044?login=false
+
+**Society of Actuaries. (2022).** A Risk Classification Framework for Decentralized Finance Protocols. *SOA Research Report*, September 2022. https://www.soa.org/4aa5bb/globalassets/assets/files/resources/research-report/2022/decentralized-finance-protocols.pdf
+
+### Risk Management Standards
+
+**Readynez. (n.d.).** Navigating the ISO 31000 Principles Framework Process. *Readynez Blog*. https://www.readynez.com/en/blog/navigating-the-iso-31000-principles-framework-process/
+
+**Talbot, J. (n.d.).** How to implement ISO31000 Risk Management Standard. *Julian Talbot Blog*. https://www.juliantalbot.com/post/how-to-implement-iso31000-risk-management-standard
+
 ### Smart Contract Security
 
 **Coinbase. (2021).** Top ten smart contract security risks. *Coinbase Blog*. https://www.coinbase.com/en-gb/blog/top-ten-smart-contract-security-risks
