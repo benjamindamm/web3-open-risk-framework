@@ -13,11 +13,11 @@ riskReductionScope:
   persistence: false
 ```
 
-## 🧠 Description
+##  Description
 
 Reallocates capital from underperforming or high-risk lending positions to more attractive alternatives. This measure addresses decreasing yield risk by moving funds to protocols with better risk-adjusted returns, lower utilization ratios, or more sustainable yield structures. It's a proactive response to yield erosion and utilization pressure.
 
-## 📋 Preconditions
+##  Preconditions
 
 - Capital must be liquid and withdrawable from current positions
 - Alternative protocols must be available with better risk-return profiles
@@ -25,7 +25,7 @@ Reallocates capital from underperforming or high-risk lending positions to more 
 - Clear exit criteria and reallocation thresholds defined
 - Risk assessment of target protocols completed
 
-## ⚙️ Implementation
+##  Implementation
 
 1. **Monitor Current Positions**
    - Track APY trends and utilization ratios across all lending positions
@@ -49,15 +49,15 @@ Reallocates capital from underperforming or high-risk lending positions to more 
    - Set monitoring schedule for new positions
    - Review performance against expectations
 
-## 🎯 Risk Reduction Scope
+##  Risk Reduction Scope
 
 | Dimension   | Addressed? | Comment                             |
 | ----------- | ---------- | ----------------------------------- |
-| Severity    | ✅          | Reduces exposure to declining yields and high utilization risk |
-| Likelihood  | ✅          | Prevents further yield erosion by moving to better opportunities |
-| Persistence | ❌          | Does not affect duration of market-wide yield pressure |
+| Severity    |           | Reduces exposure to declining yields and high utilization risk |
+| Likelihood  |           | Prevents further yield erosion by moving to better opportunities |
+| Persistence |           | Does not affect duration of market-wide yield pressure |
 
-## 🪜 Difficulty
+##  Difficulty
 
 **Medium**: Requires moderate understanding of DeFi protocols, yield analysis, and cross-chain operations. Involves:
 - Protocol research and comparison
@@ -65,7 +65,7 @@ Reallocates capital from underperforming or high-risk lending positions to more 
 - Multi-step execution process
 - Ongoing monitoring and adjustment
 
-## 📈 Impact Potential
+##  Impact Potential
 
 **High**: Strong protection against yield erosion through:
 - Immediate improvement in risk-adjusted returns
@@ -73,7 +73,7 @@ Reallocates capital from underperforming or high-risk lending positions to more 
 - Better alignment with investment objectives
 - Proactive risk management
 
-## 🧭 Usage Guidance
+##  Usage Guidance
 
 This measure is particularly effective when:
 
@@ -94,18 +94,18 @@ This measure is particularly effective when:
 - Semi-automated reallocation based on predefined criteria
 - Performance tracking and reporting
 
-## 🔗 Related Risks
+##  Related Risks
 
 - **R:DECREASING_YIELD** - Primary risk this measure addresses
 
-## 📊 Success Metrics
+##  Success Metrics
 
 - **Yield Improvement**: Increase in risk-adjusted APY post-reallocation
 - **Risk Reduction**: Decrease in utilization ratio exposure
 - **Performance**: Better alignment with investment objectives
 - **Diversification**: Improved portfolio diversification metrics
 
-## ⚠️ Limitations
+##  Limitations
 
 - **Market Timing**: Reallocation timing may not be optimal
 - **Gas Costs**: Transaction fees can impact net returns

@@ -1,8 +1,8 @@
-# 🧾 Methodological Foundations
+#  Methodological Foundations
 
 This document explains **how** the Web3 Open Risk Framework implements risk management principles, drawing on established standards while adapting them for decentralized systems.
 
-## 🎯 Framework Structure
+##  Framework Structure
 
 Our methodology balances two essential needs:
 
@@ -12,7 +12,7 @@ Our methodology balances two essential needs:
 This dual approach ensures the framework works for both institutional compliance and decentralized innovation.
 
 
-## 📘 ISO 31000 – Risk Management Principles
+##  ISO 31000 – Risk Management Principles
 
 | ISO 31000 Principle                        | Applied How?                                               |
 |-------------------------------------------|-------------------------------------------------------------|
@@ -25,7 +25,7 @@ This dual approach ensures the framework works for both institutional compliance
 
 <!-- PAGEBREAK -->
 
-## 📘 COSO ERM – Enterprise Risk Management Framework
+##  COSO ERM – Enterprise Risk Management Framework
 
 | COSO Element                    | Applied How?                                                  |
 |--------------------------------|---------------------------------------------------------------|
@@ -36,7 +36,7 @@ This dual approach ensures the framework works for both institutional compliance
 | Review and revision            | Risks are version-controlled and adaptable                    |
 
 
-## 📘 Solvency II – Risk Quantification & Capital Relevance
+##  Solvency II – Risk Quantification & Capital Relevance
 
 | Solvency II Element                 | Applied How?                                                   |
 |------------------------------------|----------------------------------------------------------------|
@@ -47,7 +47,7 @@ This dual approach ensures the framework works for both institutional compliance
 
 <!-- PAGEBREAK -->
 
-## 🧭 Notes on Adaptation
+##  Notes on Adaptation
 
 While these standards are rooted in corporate or regulatory environments, we adapt them for:
 
@@ -62,7 +62,7 @@ Our framework is designed to be:
 - Extendable for DAOs, funds, and protocol teams
 
 
-## 🔖 Summary
+##  Summary
 
 This framework is not a formal translation of ISO, COSO, or Solvency II – but a pragmatic distillation of the parts that matter for operational and strategic decisions in Web3.
 

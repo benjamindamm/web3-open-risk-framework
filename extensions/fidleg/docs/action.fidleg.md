@@ -1,10 +1,10 @@
-# ⚡ Action - FIDLEG Extension
+#  Action - FIDLEG Extension
 
-## 🌟 Purpose
+##  Purpose
 
 The FIDLEG Action extension defines concrete, actionable compliance steps that financial service providers must take to comply with FIDLEG and GwG regulations. Actions are triggered by risk assessments, indicators, and measures.
 
-## ⚙️ Action Types
+##  Action Types
 
 ### Client Communication & Suitability
 
@@ -36,7 +36,7 @@ The FIDLEG Action extension defines concrete, actionable compliance steps that f
 
 <!-- PAGEBREAK -->
 
-## 🏷️ Action ID Format
+##  Action ID Format
 
 **Pattern**: `ACTION:TYPE:CONTEXT`
 
@@ -52,7 +52,7 @@ The FIDLEG Action extension defines concrete, actionable compliance steps that f
 
 <!-- PAGEBREAK -->
 
-## 📋 Required Properties
+##  Required Properties
 
 - **actionId** - Unique identifier (ACTION:TYPE:CONTEXT format)
 - **actionType** - Specific action type
@@ -62,7 +62,7 @@ The FIDLEG Action extension defines concrete, actionable compliance steps that f
 - **dueBy** - Completion timeline
 - **responsibleRole** - Responsible internal roles
 
-## 🎯 Priority Levels
+##  Priority Levels
 
 | Priority       | Description                   | Execution Timeline     | Regulatory Impact                      |
 | -------------- | ----------------------------- | ---------------------- | -------------------------------------- |
@@ -83,7 +83,7 @@ The FIDLEG Action extension defines concrete, actionable compliance steps that f
 | **[5_BUSINESS_DAYS]**         | Complete within 5 business days        | Routine compliance procedures    | Yes - procedure log     |
 | **[ASAP_WITH_DOCUMENTATION]** | As soon as possible with documentation | Flexible timeline actions        | Yes - completion report |
 
-## 👥 Responsible Roles
+##  Responsible Roles
 
 | Role                     | Department              | Responsibilities                             | Authority Level             |
 | ------------------------ | ----------------------- | -------------------------------------------- | --------------------------- |
@@ -95,7 +95,7 @@ The FIDLEG Action extension defines concrete, actionable compliance steps that f
 
 <!-- PAGEBREAK -->
 
-## 🔗 Impact Categories
+##  Impact Categories
 
 | Impact Type                | Description                        | Client Notification | Regulatory Reporting |
 | -------------------------- | ---------------------------------- | ------------------- | -------------------- |
@@ -103,7 +103,7 @@ The FIDLEG Action extension defines concrete, actionable compliance steps that f
 | **[INTERNAL_PROCESSING]**  | Internal process only              | Not required        | May be required      |
 | **[NO_DIRECT_IMPACT]**     | No direct client impact            | Not required        | Not required         |
 
-## 🎯 Key FIDLEG Articles
+##  Key FIDLEG Articles
 
 | Article       | Regulation | Title                                  | Action Relevance                           |
 | ------------- | ---------- | -------------------------------------- | ------------------------------------------ |
@@ -112,13 +112,13 @@ The FIDLEG Action extension defines concrete, actionable compliance steps that f
 | **Art. 8-10** | FIDLEG     | Client suitability and appropriateness | Client assessment, product matching        |
 | **Art. 6**    | GwG        | Anti-money laundering measures         | AML reporting, due diligence               |
 
-## 📖 Implementation
+##  Implementation
 
 Refer to example risk implementations for practical guidance on action structure and compliance workflows.
 
 <!-- HIDDEN -->
 
-## 🔗 Related Documentation
+##  Related Documentation
 
 - [Assessment Documentation](./assessment.fidleg.md)
 - [Risk Documentation](./risk.fidleg.md)

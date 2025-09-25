@@ -13,19 +13,19 @@ You are free to:
 ## Restrictions
 
 You may NOT:
-- ❌ **Commercial use** - Use in commercial products or services
-- ❌ **Revenue generation** - Generate revenue from the framework
-- ❌ **Client services** - Use in commercial consulting or services
-- ❌ **Product integration** - Include in commercial software products
-- ❌ **Sublicensing** - Grant commercial sublicenses
+-  **Commercial use** - Use in commercial products or services
+-  **Revenue generation** - Generate revenue from the framework
+-  **Client services** - Use in commercial consulting or services
+-  **Product integration** - Include in commercial software products
+-  **Sublicensing** - Grant commercial sublicenses
 
 ## Permitted Non-Commercial Uses
 
-- ✅ **Educational institutions** - Universities, schools, training programs
-- ✅ **Research** - Academic research and publications
-- ✅ **Personal projects** - Individual learning and experimentation
-- ✅ **Open source** - Non-commercial open source projects
-- ✅ **Internal use** - Internal business processes (non-revenue generating)
+-  **Educational institutions** - Universities, schools, training programs
+-  **Research** - Academic research and publications
+-  **Personal projects** - Individual learning and experimentation
+-  **Open source** - Non-commercial open source projects
+-  **Internal use** - Internal business processes (non-revenue generating)
 
 ## Requirements
 
@@ -42,7 +42,7 @@ For commercial use, please refer to `LICENSE.COMMERCIAL` or contact:
 ---
 
 **License**: Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)  
-**Commercial Use**: ❌ Not Permitted  
-**Attribution Required**: ✅ Yes  
-**Modification Allowed**: ✅ Yes  
-**Distribution Allowed**: ✅ Yes (Non-commercial only)
+**Commercial Use**:  Not Permitted  
+**Attribution Required**:  Yes  
+**Modification Allowed**:  Yes  
+**Distribution Allowed**:  Yes (Non-commercial only)

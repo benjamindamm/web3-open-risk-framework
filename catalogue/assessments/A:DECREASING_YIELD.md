@@ -1,4 +1,4 @@
-# 🧮 Assessment: A:DECREASING_YIELD
+#  Assessment: A:DECREASING_YIELD
 
 ```yaml
 id: A:DECREASING_YIELD
@@ -34,13 +34,13 @@ notes: >
   Risk is structural and recurring, requiring active rebalancing.
 ```
 
-## 🧠 Assessment Summary
+##  Assessment Summary
 
 This assessment documents a structured risk evaluation for `R:DECREASING_YIELD`, demonstrating how yield-based lending strategies can drift out of alignment with risk objectives over time.
 
 Yield erosion does not immediately impact capital, but leads to underperformance. In high-utilization environments, the capital becomes illiquid, and yield signals may lag behind risk exposure.
 
-## 📊 Risk Classification
+##  Risk Classification
 
 | Dimension | Rating | Explanation |
 |-----------|--------|-------------|
@@ -48,9 +48,9 @@ Yield erosion does not immediately impact capital, but leads to underperformance
 | Likelihood | High | Commonly observed in volatile markets or poorly managed lending protocols |
 | Persistence | High | Unless actively rebalanced, positions tend to degrade slowly but continuously |
 
-## 📈 Position-Based Evaluation
+##  Position-Based Evaluation
 
-### 1️⃣ USDT on Compound
+### 1⃣ USDT on Compound
 
 | Indicator | Weight | Value | Interpretation |
 |-----------|--------|-------|----------------|
@@ -62,7 +62,7 @@ Yield erosion does not immediately impact capital, but leads to underperformance
 **Triggered Measure:** `M:REALLOCATE_CAPITAL`  
 **Action:** Withdraw USDT from Compound and rotate into a more stable protocol.
 
-### 2️⃣ USDC on Aave
+### 2⃣ USDC on Aave
 
 | Indicator | Weight | Value | Interpretation |
 |-----------|--------|-------|----------------|
@@ -73,23 +73,23 @@ Yield erosion does not immediately impact capital, but leads to underperformance
 **Implication:** The lower yield reflects a safer protocol state. This position fits the target yield-risk ratio better.  
 **Action:** Receive capital reallocated from Compound to maintain overall portfolio stability.
 
-## 🗂 Visual Risk Evolution
+##  Visual Risk Evolution
 
 | Date | Protocol | Asset | Utilization Ratio | Risk Level | Indicator |
 |------|----------|-------|-------------------|------------|-----------|
-| 2024-12-01 | Compound | USDT | 48% | 🟢 Low | ✅ |
-| 2025-01-01 | Compound | USDT | 66% | 🟡 Medium | ⚠️ |
-| 2025-02-01 | Compound | USDT | 94% | 🔴 High | ❗ |
-| 2025-02-01 | Aave | USDC | 42% | 🟢 Low | ✅ |
+| 2024-12-01 | Compound | USDT | 48% | 🟢 Low |  |
+| 2025-01-01 | Compound | USDT | 66% | 🟡 Medium |  |
+| 2025-02-01 | Compound | USDT | 94% |  High |  |
+| 2025-02-01 | Aave | USDC | 42% | 🟢 Low |  |
 
-## 🔁 Capital Rotation Summary
+##  Capital Rotation Summary
 
 | Asset | Platform | Risk Status | Triggered Measure | Action |
 |-------|----------|-------------|-------------------|--------|
 | USDT | Compound | Escalating | M:REALLOCATE_CAPITAL | Capital withdrawn and reallocated |
 | USDC | Aave | Acceptable | — | Serves as target destination for funds |
 
-## 🧭 Interpretation
+##  Interpretation
 
 This assessment highlights how quantitative indicators can guide real-time capital decisions. Instead of chasing nominal yield, the framework supports dynamic repositioning based on risk-adjusted metrics.
 

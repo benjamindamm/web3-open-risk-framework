@@ -2,7 +2,7 @@
 
 TypeScript-based validation tools for the Web3 Open Risk Framework catalogue.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Node.js (v18+)
@@ -36,7 +36,7 @@ npm run dev              # validate-markdown
 npm run dev-references   # validate-references
 ```
 
-## 📋 What Gets Validated
+##  What Gets Validated
 
 ### Markdown Validation (`validate-markdown`)
 - **YAML Frontmatter**: Validates against JSON schemas
@@ -50,7 +50,7 @@ npm run dev-references   # validate-references
 - **FIDLEG Support**: Handles `.FIDLEG` extensions
 - **Recursive Search**: Scans all subdirectories
 
-## 🔧 TypeScript Features
+##  TypeScript Features
 
 ### Type Safety
 - **Interface Definitions**: Strong typing for all data structures
@@ -68,7 +68,7 @@ npm run dev-references   # validate-references
 - **Easy Testing**: Pure functions are easy to unit test
 - **Extensibility**: Simple to add new validation rules or file types
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 scripts/
@@ -89,7 +89,7 @@ scripts/
 └── README.md             # This file
 ```
 
-## 🛠️ Available Scripts
+##  Available Scripts
 
 | Script | Description |
 |--------|-------------|
@@ -100,11 +100,11 @@ scripts/
 | `npm run dev` | Development mode (markdown) |
 | `npm run dev-references` | Development mode (references) |
 
-## 📊 Validation Output
+##  Validation Output
 
 ### Success Example
 ```
-✅ All files passed validation!
+ All files passed validation!
 Files checked: 9
 Valid files: 9
 Invalid files: 0
@@ -112,12 +112,12 @@ Invalid files: 0
 
 ### Error Example
 ```
-❌ risks/R:EXAMPLE.md:
+ risks/R:EXAMPLE.md:
   - Indicator I:NONEXISTENT does not exist
   - Measure M:MISSING does not exist
 ```
 
-## 🔍 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -141,14 +141,14 @@ Invalid files: 0
    - Remove invalid references
    - Check file naming conventions
 
-## 🎯 Integration
+##  Integration
 
 The validator integrates with:
 - **CI/CD Pipelines**: Exit codes for automation
 - **IDE Extensions**: Real-time validation feedback
 - **Documentation**: Automated quality assurance
 
-## 📝 Notes
+##  Notes
 
 - **Legacy Support**: Both ````yaml` and `---` frontmatter formats supported
 - **FIDLEG Extensions**: Special handling for Swiss compliance extensions

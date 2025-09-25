@@ -8,7 +8,7 @@ version: "1.0"
 lastUpdate: 2025-05-28
 ```
 
-## 🧠 Description
+##  Description
 
 This indicator measures the proportion of supplied liquidity that is currently borrowed in a lending pool. It serves as a real-time gauge for capital efficiency and protocol stress.
 
@@ -23,14 +23,14 @@ A low ratio may imply:
 - Inefficient capital usage
 - Lower returns for lenders
 
-## 📋 Preconditions
+##  Preconditions
 
 - Access to real-time lending pool data (on-chain or via subgraph)
 - Reliable separation between supplied and borrowed values
 - Pool must be large enough to exhibit meaningful utilization dynamics
 - Minimum pool size threshold to avoid noise from small pools
 
-## ⚙️ Methodology
+##  Methodology
 
 1. **Data Retrieval**
 Collect the following values for a given lending pool:
@@ -50,7 +50,7 @@ Exclude idle pools or test markets. Focus on high-volume or systemically relevan
 5. **Trend Analysis**
 Calculate moving averages and identify utilization patterns over time
 
-## ⚠️ Limitations
+##  Limitations
 
 - **Pool Size:** Small pools may show misleading utilization patterns
 - **Asset Specificity:** Different assets have different natural utilization levels
@@ -58,7 +58,7 @@ Calculate moving averages and identify utilization patterns over time
 - **Protocol Differences:** Utilization thresholds vary between protocols
 - **Data Quality:** Relies on accurate on-chain data feeds
 
-## 📊 Assessment
+##  Assessment
 
 The assessment classifies the current utilization level into risk bands.  
 The higher the utilization, the more exposed the system is to liquidity stress and sudden borrower activity.
@@ -71,7 +71,7 @@ The higher the utilization, the more exposed the system is to liquidity stress a
 | Low (2)        | 30–59%                   | Healthy capital availability and usage                            |
 | Very Low (1)   | < 30%                    | Under-utilized, low yield potential                               |
 
-## ⚙️ Standard Configurations
+##  Standard Configurations
 
 | Profile       | 5 – Very High | 4 – High | 3 – Medium | 2 – Low | 1 – Very Low |
 |---------------|---------------|----------|------------|---------|--------------|
@@ -79,7 +79,7 @@ The higher the utilization, the more exposed the system is to liquidity stress a
 | Moderate      | > 90%         | 75–90%   | 55–75%     | 35–55%  | < 35%        |
 | Aggressive    | > 95%         | 85–95%   | 60–85%     | 40–60%  | < 40%        |
 
-## 🧭 Usage Guidance
+##  Usage Guidance
 
 This indicator is useful for:
 
@@ -96,6 +96,6 @@ Typical consumers of this indicator include:
 - Risk dashboards
 - Automated monitoring systems
 
-## 🧱 Related Risks
+##  Related Risks
 
 ...

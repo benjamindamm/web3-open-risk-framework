@@ -2,7 +2,7 @@
 
 This directory contains detailed documentation for implementing Swiss FIDLEG compliance within the risk catalogue framework.
 
-## 📚 Component Guides
+##  Component Guides
 
 - **[Risk Guide](./risk.fidleg.md)** - FIDLEG-specific risk documentation
 - **[Indicator Guide](./indicator.fidleg.md)** - Compliance monitoring indicators  
@@ -11,7 +11,7 @@ This directory contains detailed documentation for implementing Swiss FIDLEG com
 - **[Action Guide](./action.fidleg.md)** - Automated compliance actions
 
 
-## 🎯 Core FIDLEG Articles
+##  Core FIDLEG Articles
 
 - **Art. 72**: Operational risk management
 - **Art. 142**: Market abuse prevention  

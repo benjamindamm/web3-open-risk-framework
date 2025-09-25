@@ -1,10 +1,10 @@
-# 🥮 Risk Assessment Guide
+#  Risk Assessment Guide
 
 This document defines how to perform consistent, transparent, and meaningful **risk assessments** within the Web3 Open Risk Framework.
 
 The goal is to provide a structured methodology that supports both **qualitative interpretation** and **quantitative evaluation**, depending on the risk type.
 
-## 🌟 Purpose
+##  Purpose
 
 The assessment process helps answer:
 
@@ -19,7 +19,7 @@ Assessments are critical for:
 - Triggering mitigations or alerts  
 - Communicating urgency and confidence  
 
-## ⚙️ Assessment Parameters
+##  Assessment Parameters
 
 Each risk is evaluated across three key dimensions:
 
@@ -39,7 +39,7 @@ Example (3-point scale):
 | 2     | Moderate   | Possible   | Recurring   |
 | 3     | Critical   | Likely     | Persistent  |
 
-## 🧾 Accepted Values
+##  Accepted Values
 
 Each field in a risk assessment uses a predefined set of values (enums) to ensure consistency across dashboards, reports, and automated systems. These values are **not defined globally**, but directly in the documents that introduce and explain them in context.
 
@@ -51,7 +51,7 @@ For reference:
 
 Each of these enums should be treated as normative and stable. When updating or interpreting a risk or a measure, always refer to the original definition in the respective file.
 
-## 🔁 Indicator Integration
+##  Indicator Integration
 
 If the risk is **quantitative** or **hybrid**, link relevant indicators:
 
@@ -59,7 +59,7 @@ If the risk is **quantitative** or **hybrid**, link relevant indicators:
 - Use threshold logic (e.g., 7-day moving average crosses critical value)
 - Highlight **deviation from baseline or target**, not just absolute values
 
-## 🧠 Qualitative Judgement
+##  Qualitative Judgement
 
 For qualitative risks:
 
@@ -67,7 +67,7 @@ For qualitative risks:
 - Reference similar risks with known impact
 - Involve subject matter experts in protocol governance, security, legal, etc.
 
-## 🗂️ Example Output
+##  Example Output
 
 Each assessment must reference the corresponding risk ID to maintain traceability and version control.
 
@@ -105,7 +105,7 @@ notes: >
   Risk is structural and recurring, requiring active rebalancing.
 ```
 
-## 📌 Usage Tips
+##  Usage Tips
 
 - Document **why** a score was chosen, not just the score
 - Review assessments **periodically** or when indicators change

@@ -21,7 +21,7 @@ For commercial licensing inquiries or custom agreements:
 ---
 
 **License**: Commercial License Required  
-**Commercial Use**: ✅ Permitted (with license)  
-**Attribution Required**: ❌ No (with commercial license)  
-**Modification Allowed**: ✅ Yes (with commercial license)  
-**Distribution Allowed**: ✅ Yes (with commercial license)
+**Commercial Use**:  Permitted (with license)  
+**Attribution Required**:  No (with commercial license)  
+**Modification Allowed**:  Yes (with commercial license)  
+**Distribution Allowed**:  Yes (with commercial license)

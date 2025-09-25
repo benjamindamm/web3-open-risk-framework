@@ -1,10 +1,10 @@
-# ⚠️ Risk - FIDLEG Extension
+#  Risk - FIDLEG Extension
 
-## 🌟 Purpose
+##  Purpose
 
 The FIDLEG Risk extension provides Swiss regulatory compliance risk categorization for DeFi protocols. It maps risks to FIDLEG impact categories and triggers specific compliance actions.
 
-## ⚙️ FIDLEG Risk Categories
+##  FIDLEG Risk Categories
 
 ### Impact Categories
 
@@ -18,20 +18,20 @@ The FIDLEG Risk extension provides Swiss regulatory compliance risk categorizati
 | **[PRODUCT_GOVERNANCE_ISSUE]** | Product governance compromised |
 
 
-## 📋 Required Properties
+##  Required Properties
 
 - **fidlegImpactCategory** - FIDLEG impact categorization
 - **triggeredFidlegActions** - Compliance actions triggered by this risk
 
 <!-- PAGEBREAK -->
 
-## 📖 Implementation
+##  Implementation
 
 Refer to example risk implementations for practical guidance on risk structure and compliance actions.
 
 <!-- HIDDEN -->
 
-## 🔗 Related Documentation
+##  Related Documentation
 
 - [Action Documentation](./action.fidleg.md)
 - [Assessment Documentation](./assessment.fidleg.md)

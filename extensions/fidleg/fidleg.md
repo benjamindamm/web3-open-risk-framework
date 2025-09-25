@@ -2,11 +2,11 @@
 
 A prescriptive DeFi compliance engine for Swiss financial institutions, enabling systematic evaluation, management, and response to FIDLEG and GwG regulatory requirements when integrating DeFi protocols.
 
-## 📋 Overview
+##  Overview
 
 The FIDLEG Extension transforms risk and assessment data into actionable compliance directives. It embeds Swiss regulatory requirements directly into core data structures, allowing banks to programmatically mandate FIDLEG and GwG-compliant responses for proactive, auditable DeFi protocol governance.
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Define Actions
 Create compliance steps using the FIDLEG action schema. Each action requires a unique identifier, specific action type, relevant regulatory articles, detailed description, priority level, completion timeline, responsible roles, required documentation, and impact assessment on client relations.
@@ -25,7 +25,7 @@ Examine implementation examples in the catalogue.
 ### 5. Deploy
 Implement for automated regulatory compliance.
 
-## 🔧 Schema Extension
+##  Schema Extension
 
 The FIDLEG extension adds `regulatoryExtensions.fidleg` objects to core schemas:
 
@@ -68,7 +68,7 @@ The FIDLEG extension adds `regulatoryExtensions.fidleg` objects to core schemas:
 
 <!-- PAGEBREAK -->
 
-## 📖 Core FIDLEG Articles
+##  Core FIDLEG Articles
 
 ### Operational Risk Management (Art. 72)
 - **Smart Contract Security**: Assessment of protocol security risks
@@ -97,7 +97,7 @@ The FIDLEG extension adds `regulatoryExtensions.fidleg` objects to core schemas:
 
 <!-- PAGEBREAK -->
 
-## 📋 Key FIDLEG Articles
+##  Key FIDLEG Articles
 
 | Article | Description | Application Scope |
 |---------|-------------|-------------------|
@@ -110,7 +110,7 @@ The FIDLEG extension adds `regulatoryExtensions.fidleg` objects to core schemas:
 
 <!-- PAGEBREAK -->
 
-## ⚡ Key Features
+##  Key Features
 
 ### Dynamic Action Triggering
 Automatic initiation of FIDLEG actions based on predefined conditions and assessment results.
@@ -141,7 +141,7 @@ Immutable record of:
 - Regulatory basis
 - Compliance decisions
 
-## 🎯 Implementation Benefits
+##  Implementation Benefits
 
 - **Proactive Compliance**: Automatic enforcement of regulatory mandates
 - **Operational Efficiency**: Automation of routine compliance tasks

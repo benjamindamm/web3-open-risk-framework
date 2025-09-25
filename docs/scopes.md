@@ -1,4 +1,4 @@
-# 🔁 Scope of Action
+#  Scope of Action
 
 This section defines **Scopes of Action** – a tagging system that links risks to concrete user or system actions.  
 Scopes help dynamically filter and surface relevant risks depending on what the user is doing or what context a system module is operating in.
@@ -6,7 +6,7 @@ Scopes help dynamically filter and surface relevant risks depending on what the 
 Whenever a user initiates an action (e.g., opens a wallet, signs a transaction, or initiates a trade), a specific subset of risks becomes **situationally relevant**.  
 This system allows for targeted monitoring, guidance, and alerting – without overwhelming the user with irrelevant noise.
 
-## 🧭 Why Use Scopes?
+##  Why Use Scopes?
 
 Not every risk is always relevant. This framework allows you to:
 
@@ -17,7 +17,7 @@ Not every risk is always relevant. This framework allows you to:
 
 <!-- PAGEBREAK -->
 
-## 🎛 Scope Tags
+##  Scope Tags
 
 Each risk can be tagged with one or more of the following scopes:
 
@@ -32,7 +32,7 @@ Each risk can be tagged with one or more of the following scopes:
 
 <!-- PAGEBREAK -->
 
-## 🧪 Examples
+##  Examples
 
 | User Action                                                | Related Scope      |
 | ---------------------------------------------------------- | ------------------ |
@@ -44,7 +44,7 @@ Each risk can be tagged with one or more of the following scopes:
 | Vote on a DAO proposal via a governance portal →           | [GOVERNANCE]       |
 | Assets become inaccessible due to Layer 2 sequencer halt → | [NETWORK], [ASSET] |
 
-## 🧰 Usage Notes
+##  Usage Notes
 
 - Scopes are **not exclusive**. A risk can belong to multiple scopes.
 - The goal is **situational clarity**: what becomes relevant **now**, given what the user is doing?

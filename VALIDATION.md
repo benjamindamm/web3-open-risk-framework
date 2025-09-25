@@ -1,8 +1,8 @@
-# 🔍 Validation Tools
+#  Validation Tools
 
 This document describes the validation tools available in the `module/scripts/` directory for ensuring data integrity and consistency in the Risk Framework.
 
-## 📋 Available Scripts
+##  Available Scripts
 
 ### 1. Schema Validation (`validate-markdown.mjs`)
 
@@ -47,43 +47,43 @@ cd scripts
 npm run validate-all
 ```
 
-## 🎯 Validation Features
+##  Validation Features
 
 ### Schema Validation
-- ✅ YAML frontmatter structure validation
-- ✅ Required field validation
-- ✅ Data type validation
-- ✅ Pattern matching (e.g., ID formats)
-- ✅ Enum value validation
+-  YAML frontmatter structure validation
+-  Required field validation
+-  Data type validation
+-  Pattern matching (e.g., ID formats)
+-  Enum value validation
 
 ### Reference Validation
-- ✅ Cross-reference integrity
-- ✅ Automatic discovery of available entities
-- ✅ Detailed error reporting with suggestions
-- ✅ Support for missing directories (e.g., measures)
-- ✅ Comprehensive file scanning
+-  Cross-reference integrity
+-  Automatic discovery of available entities
+-  Detailed error reporting with suggestions
+-  Support for missing directories (e.g., measures)
+-  Comprehensive file scanning
 
-## 📊 Output Examples
+##  Output Examples
 
 ### Successful Validation
 ```
-✅ All files passed validation!
-✅ All references are valid!
+ All files passed validation!
+ All references are valid!
 ```
 
 ### Error Reporting
 ```
-❌ catalogue/risks/R:EXAMPLE.md:
+ catalogue/risks/R:EXAMPLE.md:
   - Indicator I:NONEXISTENT does not exist
   - Measure M:MISSING does not exist
 
-💡 Suggested fixes:
+ Suggested fixes:
 1. Remove references to non-existent indicators/measures/assessments/risks
 2. Create missing indicators/measures/assessments/risks if needed
 3. Use only existing references from the catalogue
 ```
 
-## 🔧 Integration
+##  Integration
 
 ### CI/CD Pipeline
 ```bash
@@ -114,14 +114,14 @@ fi
 }
 ```
 
-## 🚨 Error Handling
+##  Error Handling
 
 - **Exit Code 0**: All validations passed
 - **Exit Code 1**: Validation errors found
 - **Detailed Reports**: Shows exactly which files and references have issues
 - **Actionable Suggestions**: Provides specific guidance for fixing errors
 
-## 📁 Directory Structure
+##  Directory Structure
 
 ```
 module/
@@ -155,7 +155,7 @@ module/
     └── measures/
 ```
 
-## 🔄 Workflow
+##  Workflow
 
 1. **Develop**: Create or modify risk/indicator/assessment/measure files
 2. **Validate**: Run validation scripts to check for errors

@@ -1,10 +1,10 @@
-# 📊 Assessment - FIDLEG Extension
+#  Assessment - FIDLEG Extension
 
-## 🌟 Purpose
+##  Purpose
 
 The FIDLEG Assessment extension provides Swiss regulatory compliance evaluation capabilities for DeFi protocol risk assessments. It integrates FIDLEG (Financial Services Act) and GwG (Anti-Money Laundering Act) requirements into the risk catalogue framework.
 
-## ⚙️ FIDLEG Assessment Parameters
+##  FIDLEG Assessment Parameters
 
 ### Assessment Types
 - **`PROTOCOL_SECURITY`** - Art. 72 compliance evaluation
@@ -25,7 +25,7 @@ The FIDLEG Assessment extension provides Swiss regulatory compliance evaluation 
 - **`REJECT_PROTOCOL`** - Do not offer to clients
 
 
-## 📋 Required Properties
+##  Required Properties
 
 - `relevantArticles` - FIDLEG/GwG articles
 - `assessmentType` - Assessment focus area
@@ -34,20 +34,20 @@ The FIDLEG Assessment extension provides Swiss regulatory compliance evaluation 
 - `customerAccessLevel` - Client access level
 - `requiredFidlegActions` - Triggered compliance actions
 
-## 🎯 Key FIDLEG Articles
+##  Key FIDLEG Articles
 
 - **Art. 72**: Protocol security requirements
 - **Art. 142**: Market abuse prevention
 - **Art. 8-10**: Client suitability and appropriateness
 - **GwG Art. 6**: Anti-money laundering measures
 
-## 📖 Implementation
+##  Implementation
 
 Refer to example risk implementations for practical guidance on assessment structure and compliance workflows.
 
 <!-- HIDDEN -->
 
-## 🔗 Related Documentation
+##  Related Documentation
 
 - [Action Documentation](./action.fidleg.md)
 - [Risk Documentation](./risk.fidleg.md)

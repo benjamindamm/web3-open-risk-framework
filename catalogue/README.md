@@ -1,8 +1,8 @@
-# 📚 Risk Catalogue Examples
+#  Risk Catalogue Examples
 
 This directory contains **example implementations** of the Web3 Risk Framework. These examples serve as templates and reference implementations to help you build your own comprehensive risk catalogue.
 
-## 🎯 Purpose
+##  Purpose
 
 The examples in this directory are designed to:
 
@@ -12,7 +12,7 @@ The examples in this directory are designed to:
 - **Illustrate** the modular extension system (FIDLEG compliance)
 - **Guide** implementation of regulatory requirements
 
-## 📁 Directory Structure
+##  Directory Structure
 
 ```
 catalogue/
@@ -22,7 +22,7 @@ catalogue/
 └── assessments/     # Example risk assessments
 ```
 
-## 🔧 How to Use These Examples
+##  How to Use These Examples
 
 ### 1. **Study the Structure**
 - Review the YAML metadata format
@@ -40,7 +40,7 @@ catalogue/
 - Implement custom mitigation measures
 - Conduct tailored risk assessments
 
-## 📋 Example Categories
+##  Example Categories
 
 ### Core Framework Examples
 - **Decreasing Yield Risk** - Traditional DeFi risk assessment
@@ -53,7 +53,7 @@ catalogue/
 - **MEV Protection Measure** - Technical mitigation implementation
 - **MEV Exploitation Assessment** - Bank decision framework
 
-## 🚀 Getting Started
+##  Getting Started
 
 1. **Read the Framework Documentation**
    - Start with [`docs/philosophy.md`](../docs/philosophy.md)
@@ -73,14 +73,14 @@ catalogue/
    - Modify content for your specific use case
    - Validate using the provided scripts
 
-## ⚠️ Important Notes
+##  Important Notes
 
 - **These are examples only** - Not a complete risk catalogue
 - **Customize for your needs** - Adapt to your specific protocols and requirements
 - **Regulatory compliance** - Ensure your implementation meets applicable regulations
 - **Regular updates** - Keep your risk assessments current with protocol changes
 
-## 🛠️ Validation
+##  Validation
 
 Use the provided validation scripts to ensure your implementations are correct:
 
@@ -92,7 +92,7 @@ node scripts/validate-markdown.mjs
 node scripts/validate-references.mjs
 ```
 
-## 📖 Further Reading
+##  Further Reading
 
 - **Framework Overview**: [`README.md`](../README.md)
 - **FIDLEG Extension**: [`extensions/fidleg/README.md`](../extensions/fidleg/README.md)

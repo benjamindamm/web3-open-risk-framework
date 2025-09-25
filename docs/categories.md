@@ -1,4 +1,4 @@
-# 🗂 Risk Categories
+#  Risk Categories
 
 This file defines the eight core risk categories used throughout the Web3 Open Risk Framework.  
 Each risk must be assigned exactly one category. The goal is to maintain clarity, comparability, and structural consistency across all risk entries.

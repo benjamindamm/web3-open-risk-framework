@@ -1,9 +1,9 @@
 
-# 📚 References
+#  References
 
 This document provides a curated list of academic papers, industry reports, and professional resources that inform the Web3 Open Risk Framework.
 
-## 📄 Academic Papers
+##  Academic Papers
 
 ### Risk Assessment & Smart Contracts
 
@@ -21,7 +21,7 @@ This document provides a curated list of academic papers, industry reports, and 
 
 <!-- PAGEBREAK -->
 
-## 📊 Industry Reports
+##  Industry Reports
 
 ### DeFi & Policy
 
@@ -35,7 +35,7 @@ This document provides a curated list of academic papers, industry reports, and 
 
 <!-- PAGEBREAK -->
 
-## 🔗 Professional Articles
+##  Professional Articles
 
 ### Risk Analysis Frameworks
 

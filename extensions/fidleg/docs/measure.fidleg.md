@@ -1,10 +1,10 @@
-# 🛡️ Measure - FIDLEG Extension
+#  Measure - FIDLEG Extension
 
-## 🌟 Purpose
+##  Purpose
 
 The FIDLEG Measure extension provides Swiss regulatory compliance measures for DeFi protocols. It defines regulatory requirements and triggers specific compliance actions when conditions are met.
 
-## ⚙️ FIDLEG Measure Categories
+##  FIDLEG Measure Categories
 
 ### Regulatory Requirements
 - **[MANDATORY]** - Legally required by FIDLEG/GwG
@@ -19,26 +19,26 @@ The FIDLEG Measure extension provides Swiss regulatory compliance measures for D
 - **[REPUTATIONAL_IMPACT]** - Reputation at risk
 
 
-## 📋 Required Properties
+##  Required Properties
 
 - `relevantArticles` - FIDLEG/GwG articles
 - `regulatoryRequirement` - Regulatory requirement level
 - `fidlegActionTriggers` - Action triggers for this measure
 
-## 🎯 Key FIDLEG Articles
+##  Key FIDLEG Articles
 
 - **Art. 72**: Protocol security requirements
 - **Art. 142**: Market abuse prevention
 - **Art. 8-10**: Client suitability and appropriateness
 - **GwG Art. 6**: Anti-money laundering measures
 
-## 📖 Implementation
+##  Implementation
 
 Refer to example risk implementations for practical guidance on measure structure and compliance workflows.
 
 <!-- HIDDEN -->
 
-## 🔗 Related Documentation
+##  Related Documentation
 
 - [Action Documentation](./action.fidleg.md)
 - [Assessment Documentation](./assessment.fidleg.md)

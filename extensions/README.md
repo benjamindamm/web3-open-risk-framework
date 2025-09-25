@@ -2,7 +2,7 @@
 
 Modular regulatory extensions that add jurisdiction-specific compliance capabilities to the Web3 Risk Framework.
 
-## 📁 Directory Structure
+##  Directory Structure
 
 ```
 extensions/
@@ -16,7 +16,7 @@ extensions/
 └── {future-extensions}/       # Additional jurisdictions
 ```
 
-## 🌍 Available Extensions
+##  Available Extensions
 
 ### Swiss FIDLEG Extension
 - **Repository**: [`fidleg/`](./fidleg/) - Extension files and schemas
@@ -24,14 +24,14 @@ extensions/
 - **Components**: [`docs/`](./fidleg/docs/) - Risk, indicator, measure, assessment, action guides
 - **Schemas**: [`schema/`](./fidleg/schema/) - JSON schema definitions
 
-## 🚀 Quick Start
+##  Quick Start
 
 1. **Browse Extensions**: Explore available extensions in their respective directories
 2. **Read Documentation**: Check `{extension}.md` files for detailed guides
 3. **Review Schemas**: Examine JSON schemas in `schema/` directories
 4. **See Examples**: Look at implementation examples in the main catalogue
 
-## ➕ Adding New Extensions
+##  Adding New Extensions
 
 To create a new regulatory extension:
 
@@ -42,7 +42,7 @@ To create a new regulatory extension:
 5. **Document components**: Provide guides in `docs/` subdirectory
 6. **Update this README**: Add your extension to the list above
 
-## 📖 Documentation Types
+##  Documentation Types
 
 - **README.md**: Repository navigation and quick reference
 - **{extension}.md**: PDF documentation with detailed implementation guides

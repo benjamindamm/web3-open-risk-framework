@@ -1,4 +1,4 @@
-# 📘 Terminology
+#  Terminology
 
 This glossary provides **quick reference definitions** for key terms used across the Web3 Open Risk Framework. 
 
@@ -6,7 +6,7 @@ This glossary provides **quick reference definitions** for key terms used across
 
 **Focus:** Concise definitions with Web3 context - not comprehensive explanations (those are in dedicated files like `risk.md`, `categories.md`, etc.).
 
-## 🎯 Core Concepts (Quick Reference)
+##  Core Concepts (Quick Reference)
 
 | Term | Definition | Example |
 |------|------------|---------|
@@ -19,7 +19,7 @@ This glossary provides **quick reference definitions** for key terms used across
 
 <!-- PAGEBREAK -->
 
-## 🔁 Risk Types & Categories
+##  Risk Types & Categories
 
 ### Risk Types
 | Type | Definition | Web3 Context |
@@ -46,7 +46,7 @@ See [`categories.md`](./categories.md) for detailed explanations.
 
 <!-- PAGEBREAK -->
 
-## 🎯 Scopes & Objectives
+##  Scopes & Objectives
 
 ### Scopes (When/Where Risks Apply)
 | Scope | Definition | Web3 Context |
@@ -81,7 +81,7 @@ See [`scopes.md`](./scopes.md) and [`objectives.md`](./objectives.md) for detail
 
 <!-- PAGEBREAK -->
 
-## 🛠 Measures, Indicators & Owners
+##  Measures, Indicators & Owners
 
 ### Measures (Risk Mitigation Strategies)
 | Measure Type | Definition | Web3 Context |
@@ -118,7 +118,7 @@ See [`measure.md`](./measure.md), [`indicator.md`](./indicator.md), and [`owners
 
 <!-- PAGEBREAK -->
 
-## 🧮 Assessment & Risk Relationships
+##  Assessment & Risk Relationships
 
 ### Risk Assessment Framework
 | Assessment Type | Definition | Web3 Context |
@@ -146,7 +146,7 @@ See [`risk.md`](./risk.md) and [`assessment.md`](./assessment.md) for detailed e
 
 <!-- PAGEBREAK -->
 
-## 🎯 Risk States & Implementation
+##  Risk States & Implementation
 
 ### Risk Persistence Levels
 | Persistence Level | Definition | Web3 Context |

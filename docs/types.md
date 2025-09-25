@@ -1,4 +1,4 @@
-# 🧮 Risk Types
+#  Risk Types
 
 This file defines the structural **type** of a risk.  
 The risk type determines how the risk can be assessed, monitored, or mitigated – and whether it can be connected to hard data or only understood through reasoning.
@@ -61,7 +61,7 @@ They involve numeric indicators but cannot be fully reduced to quantitative metr
 
 <!-- PAGEBREAK -->
 
-## 📌 **Choosing the Correct Risk Type**
+##  **Choosing the Correct Risk Type**
 
 Use this simple decision framework:
 

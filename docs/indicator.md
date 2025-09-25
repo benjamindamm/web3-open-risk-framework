@@ -1,10 +1,10 @@
-# 📈 Indicator Template Guide
+#  Indicator Template Guide
 
 This document defines the standard structure and purpose of each section used when creating a new risk indicator in the Web3 Open Risk Framework. Indicators serve as measurable signals that can be used to monitor, evaluate, and trigger risk-related assessments.
 
 ---
 
-## 🧾 Header Metadata
+##  Header Metadata
 
 Basic identifier and classification details.
 
@@ -64,7 +64,7 @@ Measures the degree of price fluctuations over time. High volatility is often co
 
 ---
 
-## 📋 Preconditions
+##  Preconditions
 
 Specify the conditions that must be met for this indicator to be meaningful or applicable.
 
@@ -76,7 +76,7 @@ Example:
 
 ---
 
-## ⚙️ Methodology
+##  Methodology
 
 Describe the step-by-step process for calculating the indicator. This section ensures reproducibility and transparency.
 
@@ -97,7 +97,7 @@ Optional additions:
 
 ---
 
-## ⚠️ Limitations
+##  Limitations
 
 Describe key limitations and potential weaknesses of the indicator.
 
@@ -110,7 +110,7 @@ Structure:
 
 ---
 
-## 📊 Assessment
+##  Assessment
 
 Define how the indicator translates into a risk level using thresholds. Include suggested actions (strategies) and responsibilities.
 
@@ -122,11 +122,11 @@ Define how the indicator translates into a risk level using thresholds. Include 
 | 2 – Low        | 10% – 20%           | Low but noticeable fluctuations                      | Accept               | Investor                 |
 | 1 – Very Low   | < 10%               | Very stable, minimal fluctuation                     | Accept               | Investor                 |
 
-💡 **Note**: When this indicator is assigned to a risk, it carries 100% influence by default. You can link multiple indicators to a single risk, in which case weighting must be determined manually.
+ **Note**: When this indicator is assigned to a risk, it carries 100% influence by default. You can link multiple indicators to a single risk, in which case weighting must be determined manually.
 
 ---
 
-## ⚙️ Standard Configurations (optional)
+##  Standard Configurations (optional)
 
 These values define what each investor profile considers "acceptable" or "concerning" based on their risk appetite.
 
@@ -136,11 +136,11 @@ These values define what each investor profile considers "acceptable" or "concer
 | Moderate      | > 50%         | 40 – 50%  | 25 – 40%   | 15 – 25%  | < 15%        |
 | Aggressive    | > 60%         | 50 – 60%  | 30 – 50%   | 20 – 30%  | < 20%        |
 
-📝 *These profiles are examples only. Investors must define their own acceptable ranges based on objectives and constraints.*
+ *These profiles are examples only. Investors must define their own acceptable ranges based on objectives and constraints.*
 
 ---
 
-## 🧭 Usage Guidance
+##  Usage Guidance
 
 - Indicators are reusable across risks, but relevance depends on context.
 - Risks may link to one or more indicators, and each can be weighted differently.

@@ -1,4 +1,4 @@
-# 🎯 Affected Investment Objectives
+#  Affected Investment Objectives
 
 This section defines the different **investment objectives** that a risk can negatively influence. Each objective reflects a specific priority for investors – from value preservation to operational safety or regulatory clarity.
 
@@ -12,7 +12,7 @@ A risk entry in the catalogue should specify:
 
 > **Note:** The model only tracks *undesirable deviations* from the expected or desired state.
 
-## 📊 Purpose and Use
+##  Purpose and Use
 
 The objectives model serves several key functions:
 
@@ -23,9 +23,9 @@ The objectives model serves several key functions:
 
 <!-- PAGEBREAK -->
 
-## 🧩 Objective Domains and Definitions
+##  Objective Domains and Definitions
 
-### 💰 Financial Objectives  
+###  Financial Objectives  
 Risks that directly affect the economic quality or efficiency of an investment.
 
 | Objective   | Description | Goal      | Example |
@@ -37,7 +37,7 @@ Risks that directly affect the economic quality or efficiency of an investment.
 
 <!-- PAGEBREAK -->
 
-### 🛡 Security Objectives  
+###  Security Objectives  
 Risks that affect safety, accessibility, or resilience.
 
 | Objective    | Description | Goal      | Example |
@@ -48,7 +48,7 @@ Risks that affect safety, accessibility, or resilience.
 | [TRUST]      | Perceived system reliability. | Increase | Confusing or manipulated vote |
 | [POTENTIAL]  | Long-term upside and optionality. | Increase | No roadmap or stagnation |
 
-### ⚖️ Regulatory Objectives  
+###  Regulatory Objectives  
 Risks that influence legal certainty or reputational standing.
 
 | Objective      | Description | Goal      | Example |
@@ -58,7 +58,7 @@ Risks that influence legal certainty or reputational standing.
 
 <!-- PAGEBREAK -->
 
-## 🔁 Connection to Measures
+##  Connection to Measures
 
 Every risk should be linked to one or more **measures** that specifically address the **affected objectives**:
 
@@ -72,7 +72,7 @@ This supports:
 - Scoring logic in automated tools  
 - Communication of mitigation effectiveness
 
-## 📌 Implementation Tip
+##  Implementation Tip
 
 For dashboards: Highlight the **top 1–3 affected objectives** using tags or icons. Use color coding to signal direction of deviation (e.g. red for trust decreases).
 

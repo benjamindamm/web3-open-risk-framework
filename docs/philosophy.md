@@ -1,8 +1,8 @@
-# 🧠 Framework Philosophy
+#  Framework Philosophy
 
 This document explains the **why** behind the Web3 Open Risk Framework – our core beliefs, design philosophy, and the problems we're solving in the decentralized ecosystem.
 
-## 🎯 Why This Framework Exists
+##  Why This Framework Exists
 
 Web3 presents unique challenges that traditional risk management tools cannot address:
 
@@ -14,7 +14,7 @@ Web3 presents unique challenges that traditional risk management tools cannot ad
 
 Traditional frameworks assume centralized control and static systems. Web3 needs **decentralized, dynamic, and transparent** risk management.
 
-## 🔬 Core Philosophy
+##  Core Philosophy
 
 Our framework is built on three fundamental beliefs:
 
@@ -37,7 +37,7 @@ See [Risk Owner Model](./owners.md) and [Measures](./measure.md) for implementat
 
 <!-- PAGEBREAK -->
 
-## 🏗️ Design Principles
+##  Design Principles
 
 These principles guide every design decision in the framework:
 
@@ -63,7 +63,7 @@ Our approach differs fundamentally from existing tools:
 | **Proprietary methodologies**    | **Open source** – methodology is public, auditable, and improvable by the community                                                                    |
 | **Enterprise-focused**           | **Web3-native** – designed for decentralized teams, Git workflows, and permissionless innovation                                                         |
 
-## 🎯 The Bottom Line
+##  The Bottom Line
 
 We believe risk management in Web3 should be:
 - **Transparent** – no hidden algorithms or proprietary scoring

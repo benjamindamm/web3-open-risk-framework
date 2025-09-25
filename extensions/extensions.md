@@ -2,7 +2,7 @@
 
 The Web3 Open Risk Framework supports modular regulatory extensions that add jurisdiction-specific compliance capabilities without affecting the core framework.
 
-## 🏗️ Extension Architecture
+##  Extension Architecture
 
 Extensions are designed to be:
 
@@ -13,7 +13,7 @@ Extensions are designed to be:
 
 <!-- PAGEBREAK -->
 
-## 🌍 Available Extensions
+##  Available Extensions
 
 ### Swiss FIDLEG Extension (Work in progress)
 
@@ -32,13 +32,13 @@ The **Swiss FIDLEG Extension** is a prescriptive DeFi compliance engine for Swis
 - **GwG Workflows**: Comprehensive AML compliance through transaction monitoring
 - **Auditable Traceability**: Immutable record of triggered actions and regulatory basis
 
-## 🔧 Extension Pattern
+##  Extension Pattern
 
 Extensions add regulatory extension objects to core schemas, containing jurisdiction-specific compliance information. Each extension includes relevant regulatory articles, compliance status indicators, and required actions with context parameters for automated compliance enforcement.
 
 <!-- PAGEBREAK -->
 
-## ➕ Adding New Extensions
+##  Adding New Extensions
 
 To create a new regulatory extension:
 
@@ -48,7 +48,7 @@ To create a new regulatory extension:
 4. **Document**: Provide comprehensive documentation and examples
 5. **Update README**: Add your extension to the list
 
-## 🎯 Extension Benefits
+##  Extension Benefits
 
 - **Proactive Compliance**: Automatic enforcement of regulatory mandates
 - **Operational Efficiency**: Automation of routine compliance tasks

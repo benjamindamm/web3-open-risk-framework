@@ -2,9 +2,9 @@
 
 A prescriptive DeFi compliance engine for Swiss financial institutions. Enables systematic evaluation, management, and response to FIDLEG and GwG regulatory requirements when integrating DeFi protocols (Aave, Compound, Uniswap) into service offerings.
 
-## 📚 Documentation
+##  Documentation
 
-- **[📖 Detailed Guide](./fidleg.md)** - Comprehensive implementation guide (PDF documentation)
+- **[ Detailed Guide](./fidleg.md)** - Comprehensive implementation guide (PDF documentation)
 - **[Risk Guide](./docs/risk.fidleg.md)** - FIDLEG-driven risk directives
 - **[Indicator Guide](./docs/indicator.fidleg.md)** - Compliance monitoring triggers
 - **[Measure Guide](./docs/measure.fidleg.md)** - Regulatory mitigation measures
@@ -12,14 +12,14 @@ A prescriptive DeFi compliance engine for Swiss financial institutions. Enables 
 - **[Action Guide](./docs/action.fidleg.md)** - Automated compliance actions
 - **[Schema Reference](./schema/)** - Extended JSON schemas with FIDLEG capabilities
 
-## 🚀 Quick Start
+##  Quick Start
 
 1. **Read the Guide**: Start with the [detailed implementation guide](./fidleg.md)
 2. **Review Schemas**: Examine [fidleg-action.schema.json](./schema/fidleg-action.schema.json)
 3. **Study Components**: Check the [component guides](./docs/) for specific implementations
 4. **See Examples**: Examine implementation examples in the [main catalogue](../../catalogue/)
 
-## 🔧 Schema Extension Example
+##  Schema Extension Example
 
 The FIDLEG extension adds `regulatoryExtensions.fidleg` objects to core schemas:
 
@@ -40,14 +40,14 @@ The FIDLEG extension adds `regulatoryExtensions.fidleg` objects to core schemas:
 }
 ```
 
-## 💡 Implementation Examples
+##  Implementation Examples
 
 - **Risk**: [R:MEV_EXPLOITATION.FIDLEG.md](../../catalogue/risks/R:MEV_EXPLOITATION.FIDLEG.md)
 - **Indicator**: [I:MEV_DETECTION.FIDLEG.md](../../catalogue/indicators/I:MEV_DETECTION.FIDLEG.md)
 - **Measure**: [M:MEV_PROTECTION.FIDLEG.md](../../catalogue/measures/M:MEV_PROTECTION.FIDLEG.md)
 - **Assessment**: [A:MEV_EXPLOITATION.FIDLEG.md](../../catalogue/assessments/A:MEV_EXPLOITATION.FIDLEG.md)
 
-## 📖 Core FIDLEG Articles
+##  Core FIDLEG Articles
 
 - **FIDLEG_Art72**: Operational Risk Management (Smart contract security, admin key risks)
 - **FIDLEG_Art142**: Market Abuse Prevention (MEV detection, wash trading)
@@ -56,4 +56,4 @@ The FIDLEG extension adds `regulatoryExtensions.fidleg` objects to core schemas:
 - **FIDLEG_Art10**: Eignungsprüfung (Client suitability verification)
 - **GwG_Art6**: Sorgfaltspflichten (Customer due diligence, AML monitoring)
 
-> **📖 For detailed implementation guidance, schema tables, and comprehensive documentation, see the [FIDLEG Extension Guide](./fidleg.md).**
+> ** For detailed implementation guidance, schema tables, and comprehensive documentation, see the [FIDLEG Extension Guide](./fidleg.md).**

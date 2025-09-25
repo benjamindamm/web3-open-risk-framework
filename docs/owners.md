@@ -1,10 +1,10 @@
-# 🛡 Risk Owner Model
+#  Risk Owner Model
 
 Understanding who is responsible for a given risk is essential for evaluating its real-world relevance and mitigation potential. While the investor always bears the ultimate exposure, not all risks can be influenced or resolved by them.
 
 This file defines a layered **Risk Owner Model** – a set of clearly scoped roles that map responsibility across the crypto ecosystem. Each role is exclusive and collectively they cover the full surface of possible control, oversight, or action.
 
-## 🧩 Usage in the Risk Catalogue
+##  Usage in the Risk Catalogue
 
 Each risk is assigned one or more **Risk Owners** to clarify accountability. This field answers:
 
@@ -19,7 +19,7 @@ Use this to inform:
 
 <!-- PAGEBREAK -->
 
-## 🎯 Summary Table
+##  Summary Table
 
 | Owner    | Scope of Responsibility                      | Power to Act | Example Entities                   |
 | ------------- | -------------------------------------------- | ------------ | ---------------------------------- |
@@ -33,7 +33,7 @@ Use this to inform:
 
 <!-- PAGEBREAK -->
 
-## 🧍 [INVESTOR]
+##  [INVESTOR]
 
 **Scope:**  
 The individual or entity holding the asset or financial position.
@@ -48,7 +48,7 @@ Investors cannot directly fix most risks, but they are the ones affected. Their 
 - Participating in DAO votes
 - Choosing alternative products
 
-## 🛰 [OPERATOR]
+##  [OPERATOR]
 
 **Scope:**  
 Risk monitoring platforms and analytics services (e.g. TokenLogic).
@@ -65,7 +65,7 @@ Not directly responsible for the risk itself, but they provide the **visibility*
 
 <!-- PAGEBREAK -->
 
-## 🏗 [TEAM]
+##  [TEAM]
 
 **Scope:**  
 The team, foundation, or DAO that designs and maintains the application logic.
@@ -80,7 +80,7 @@ They have the most direct power to fix problems, deploy changes, or modify risk-
 - Incident response
 - Public communication
 
-## ⚙️ [BASE]
+##  [BASE]
 
 **Scope:**  
 Layer 1 or Layer 2 networks (e.g. Ethereum, Arbitrum).
@@ -97,7 +97,7 @@ They secure the base layer, define consensus, and affect every application built
 
 <!-- PAGEBREAK -->
 
-## 🔗 [PROVIDER]
+##  [PROVIDER]
 
 **Scope:**  
 External services that protocols rely on but do not control.
@@ -115,7 +115,7 @@ They are not part of the protocol but their performance directly affects it.
 - Publishing documentation or fixes
 - Handling security incidents
 
-## 🧑‍⚖️ [PARTICIPANT]
+## ‍ [PARTICIPANT]
 
 **Scope:**  
 Token holders or delegates who vote in governance processes.
@@ -132,7 +132,7 @@ They can influence protocol direction but are not implementers.
 
 <!-- PAGEBREAK -->
 
-## 🧪 [REVIEWER]
+##  [REVIEWER]
 
 **Scope:**  
 External security professionals or firms conducting formal reviews.

@@ -1,10 +1,10 @@
-# 📊 Indicator - FIDLEG Extension
+#  Indicator - FIDLEG Extension
 
-## 🌟 Purpose
+##  Purpose
 
 The FIDLEG Indicator extension provides Swiss regulatory compliance monitoring capabilities for DeFi protocols. It detects compliance-relevant events and triggers specific regulatory actions.
 
-## ⚙️ FIDLEG Indicator Archetypes
+##  FIDLEG Indicator Archetypes
 
 ### Trigger Events
 - **[CRITICAL_CLIENT_INFO_UPDATE_REQUIRED]** - Client information needs update
@@ -25,27 +25,27 @@ The FIDLEG Indicator extension provides Swiss regulatory compliance monitoring c
 - **`exit_scam`** - Exit scam patterns
 
 
-## 📋 Required Properties
+##  Required Properties
 
 - `fidlegTriggerEvent` - FIDLEG event type
 - `triggeredFidlegActions` - Compliance actions triggered
 - `fidlegMonitoringRationale` - Monitoring justification
 - `suspiciousPatternsFidlegImpacts` - Pattern-specific impacts
 
-## 🎯 Key FIDLEG Articles
+##  Key FIDLEG Articles
 
 - **Art. 72**: Protocol security requirements
 - **Art. 142**: Market abuse prevention
 - **Art. 8-10**: Client suitability and appropriateness
 - **GwG Art. 6**: Anti-money laundering measures
 
-## 📖 Implementation
+##  Implementation
 
 Refer to example risk implementations for practical guidance on indicator structure and monitoring workflows.
 
 <!-- HIDDEN -->
 
-## 🔗 Related Documentation
+##  Related Documentation
 
 - [Action Documentation](./action.fidleg.md)
 - [Assessment Documentation](./assessment.fidleg.md)
