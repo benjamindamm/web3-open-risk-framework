@@ -1,4 +1,4 @@
-#  Web3 Open Risk Framework
+#  🏔️ Web3 Open Risk Framework
 
 A comprehensive, open-source framework for Web3 risk assessment and management. 
 For risk teams, protocol researchers, and banks that need auditable, regulator‑compatible risk models for DeFi.
