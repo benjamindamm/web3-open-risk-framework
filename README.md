@@ -1,4 +1,6 @@
-#  🏔️ Web3 Open Risk Framework
+<img src="https://github.com/railpath/railpath/blob/main/railpath-logo.png" alt="Railpath" width="80" align="left">
+
+# Web3 Open Risk Framework
 
 A comprehensive, open-source framework for Web3 risk assessment and management. 
 For risk teams, protocol researchers, and banks that need auditable, regulator‑compatible risk models for DeFi.
