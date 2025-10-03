@@ -5,7 +5,7 @@
 A comprehensive, open-source framework for Web3 risk assessment and management. 
 For risk teams, protocol researchers, and banks that need auditable, regulator‑compatible risk models for DeFi.
 
-Part of the [Railpath](https://github.com/railpath/railpath) open source ecosystem – building financial infrastructure that belongs to everyone.
+Part of the [RailPath](https://github.com/railpath/railpath) open source ecosystem – building financial infrastructure that belongs to everyone.
 
 > **Work in Progress**: This framework is currently under active development. Our goal is to reach a stable version 1.0 release with comprehensive documentation, validated schemas, and production-ready regulatory extensions.
 
